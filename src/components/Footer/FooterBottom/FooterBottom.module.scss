@@ -1,0 +1,51 @@
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.inner {
+    padding: 16px 0;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    span {
+        color: var(--light-gray);
+        font-weight: 300;
+        font-size: 1.3rem;
+        margin-left: 24px;
+    }
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.socials {
+    margin-right: 60px;
+    .socialIcon {
+        font-size: 24px;
+    }
+}
+
+.settings {
+    .personIcon {
+        font-size: 24px;
+        border: 1.5px solid var(--gray);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        padding-left: 5px;
+        transition: all 0.3s;
+        &:hover {
+            border-color: var(--primary);
+        }
+    }
+}

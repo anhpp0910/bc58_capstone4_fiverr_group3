@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage/HomePage';
+import JobCategoryPage from './pages/JobCategoryPage/JobCategoryPage';
+import JobDetailPage from './pages/JobDetailPage/JobDetailPage';
+import UserDetailPage from './pages/UserDetailPage/UserDetailPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import AdminPage from './pages/AdminPage/AdminPage';
+import Layout from './layout/Layout';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/jobCategory" element={<JobCategoryPage />} />
+                    <Route path="/jobDetail" element={<JobDetailPage />} />
+                    <Route path="/userDetail" element={<UserDetailPage />} />
+                </Route>
+
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/admin" element={<AdminPage />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
