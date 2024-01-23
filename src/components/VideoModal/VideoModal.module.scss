@@ -1,0 +1,27 @@
+.inner {
+    width: 900px;
+    height: auto;
+}
+
+.wholeScreen {
+    width: 100%;
+}
+
+.videoBtn {
+    position: relative;
+}
+
+.videoBtn::after {
+    content: '';
+    position: absolute;
+    background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/desktop-play-button.c1196d6.png)
+        no-repeat;
+    background-size: 80px;
+    display: inline-block;
+    height: 80px;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    width: 80px;
+    z-index: 100;
+}

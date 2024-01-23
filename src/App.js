@@ -6,19 +6,16 @@ import UserDetailPage from './pages/UserDetailPage/UserDetailPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import AdminPage from './pages/AdminPage/AdminPage';
-import Layout from './layout/Layout';
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/jobCategory" element={<JobCategoryPage />} />
-                    <Route path="/jobDetail" element={<JobDetailPage />} />
-                    <Route path="/userDetail" element={<UserDetailPage />} />
-                </Route>
+                <Route path="/jobCategory" element={<JobCategoryPage />} />
+                <Route path="/jobDetail" element={<JobDetailPage />} />
+                <Route path="/userDetail" element={<UserDetailPage />} />
 
+                <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/admin" element={<AdminPage />} />

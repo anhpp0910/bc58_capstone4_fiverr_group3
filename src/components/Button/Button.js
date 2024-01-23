@@ -11,7 +11,6 @@ export default function Button({
     primary = false,
     outline = false,
     text = false,
-    round = false,
     disabled = false,
     children,
     className,
@@ -48,7 +47,6 @@ export default function Button({
         primary,
         outline,
         text,
-        round,
         disabled,
     });
 

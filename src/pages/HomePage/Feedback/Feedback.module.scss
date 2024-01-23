@@ -1,0 +1,48 @@
+.wrapper {
+    width: 90%;
+    margin: 100px auto;
+    padding: 0 35px;
+}
+
+.inner {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.right {
+    width: 60%;
+}
+
+.nameLogo {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.6rem;
+    .logo {
+        border-left: 1px solid var(--light-gray);
+        display: inline-block;
+        height: 36px;
+        margin-left: 16px;
+        img {
+            width: 50%;
+        }
+    }
+    h5 {
+        color: var(--gray);
+        font-weight: 400;
+        font-size: 2rem;
+    }
+}
+
+.quote {
+    color: #003912;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.modal-box {
+    width: 900px;
+
+    background-color: #fff;
+}

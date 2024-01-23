@@ -1,0 +1,75 @@
+.wrapper {
+    position: absolute;
+    max-width: 50%;
+    padding: 0 15px;
+    left: 60px;
+    top: 200px;
+    z-index: 100;
+}
+
+.title {
+    color: var(--white);
+    font-size: 4.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 2.4rem 0;
+}
+
+.search {
+    height: 48px;
+    margin-bottom: 24px;
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: var(--search-border-radius);
+    input {
+        width: 100%;
+        color: var(--black);
+        font-size: 1.6rem;
+        border-top-left-radius: var(--search-border-radius);
+        border-bottom-left-radius: var(--search-border-radius);
+        padding-left: 25px;
+    }
+    &:focus-within {
+        border-color: var(--primary);
+    }
+}
+
+.searchBtn {
+    padding: 12px 24px;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: 700;
+    transition: all 0.3s;
+    &:hover {
+        cursor: pointer;
+        background-color: var(--primary-hover);
+    }
+}
+
+.popularText {
+    margin-right: 12px;
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 27px;
+}
+
+.popular {
+    .popularBtn {
+        padding: 0 12px;
+        background-color: transparent;
+        border-color: var(--white);
+        border-radius: 40px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--white);
+        line-height: 27px;
+        transition: all 0.3s;
+        &:hover {
+            color: var(--black);
+            background-color: var(--white);
+        }
+    }
+}

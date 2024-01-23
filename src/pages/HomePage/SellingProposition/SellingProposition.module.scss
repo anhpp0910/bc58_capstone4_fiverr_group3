@@ -1,0 +1,50 @@
+.wrapper {
+    background-color: #f0fdf6;
+    padding-bottom: 70px;
+    padding-top: 50px;
+}
+
+.inner {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.left {
+    .checkIcon {
+        margin-right: 10px;
+        fill: var(--gray);
+        svg {
+            display: inline;
+        }
+    }
+    h2 {
+        font-weight: 700;
+    }
+    h5 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.9rem;
+    }
+    p {
+        margin-bottom: 1.4rem;
+        font-size: 1.4rem;
+    }
+}
+
+.videoBtn {
+    position: relative;
+}
+
+.videoBtn::after {
+    content: '';
+    position: absolute;
+    background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/desktop-play-button.c1196d6.png)
+        no-repeat;
+    background-size: 80px;
+    display: inline-block;
+    height: 80px;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    width: 80px;
+}

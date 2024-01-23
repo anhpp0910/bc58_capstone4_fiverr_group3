@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { https } from '../../../service/api';
 import classNames from 'classnames/bind';
 import styles from './HeaderBottom.module.scss';
@@ -17,6 +17,23 @@ export default function HeaderBottom() {
             .get('/api/cong-viec/lay-menu-loai-cong-viec')
             .then((res) => setMenuLoaiCV(res.data.content))
             .catch((err) => console.log(err));
+    }, []);
+
+    const [show, setShow] = useState(false);
+
+    const controlShow = () => {
+        if (window.scrollY > 50) {
+            setShow(true);
+        } else {
+            setShow(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', controlShow);
+        return () => {
+            window.removeEventListener('scroll', controlShow);
+        };
     }, []);
 
     const renderMenuLoaiCV = () => {
@@ -51,10 +68,14 @@ export default function HeaderBottom() {
     };
 
     return (
-        <header className={cx('wrapper')}>
-            <div className={cx('inner', 'grid grid-cols-6 gap-5')}>
-                {renderMenuLoaiCV()}
-            </div>
-        </header>
+        <>
+            {show && (
+                <header className={cx('wrapper')}>
+                    <div className={cx('inner', 'grid grid-cols-6 gap-5')}>
+                        {renderMenuLoaiCV()}
+                    </div>
+                </header>
+            )}
+        </>
     );
 }

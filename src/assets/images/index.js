@@ -1,5 +1,6 @@
 const images = {
-    logoHeader: require('./logoHeader.svg').default,
+    darkLogoHeader: require('./darkLogoHeader.svg').default,
+    lightLogoHeader: require('./lightLogoHeader.svg').default,
     logoFooter: require('./logoFooter.svg').default,
 };
 

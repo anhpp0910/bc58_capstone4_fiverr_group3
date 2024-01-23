@@ -10,6 +10,8 @@
     --light-gray: #b5b6ba;
     --text-color: #333;
     --border-color: rgb(0 0 0 / 12%);
+    --search-border-radius: 0.375rem;
+    --header-top-height: 90px;
 }
 
 * {
@@ -28,6 +30,7 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
+    user-select: none;
 }
 
 button,
@@ -44,5 +47,15 @@ a[href] {
 h2 {
     font-weight: 600;
     font-size: 3rem;
-    user-select: none;
+    margin-bottom: 1.6rem;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: var(--light-gray);
+    font-size: 30px;
+}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    z-index: 1000;
 }

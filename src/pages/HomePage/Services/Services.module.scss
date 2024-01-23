@@ -1,0 +1,24 @@
+.wrapper {
+    width: 90%;
+    margin: 100px auto;
+}
+
+.service {
+    padding: 0 10px;
+    position: relative;
+    .overlay {
+        position: absolute;
+        top: 14px;
+        left: 28px;
+        color: var(--white);
+        line-height: 2.4rem;
+        p {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        h5 {
+            font-size: 2.4rem;
+            font-weight: 700;
+        }
+    }
+}
