@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './HeaderTop.module.scss';
-import images from '../../../assets/images';
+import images from '../../../../assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../Button/Button';
+import Button from '../../../../components/Button/Button';
 import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
@@ -58,10 +58,10 @@ export default function HeaderTop() {
                             <Button text>US$ USD</Button>
                             <Button text>Become a Seller</Button>
                             <Button text>Explore</Button>
-                            <Button text to="/register">
+                            <Button text to="/signIn">
                                 Sign in
                             </Button>
-                            <Button outline to="/login">
+                            <Button outline to="/register">
                                 Join
                             </Button>
                         </div>

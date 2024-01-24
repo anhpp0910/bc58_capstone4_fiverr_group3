@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage/HomePage';
 import JobCategoryPage from './pages/JobCategoryPage/JobCategoryPage';
 import JobDetailPage from './pages/JobDetailPage/JobDetailPage';
 import UserDetailPage from './pages/UserDetailPage/UserDetailPage';
-import LoginPage from './pages/LoginPage/LoginPage';
+import SignInPage from './pages/SignInPage/SignInPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import AdminPage from './pages/AdminPage/AdminPage';
 
@@ -16,7 +16,7 @@ function App() {
                 <Route path="/userDetail" element={<UserDetailPage />} />
 
                 <Route path="/" element={<HomePage />} />
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signIn" element={<SignInPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/admin" element={<AdminPage />} />
             </Routes>

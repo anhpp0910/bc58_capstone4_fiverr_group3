@@ -30,6 +30,7 @@ export default function VideoModal({
             padding: 0,
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
+            borderRadius: '20px',
         },
     };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import classNames from 'classnames/bind';
-import styles from './RegisterPage.module.scss';
-import RegisterForm from './RegisterForm';
+import styles from './SignInPage.module.scss';
+import SignInForm from './SignInForm';
 
 const cx = classNames.bind(styles);
 
@@ -20,19 +20,19 @@ const customStyles = {
     },
 };
 
-export default function RegisterPage() {
+export default function SignInPage() {
     return (
         <div>
             <Modal isOpen={true} style={customStyles}>
                 <div className={cx('wrapper', 'grid grid-cols-2')}>
                     <div className={cx('left')}>
-                        <RegisterForm />
-                    </div>
-                    <div className={cx('right')}>
                         <img
-                            src="https://demo5.cybersoft.edu.vn/static/media/signup.bd994738c4eb8deb2801.jpg"
+                            src="https://demo5.cybersoft.edu.vn/static/media/signin.6f1c72291c1ec0817ded.jpg"
                             alt="Sign In Image"
                         />
+                    </div>
+                    <div className={cx('right')}>
+                        <SignInForm />
                     </div>
                 </div>
             </Modal>

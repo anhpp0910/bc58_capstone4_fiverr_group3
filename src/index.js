@@ -4,13 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import userSlice from './redux/userSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+export let store = configureStore({
+    reducer: {
+        userSlice,
+    },
+});
+
 root.render(
     <React.StrictMode>
-        <GlobalStyles>
-            <App />
-        </GlobalStyles>
+        <Provider store={store}>
+            <GlobalStyles>
+                <App />
+            </GlobalStyles>
+        </Provider>
     </React.StrictMode>,
 );
 

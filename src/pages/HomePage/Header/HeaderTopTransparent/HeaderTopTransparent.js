@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './HeaderTopTransparent.module.scss';
-import images from '../../../assets/images';
-import Button from '../../Button/Button';
+import images from '../../../../assets/images';
+import Button from '../../../../components/Button/Button';
 import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
@@ -34,14 +34,10 @@ export default function HeaderTopActive() {
                             <img src={images.lightLogoHeader} alt="fiverr" />
                         </NavLink>
                         <div className={cx('actions')}>
-                            <Button
-                                text
-                                to="/register"
-                                className={cx('signIn')}
-                            >
+                            <Button text to="/signIn" className={cx('signIn')}>
                                 Sign in
                             </Button>
-                            <Button outline to="/login">
+                            <Button outline to="/register">
                                 Join
                             </Button>
                         </div>

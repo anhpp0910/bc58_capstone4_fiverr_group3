@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { https } from '../../../service/api';
+import { https } from '../../../../service/api';
 import classNames from 'classnames/bind';
 import styles from './HeaderBottom.module.scss';
 import Tippy from '@tippyjs/react/headless';
 import { NavLink } from 'react-router-dom';
-import { PopperWrapper } from '../../Popper/Popper';
+import { PopperWrapper } from '../../../../components/Popper/Popper';
 import JobItem from './JobItem/JobItem';
 
 const cx = classNames.bind(styles);

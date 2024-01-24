@@ -20,13 +20,13 @@
     margin-bottom: 24px;
     display: flex;
     border: 1px solid var(--border-color);
-    border-radius: var(--search-border-radius);
+    border-radius: var(--input-border-radius);
     input {
         width: 100%;
         color: var(--black);
         font-size: 1.6rem;
-        border-top-left-radius: var(--search-border-radius);
-        border-bottom-left-radius: var(--search-border-radius);
+        border-top-left-radius: var(--input-border-radius);
+        border-bottom-left-radius: var(--input-border-radius);
         padding-left: 25px;
     }
     &:focus-within {
@@ -36,8 +36,8 @@
 
 .searchBtn {
     padding: 12px 24px;
-    border-top-right-radius: var(--search-border-radius);
-    border-bottom-right-radius: var(--search-border-radius);
+    border-top-right-radius: var(--input-border-radius);
+    border-bottom-right-radius: var(--input-border-radius);
     background-color: var(--primary);
     color: var(--white);
     font-weight: 700;
