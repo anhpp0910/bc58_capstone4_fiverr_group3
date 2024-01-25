@@ -53,3 +53,45 @@
         padding-right: 5px;
     }
 }
+
+.gender {
+    display: flex;
+    align-items: center;
+    .radioLabel {
+        font-size: 1.8rem;
+        margin-right: 50px;
+    }
+    .labelIcon {
+        font-size: 2.4rem;
+    }
+    .genderRadio {
+        flex: 1;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.gender .genderRadio input[type='radio'] {
+    opacity: 0;
+    position: absolute;
+}
+
+.gender .genderRadio input[type='radio'] + .radioLabel:before {
+    position: relative;
+    content: '';
+    cursor: pointer;
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 100%;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    top: 3.5px;
+    transition: all 0.3s ease;
+}
+
+.gender .genderRadio input[type='radio']:checked + .radioLabel:before {
+    background-color: var(--primary);
+    box-shadow: inset 0 0 0 4px var(--white);
+}

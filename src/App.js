@@ -6,6 +6,7 @@ import UserDetailPage from './pages/UserDetailPage/UserDetailPage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import AdminPage from './pages/AdminPage/AdminPage';
+import FormTest from './pages/FormTest/FormTest';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/signIn" element={<SignInPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/admin" element={<AdminPage />} />
+                <Route path="/formTest" element={<FormTest />} />
             </Routes>
         </BrowserRouter>
     );
