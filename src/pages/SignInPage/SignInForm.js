@@ -24,7 +24,35 @@ export default function SignInForm() {
         email: '',
         password: '',
     });
+
+    // Handle validation for input field
+    let formIsValid = true;
     const [errors, setErrors] = useState({});
+    const formValues = { ...values };
+    const formErrors = {};
+
+    const handleValidationEmail = () => {
+        if (!formValues['email']) {
+            formIsValid = false;
+            formErrors['email'] = 'Please fill out this field!';
+        } else formErrors['email'] = '';
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidationPassword = () => {
+        if (!formValues['password']) {
+            formIsValid = false;
+            formErrors['password'] = 'Please fill out this field!';
+        } else formErrors['password'] = '';
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidation = () => {
+        handleValidationEmail();
+        handleValidationPassword();
+        return formIsValid;
+    };
+    // End validation
 
     const inputs = [
         {
@@ -34,7 +62,10 @@ export default function SignInForm() {
             labelIcon: faEnvelope,
             placeholder: 'Your Email',
             errorMessage: errors['email'],
-            spellcheck: 'false',
+            spellCheck: 'false',
+            handleValidation: () => {
+                handleValidationEmail();
+            },
         },
         {
             id: 2,
@@ -44,29 +75,11 @@ export default function SignInForm() {
             placeholder: 'Your Password',
             errorMessage: errors['password'],
             setEyeIcon: true,
+            handleValidation: () => {
+                handleValidationPassword();
+            },
         },
     ];
-
-    const handleValidation = () => {
-        const formValues = { ...values };
-        const formErrors = {};
-        let formIsValid = true;
-
-        // Email
-        if (!formValues['email']) {
-            formIsValid = false;
-            formErrors['email'] = 'Please fill out this field!';
-        }
-
-        // Password
-        if (!formValues['password']) {
-            formIsValid = false;
-            formErrors['password'] = 'Please fill out this field!';
-        }
-
-        setErrors(formErrors);
-        return formIsValid;
-    };
 
     const onChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
@@ -106,6 +119,7 @@ export default function SignInForm() {
                         value={values[input.name]}
                         onChange={onChange}
                         errorMessage={input.errorMessage}
+                        handleValidation={input.handleValidation}
                     />
                 ))}
 

@@ -54,6 +54,15 @@
     }
 }
 
+.formInputGender {
+    .errorMessage {
+        margin-top: 5px;
+        margin-left: 45px;
+        color: red;
+        font-size: 1.2rem;
+    }
+}
+
 .gender {
     display: flex;
     align-items: center;

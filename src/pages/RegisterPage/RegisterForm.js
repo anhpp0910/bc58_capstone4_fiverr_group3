@@ -4,8 +4,6 @@ import styles from './RegisterPage.module.scss';
 import { message } from 'antd';
 import { https } from '../../service/api';
 import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../../redux/userSlice';
 import Button from '../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -23,7 +21,6 @@ const cx = classNames.bind(styles);
 
 export default function SignInForm() {
     let navigate = useNavigate();
-    let dispatch = useDispatch();
 
     const handleToSignInPage = () => {
         navigate('/signIn');
@@ -35,12 +32,125 @@ export default function SignInForm() {
         password: '',
         phone: '',
         birthday: '',
-        gender: true,
-        role: 'string',
-        skill: ['string'],
-        certification: ['string'],
+        gender: '',
     });
+
+    // Handle validation for input field
+    let formIsValid = true;
     const [errors, setErrors] = useState({});
+    const formValues = { ...values };
+    const formErrors = {};
+
+    const handleValidationName = () => {
+        if (!formValues['name']) {
+            formIsValid = false;
+            formErrors['name'] = 'Please fill out this field!';
+        } else if (typeof formValues['name'] !== 'undefined') {
+            if (
+                !formValues['name'].match(
+                    /^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêếìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\ ]+$/,
+                )
+            ) {
+                formIsValid = false;
+                formErrors['name'] = 'Please enter a valid name!';
+            } else formErrors['name'] = '';
+        }
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidationEmail = () => {
+        if (!formValues['email']) {
+            formIsValid = false;
+            formErrors['email'] = 'Please fill out this field!';
+        } else if (typeof formValues['email'] !== 'undefined') {
+            if (
+                !formValues['email'].match(
+                    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+                )
+            ) {
+                formIsValid = false;
+                formErrors['email'] = 'Please enter a valid email address!';
+            } else formErrors['email'] = '';
+        }
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidationPassword = () => {
+        if (!formValues['password']) {
+            formIsValid = false;
+            formErrors['password'] = 'Please fill out this field!';
+        } else if (typeof formValues['password'] !== 'undefined') {
+            if (
+                !formValues['password'].match(
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                )
+            ) {
+                formIsValid = false;
+                formErrors['password'] =
+                    'Password must be minimum of 6 characters with at least one uppercase letter, one lowercase letter, one number and one special character!';
+            } else formErrors['password'] = '';
+        }
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidationPasswordConfirm = () => {
+        if (!formValues['passwordConfirm']) {
+            formIsValid = false;
+            formErrors['passwordConfirm'] = 'Please fill out this field!';
+        } else if (typeof formValues['passwordConfirm'] !== 'undefined') {
+            if (!(formValues['passwordConfirm'] === formValues['password'])) {
+                formIsValid = false;
+                formErrors['passwordConfirm'] =
+                    'Password confirm does not match!';
+            } else formErrors['passwordConfirm'] = '';
+        }
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidationPhone = () => {
+        if (!formValues['phone']) {
+            formIsValid = false;
+            formErrors['phone'] = 'Please fill out this field!';
+        } else if (typeof formValues['phone'] !== 'undefined') {
+            if (
+                !formValues['phone'].match(
+                    /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+                )
+            ) {
+                formIsValid = false;
+                formErrors['phone'] = 'Please enter a valid phone number!';
+            } else formErrors.phone = '';
+        }
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidationBirthday = () => {
+        if (!formValues['birthday']) {
+            formIsValid = false;
+            formErrors['birthday'] = 'Please fill out this field!';
+        } else formErrors['birthday'] = '';
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidationGender = () => {
+        if (!formValues['gender']) {
+            formIsValid = false;
+            formErrors['gender'] = 'Please fill out this field!';
+        } else formErrors['gender'] = '';
+        setErrors({ ...errors, ...formErrors });
+    };
+
+    const handleValidation = () => {
+        handleValidationName();
+        handleValidationEmail();
+        handleValidationPassword();
+        handleValidationPasswordConfirm();
+        handleValidationPhone();
+        handleValidationBirthday();
+        handleValidationGender();
+        return formIsValid;
+    };
+    // End validation
 
     const inputs = [
         {
@@ -50,7 +160,10 @@ export default function SignInForm() {
             labelIcon: faUser,
             placeholder: 'Your Name',
             errorMessage: errors['name'],
-            spellcheck: 'false',
+            spellCheck: 'false',
+            handleValidation: () => {
+                handleValidationName();
+            },
         },
         {
             id: 2,
@@ -59,7 +172,10 @@ export default function SignInForm() {
             labelIcon: faEnvelope,
             placeholder: 'Your Email',
             errorMessage: errors['email'],
-            spellcheck: 'false',
+            spellCheck: 'false',
+            handleValidation: () => {
+                handleValidationEmail();
+            },
         },
         {
             id: 3,
@@ -69,6 +185,9 @@ export default function SignInForm() {
             placeholder: 'Your Password',
             errorMessage: errors['password'],
             setEyeIcon: true,
+            handleValidation: () => {
+                handleValidationPassword();
+            },
         },
         {
             id: 4,
@@ -78,6 +197,9 @@ export default function SignInForm() {
             placeholder: 'Repeat your password',
             errorMessage: errors['passwordConfirm'],
             setEyeIcon: true,
+            handleValidation: () => {
+                handleValidationPasswordConfirm();
+            },
         },
         {
             id: 5,
@@ -86,6 +208,9 @@ export default function SignInForm() {
             labelIcon: faPhone,
             placeholder: 'Your Phone',
             errorMessage: errors['phone'],
+            handleValidation: () => {
+                handleValidationPhone();
+            },
         },
         {
             id: 6,
@@ -94,69 +219,25 @@ export default function SignInForm() {
             labelIcon: faCake,
             placeholder: 'Your Birthday',
             errorMessage: errors['birthday'],
+            handleValidation: () => {
+                handleValidationBirthday();
+            },
         },
     ];
-
-    const handleValidation = () => {
-        const formValues = { ...values };
-        const formErrors = {};
-        let formIsValid = true;
-
-        // Name
-        if (!formValues['name']) {
-            formIsValid = false;
-            formErrors['name'] = 'Please fill out this field!';
-        }
-
-        // Email
-        if (!formValues['email']) {
-            formIsValid = false;
-            formErrors['email'] = 'Please fill out this field!';
-        }
-
-        // Password
-        if (!formValues['password']) {
-            formIsValid = false;
-            formErrors['password'] = 'Please fill out this field!';
-        }
-
-        // PasswordConfirm
-        if (!formValues['passwordConfirm']) {
-            formIsValid = false;
-            formErrors['passwordConfirm'] = 'Please fill out this field!';
-        }
-
-        // Phone
-        if (!formValues['phone']) {
-            formIsValid = false;
-            formErrors['phone'] = 'Please fill out this field!';
-        }
-
-        // Birthday
-        if (!formValues['birthday']) {
-            formIsValid = false;
-            formErrors['birthday'] = 'Please fill out this field!';
-        }
-
-        setErrors(formErrors);
-        return formIsValid;
-    };
 
     const onChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
-    console.log(values);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (handleValidation()) {
             https
-                .post('/api/QuanLyNguoiDung/DangKy', values)
+                .post('/api/auth/signup', values)
                 .then((res) => {
                     // Chuyển hướng user về signIn sau khi đăng ký thành công
                     navigate('/signIn');
-                    message.success('Đăng ký thành công! Vui lòng đăng nhập!');
+                    message.success('Register sucessfully! Please sign in!');
                 })
                 .catch((err) => {
                     console.log(err);
@@ -177,41 +258,51 @@ export default function SignInForm() {
                         value={values[input.name]}
                         onChange={onChange}
                         errorMessage={input.errorMessage}
+                        handleValidation={input.handleValidation}
                     />
                 ))}
-                <div className={cx('gender')}>
-                    <label className={cx('labelIcon')}>
-                        <FontAwesomeIcon icon={faVenusMars} />
-                    </label>
-                    <div className={cx('genderRadio')}>
-                        <div>
-                            <input
-                                id="male"
-                                type="radio"
-                                name="gender"
-                                value="true"
-                                checked
-                                onChange={console.log(123)}
-                            />
-                            <label className={cx('radioLabel')} htmlFor="male">
-                                Male
-                            </label>
+                <div className={cx('formInputGender')}>
+                    <div className={cx('gender')}>
+                        <label className={cx('labelIcon')}>
+                            <FontAwesomeIcon icon={faVenusMars} />
+                        </label>
+                        <div className={cx('genderRadio')}>
+                            <div>
+                                <input
+                                    id="male"
+                                    type="radio"
+                                    name="gender"
+                                    value={true}
+                                    onChange={onChange}
+                                    onBlur={handleValidationGender}
+                                />
+                                <label
+                                    className={cx('radioLabel')}
+                                    htmlFor="male"
+                                >
+                                    Male
+                                </label>
+                            </div>
+                            <div>
+                                <input
+                                    id="female"
+                                    type="radio"
+                                    name="gender"
+                                    value={false}
+                                    onChange={onChange}
+                                    onBlur={handleValidationGender}
+                                />
+                                <label
+                                    className={cx('radioLabel')}
+                                    htmlFor="female"
+                                >
+                                    Female
+                                </label>
+                            </div>
                         </div>
-                        <div>
-                            <input
-                                id="female"
-                                type="radio"
-                                name="gender"
-                                value="false"
-                                onChange={console.log(123)}
-                            />
-                            <label
-                                className={cx('radioLabel')}
-                                htmlFor="female"
-                            >
-                                Female
-                            </label>
-                        </div>
+                    </div>
+                    <div className={cx('errorMessage')}>
+                        <span>{errors['gender']}</span>
                     </div>
                 </div>
                 <div className={cx('btn')}>

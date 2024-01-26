@@ -14,6 +14,7 @@ export default function FormInput(props) {
         errorMessage,
         setEyeIcon,
         type,
+        handleValidation,
         ...inputProps
     } = props;
 
@@ -35,6 +36,7 @@ export default function FormInput(props) {
                     {...inputProps}
                     type={setEyeIcon ? typeForPW : type}
                     onChange={onChange}
+                    onBlur={handleValidation}
                 />
                 {setEyeIcon ? (
                     <div className={cx('eyeIcon')}>
