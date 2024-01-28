@@ -10,6 +10,7 @@ export default function Button({
     href,
     primary = false,
     outline = false,
+    round = false,
     text = false,
     disabled = false,
     children,
@@ -46,6 +47,7 @@ export default function Button({
         [className]: className,
         primary,
         outline,
+        round,
         text,
         disabled,
     });

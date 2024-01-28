@@ -13,9 +13,15 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/jobCategory" element={<JobCategoryPage />} />
+                <Route
+                    path="/jobCategory/:jobCategoryId"
+                    element={<JobCategoryPage />}
+                />
                 <Route path="/jobDetail" element={<JobDetailPage />} />
-                <Route path="/userProfile/:id" element={<UserProfilePage />} />
+                <Route
+                    path="/userProfile/:userId"
+                    element={<UserProfilePage />}
+                />
                 <Route path="/signIn" element={<SignInPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/admin" element={<AdminPage />} />

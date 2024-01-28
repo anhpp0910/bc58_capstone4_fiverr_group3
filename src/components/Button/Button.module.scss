@@ -50,3 +50,18 @@
         color: var(--primary);
     }
 }
+
+.round {
+    background-color: var(--background-gray);
+    border-radius: 32px;
+    color: var(--gray);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    padding: 8px 10px;
+    transition: all 0.3s;
+    &:hover {
+        color: var(--primary);
+    }
+}
