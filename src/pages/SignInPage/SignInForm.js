@@ -98,11 +98,25 @@ export default function SignInForm() {
                     // Lưu data xuống localStorage để user load trang sẽ không mất data
                     let dataJson = JSON.stringify(res.data.content);
                     localStorage.setItem('USER_INFO', dataJson);
-                    message.success('Sign in sucessfully!');
+                    message.success({
+                        content: 'Sign in sucessfully!',
+                        style: {
+                            fontSize: '1.6rem',
+                            color: 'var(--text-color)',
+                            fontFamily: '"Montserrat", sans-serif',
+                        },
+                    });
                 })
                 .catch((err) => {
                     console.log(err);
-                    message.error('Your email or password is incorrect!');
+                    message.error({
+                        content: 'Your email or password is incorrect!',
+                        style: {
+                            fontSize: '1.6rem',
+                            color: 'var(--text-color)',
+                            fontFamily: '"Montserrat", sans-serif',
+                        },
+                    });
                 });
         }
     };

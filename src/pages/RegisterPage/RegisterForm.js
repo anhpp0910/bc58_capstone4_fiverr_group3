@@ -237,11 +237,26 @@ export default function SignInForm() {
                 .then((res) => {
                     // Chuyển hướng user về signIn sau khi đăng ký thành công
                     navigate('/signIn');
-                    message.success('Register sucessfully! Please sign in!');
+                    message.success({
+                        content: 'Register sucessfully! Please sign in!',
+                        style: {
+                            fontSize: '1.6rem',
+                            color: 'var(--text-color)',
+                            fontFamily: '"Montserrat", sans-serif',
+                        },
+                    });
                 })
                 .catch((err) => {
                     console.log(err);
-                    message.error(err.response.data.content);
+                    message.error({
+                        content:
+                            'Email address already in use! Please sign in instead!',
+                        style: {
+                            fontSize: '1.6rem',
+                            color: 'var(--text-color)',
+                            fontFamily: '"Montserrat", sans-serif',
+                        },
+                    });
                 });
         }
     };
