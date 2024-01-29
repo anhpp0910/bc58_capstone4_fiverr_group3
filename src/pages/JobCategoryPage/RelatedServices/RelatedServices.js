@@ -31,13 +31,17 @@ export default function RelatedServices({ tenLoaiCV }) {
 
     const renderRelatedServices = () => {
         return relatedServices.map((service) => {
-            return <Button round>{service}</Button>;
+            return (
+                <Button key={service} round>
+                    {service}
+                </Button>
+            );
         });
     };
 
     return (
         <div className={cx('wrapper')}>
-            <h2>Services Related To {tenLoaiCV}</h2>
+            <h3>Services Related To {tenLoaiCV}</h3>
             <div>{renderRelatedServices()}</div>
         </div>
     );

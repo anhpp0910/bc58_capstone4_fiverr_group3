@@ -239,6 +239,7 @@ export default function SignInForm() {
                     navigate('/signIn');
                     message.success({
                         content: 'Register sucessfully! Please sign in!',
+                        duration: 5,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -251,6 +252,7 @@ export default function SignInForm() {
                     message.error({
                         content:
                             'Email address already in use! Please sign in instead!',
+                        duration: 5,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',

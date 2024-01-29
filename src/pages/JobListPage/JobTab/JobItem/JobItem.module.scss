@@ -1,0 +1,76 @@
+.wrapper {
+    width: 300px;
+    border: 1.5px solid var(--border-color);
+}
+
+.cardBody {
+    padding: 15px;
+}
+
+.sellerInfo {
+    display: flex;
+}
+
+.sellerAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.sellerName {
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: capitalize;
+    &::after {
+        content: '';
+        position: absolute;
+        background: var(--text-color);
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+    }
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+.sellerLevel {
+    color: var(--light-gray);
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+.jobInfo {
+    padding-top: 20px;
+    height: 120px;
+    font-weight: 500;
+    transition: all 0.3s;
+    &:hover {
+        color: var(--primary);
+    }
+}
+
+.rating {
+    padding-top: 5px;
+    .iconStar,
+    .soSao {
+        color: #ffbe5b;
+    }
+    .soSao {
+        padding-left: 5px;
+    }
+    .danhGia {
+        color: var(--light-gray);
+        padding-left: 5px;
+    }
+}
+
+.cardBottom {
+    border-top: 1.5px solid var(--border-color);
+}

@@ -1,0 +1,45 @@
+.wrapper {
+    height: 240px;
+    position: relative;
+}
+
+.inner {
+    background-color: #0c3b24;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        color: var(--white);
+        font-size: 3.3rem;
+        font-weight: 600;
+        margin: 0;
+    }
+    p {
+        color: var(--white);
+        font-size: 2rem;
+        font-weight: 500;
+        margin-top: 8px;
+    }
+    .howFiverrWorksBtn {
+        margin-top: 24px;
+        padding: 14px 20px;
+        background-color: transparent;
+        color: var(--white);
+        border-color: var(--white);
+        transition: all 0.3s;
+        &:hover {
+            background-color: var(--white);
+            color: var(--text-color);
+        }
+        span {
+            font-weight: 400;
+        }
+    }
+}

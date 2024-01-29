@@ -1,0 +1,35 @@
+.wrapper {
+    width: 95%;
+    margin: 50px auto;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 94px;
+    padding: 15px;
+}
+
+.item {
+    height: 100%;
+    margin-right: 15px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0.14px 2.29266px rgba(0, 0, 0, 0.032),
+        0 0.37px 4.42626px rgba(0, 0, 0, 0.048), 0 3px 7px rgba(0, 0, 0, 0.09);
+    cursor: pointer;
+    img {
+        height: 100%;
+        margin-right: 9px;
+    }
+    span {
+        color: var(--text-color);
+        font-weight: 600;
+        margin-right: 9px;
+        white-space: nowrap;
+    }
+}

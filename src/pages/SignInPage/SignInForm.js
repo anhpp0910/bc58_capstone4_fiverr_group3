@@ -100,6 +100,7 @@ export default function SignInForm() {
                     localStorage.setItem('USER_INFO', dataJson);
                     message.success({
                         content: 'Sign in sucessfully!',
+                        duration: 5,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -111,6 +112,7 @@ export default function SignInForm() {
                     console.log(err);
                     message.error({
                         content: 'Your email or password is incorrect!',
+                        duration: 5,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
