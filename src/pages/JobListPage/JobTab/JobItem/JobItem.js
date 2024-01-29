@@ -4,7 +4,8 @@ import styles from './JobItem.module.scss';
 import Avatar from '../../../../components/Avatar/Avatar';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
+import Button from '../../../../components/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -40,7 +41,7 @@ const JobItem = ({ infoCV }) => {
                     <p className={cx('rating')}>
                         <FontAwesomeIcon
                             icon={faStar}
-                            className={cx('iconStar')}
+                            className={cx('starIcon')}
                         />
                         <span className={cx('soSao')}>
                             {infoCV.congViec.saoCongViec}
@@ -51,7 +52,16 @@ const JobItem = ({ infoCV }) => {
                     </p>
                 </div>
             </div>
-            <div className={cx('cardBottom')}>sfdhgf</div>
+            <div className={cx('cardBottom')}>
+                <Button
+                    className={cx('heartIcon')}
+                    text
+                    leftIcon={<FontAwesomeIcon icon={faHeart} />}
+                ></Button>
+                <p className={cx('price')}>
+                    STARTING AT <span>${infoCV.congViec.giaTien}</span>
+                </p>
+            </div>
         </div>
     );
 };
