@@ -54,7 +54,7 @@ export default function HeaderTop() {
                     )}
                 >
                     <Avatar
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlmDNpxHtYYbGJmNIyUVxlfNRZmvQiHMYY6g&usqp=CAU"
+                        src={userAvatar}
                         alt={userName}
                         className={cx('userAvatar')}
                     />

@@ -1,4 +1,23 @@
 .wrapper {
     width: 90%;
-    margin: 50px auto;
+    margin: 20px auto 50px;
+}
+
+.sortByBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    .title {
+        color: var(--gray);
+        font-weight: 600;
+        padding: 0 5px 0 10px;
+    }
+    select {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-weight: 700;
+        padding-right: 5px;
+    }
 }

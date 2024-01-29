@@ -15,35 +15,35 @@ import FormTest from './pages/FormTest/FormTest';
 function App() {
     return (
         <>
-            <Spinner />
+            {/* <Spinner /> */}
             <BrowserRouter>
-                <ScrollToTop>
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/signIn" element={<SignInPage />} />
-                        <Route path="/register" element={<RegisterPage />} />
-                        <Route path="/admin" element={<AdminPage />} />
-                        <Route
-                            path="/jobCategory/:jobCategoryId"
-                            element={<JobCategoryPage />}
-                        />
-                        <Route
-                            path="/jobList/:chiTietLoaiId"
-                            element={<JobListPage />}
-                        />
+                {/* <ScrollToTop> */}
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/signIn" element={<SignInPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route
+                        path="/jobCategory/:jobCategoryId"
+                        element={<JobCategoryPage />}
+                    />
+                    <Route
+                        path="/jobList/:chiTietLoaiId"
+                        element={<JobListPage />}
+                    />
 
-                        <Route
-                            path="/jobDetail/:jobId"
-                            element={<JobDetailPage />}
-                        />
-                        <Route
-                            path="/userProfile/:userId"
-                            element={<UserProfilePage />}
-                        />
+                    <Route
+                        path="/jobDetail/:jobId"
+                        element={<JobDetailPage />}
+                    />
+                    <Route
+                        path="/userProfile/:userId"
+                        element={<UserProfilePage />}
+                    />
 
-                        <Route path="/formTest" element={<FormTest />} />
-                    </Routes>
-                </ScrollToTop>
+                    <Route path="/formTest" element={<FormTest />} />
+                </Routes>
+                {/* </ScrollToTop> */}
             </BrowserRouter>
         </>
     );

@@ -10,8 +10,6 @@ import Button from '../../../../components/Button/Button';
 const cx = classNames.bind(styles);
 
 const JobItem = ({ infoCV }) => {
-    console.log('info', infoCV);
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('cardTop')}>
@@ -59,7 +57,7 @@ const JobItem = ({ infoCV }) => {
                     leftIcon={<FontAwesomeIcon icon={faHeart} />}
                 ></Button>
                 <p className={cx('price')}>
-                    STARTING AT <span>${infoCV.congViec.giaTien}</span>
+                    STARTING AT &nbsp; <span>${infoCV.congViec.giaTien}</span>
                 </p>
             </div>
         </div>
