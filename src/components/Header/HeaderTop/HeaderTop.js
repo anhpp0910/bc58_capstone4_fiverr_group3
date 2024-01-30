@@ -32,34 +32,38 @@ export default function HeaderTop() {
                 avatar: userAvatar,
             } = user.user;
             return (
-                <Tippy
-                    interactive="true"
-                    placement="bottom"
-                    render={(attrs) => (
-                        <PopperWrapper>
-                            <div tabIndex="-1" {...attrs}>
-                                <NavLink
-                                    to={`/userProfile/${userId}`}
-                                    className={cx('userAction')}
-                                >
-                                    View profile
-                                </NavLink>
-                                <NavLink
-                                    className={cx('userAction')}
-                                    onClick={handleSignOut}
-                                >
-                                    Sign out
-                                </NavLink>
-                            </div>
-                        </PopperWrapper>
-                    )}
-                >
-                    <Avatar
-                        src={userAvatar}
-                        alt={userName}
-                        className={cx('userAvatar')}
-                    />
-                </Tippy>
+                // Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
+                <div>
+                    <Tippy
+                        hideOnClick="false"
+                        interactive="true"
+                        placement="bottom"
+                        render={(attrs) => (
+                            <PopperWrapper>
+                                <div tabIndex="-1" {...attrs}>
+                                    <NavLink
+                                        to={`/userProfile/${userId}`}
+                                        className={cx('userAction')}
+                                    >
+                                        View profile
+                                    </NavLink>
+                                    <NavLink
+                                        className={cx('userAction')}
+                                        onClick={handleSignOut}
+                                    >
+                                        Sign out
+                                    </NavLink>
+                                </div>
+                            </PopperWrapper>
+                        )}
+                    >
+                        <Avatar
+                            src={userAvatar}
+                            alt={userName}
+                            className={cx('userAvatar')}
+                        />
+                    </Tippy>
+                </div>
             );
         } else {
             return (

@@ -3,9 +3,9 @@ import classNames from 'classnames/bind';
 import styles from './JobTab.module.scss';
 import { useParams } from 'react-router';
 
-import { https } from '../../../service/api';
+import { https } from '../../../services/api';
 import JobItem from './JobItem/JobItem';
-import FilterBar from '../FilterBar/FilterBar';
+import FilterBar from './FilterBar/FilterBar';
 
 const cx = classNames.bind(styles);
 

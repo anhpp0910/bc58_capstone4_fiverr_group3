@@ -14,7 +14,7 @@ import {
     faVenusMars,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { https } from '../../service/api';
+import { https } from '../../services/api';
 import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 

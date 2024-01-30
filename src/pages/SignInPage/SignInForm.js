@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 import { setUser } from '../../redux/userSlice';
-import { https } from '../../service/api';
+import { https } from '../../services/api';
 import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 

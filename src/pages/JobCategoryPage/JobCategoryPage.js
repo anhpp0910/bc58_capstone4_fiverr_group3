@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
-import { https } from '../../service/api';
+import { https } from '../../services/api';
 import Header from '../../components/Header/Header';
 import Banner from './Banner/Banner';
 import MostPopular from './MostPopular/MostPopular';
