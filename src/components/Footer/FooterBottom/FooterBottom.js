@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './FooterBottom.module.scss';
-import images from '../../../assets/images';
-import Button from '../../Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faFacebook,
@@ -12,7 +10,9 @@ import {
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faPerson } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+
+import images from '../../../assets/images';
+import Button from '../../Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -21,9 +21,7 @@ export default function FooterBottom() {
         <footer className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('left')}>
-                    <NavLink className={cx('logo')} to="/">
-                        <img src={images.logoFooter} alt="fiverr" />
-                    </NavLink>
+                    <img src={images.logoFooter} alt="fiverr" />
                     <span>© Fiverr International Ltd. 2024</span>
                 </div>
                 <div className={cx('right')}>

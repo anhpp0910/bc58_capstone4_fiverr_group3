@@ -1,7 +1,8 @@
 import React from 'react';
-import Modal from 'react-modal';
 import classNames from 'classnames/bind';
 import styles from './RegisterPage.module.scss';
+import Modal from 'react-modal';
+
 import RegisterForm from './RegisterForm';
 
 const cx = classNames.bind(styles);

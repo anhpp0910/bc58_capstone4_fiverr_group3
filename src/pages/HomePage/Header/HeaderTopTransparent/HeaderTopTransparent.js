@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './HeaderTopTransparent.module.scss';
-import images from '../../../../assets/images';
-import Button from '../../../../components/Button/Button';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
+
 import { PopperWrapper } from '../../../../components/Popper/Popper';
+import Button from '../../../../components/Button/Button';
 import Avatar from '../../../../components/Avatar/Avatar';
+import images from '../../../../assets/images';
 
 const cx = classNames.bind(styles);
 

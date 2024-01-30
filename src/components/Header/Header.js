@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
+
 import HeaderTop from './HeaderTop/HeaderTop';
 import HeaderBottom from './HeaderBottom/HeaderBottom';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './JobTab.module.scss';
+
 import JobItem from './JobItem';
 
 const cx = classNames.bind(styles);

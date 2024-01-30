@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './SellingProposition.module.scss';
+
 import VideoModal from '../../../components/VideoModal/VideoModal';
 
 const cx = classNames.bind(styles);

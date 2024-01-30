@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-import { https } from '../../../service/api';
 import classNames from 'classnames/bind';
 import styles from './JobTab.module.scss';
+import { useParams } from 'react-router';
+
+import { https } from '../../../service/api';
 import JobItem from './JobItem/JobItem';
 import FilterBar from '../FilterBar/FilterBar';
 

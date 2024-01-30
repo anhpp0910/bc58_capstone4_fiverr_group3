@@ -4,6 +4,7 @@ import styles from './Feedback.module.scss';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 import VideoModal from '../../../components/VideoModal/VideoModal';
 
 const cx = classNames.bind(styles);

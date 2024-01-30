@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './SignInPage.module.scss';
 import { message } from 'antd';
-import { https } from '../../service/api';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../redux/userSlice';
-import Button from '../../components/Button/Button';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+
+import { setUser } from '../../redux/userSlice';
+import { https } from '../../service/api';
+import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 
 const cx = classNames.bind(styles);

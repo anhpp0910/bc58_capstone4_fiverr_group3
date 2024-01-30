@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from 'react-router';
 import classNames from 'classnames/bind';
 import styles from './FilterBar.module.scss';
 

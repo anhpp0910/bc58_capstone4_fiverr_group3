@@ -1,7 +1,8 @@
 import React from 'react';
-import Modal from 'react-modal';
 import classNames from 'classnames/bind';
 import styles from './SignInPage.module.scss';
+import Modal from 'react-modal';
+
 import SignInForm from './SignInForm';
 
 const cx = classNames.bind(styles);

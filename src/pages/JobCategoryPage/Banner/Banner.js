@@ -1,9 +1,10 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Banner.module.scss';
-import Button from '../../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
+
+import Button from '../../../components/Button/Button';
 
 const cx = classNames.bind(styles);
 

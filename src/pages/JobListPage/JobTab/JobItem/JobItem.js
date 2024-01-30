@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './JobItem.module.scss';
-import Avatar from '../../../../components/Avatar/Avatar';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
+
 import Button from '../../../../components/Button/Button';
+import Avatar from '../../../../components/Avatar/Avatar';
 
 const cx = classNames.bind(styles);
 

@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './HeaderTop.module.scss';
-import images from '../../../assets/images';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
 import Button from '../../../components/Button/Button';
-import Tippy from '@tippyjs/react/headless';
 import { PopperWrapper } from '../../../components/Popper/Popper';
 import Avatar from '../../../components/Avatar/Avatar';
+import images from '../../../assets/images';
 
 const cx = classNames.bind(styles);
 

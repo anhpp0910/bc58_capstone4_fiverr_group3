@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Carousel.module.scss';
-import Search from './Search/Search';
-
 import Slider from 'react-slick';
+
+import Search from './Search/Search';
 
 const cx = classNames.bind(styles);
 
@@ -39,7 +39,6 @@ export default function MyCarousel() {
     return (
         <div className={cx('wrapper')}>
             <Slider {...settingsSlider}>{renderCarousel()}</Slider>
-
             <Search />
         </div>
     );

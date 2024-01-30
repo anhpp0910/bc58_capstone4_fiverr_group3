@@ -1,7 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './FooterTop.module.scss';
-import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 

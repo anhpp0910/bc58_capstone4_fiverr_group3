@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './RegisterPage.module.scss';
 import { message } from 'antd';
-import { https } from '../../service/api';
 import { useNavigate } from 'react-router';
-import Button from '../../components/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCake,
@@ -15,6 +13,9 @@ import {
     faUser,
     faVenusMars,
 } from '@fortawesome/free-solid-svg-icons';
+
+import { https } from '../../service/api';
+import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 
 const cx = classNames.bind(styles);

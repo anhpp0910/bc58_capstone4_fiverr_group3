@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
 import classNames from 'classnames/bind';
 import styles from './VideoModal.module.scss';
+import Modal from 'react-modal';
 
 const cx = classNames.bind(styles);
 
