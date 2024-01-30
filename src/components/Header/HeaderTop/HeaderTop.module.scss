@@ -52,6 +52,10 @@
     align-items: center;
     .active {
         color: #1e1692;
+        transition: all 0.3s;
+        &:hover {
+            color: var(--primary);
+        }
     }
 }
 

@@ -7,6 +7,9 @@ export const https = axios.create({
     headers: {
         TokenCybersoft:
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA1OCIsIkhldEhhblN0cmluZyI6IjAyLzA2LzIwMjQiLCJIZXRIYW5UaW1lIjoiMTcxNzI4NjQwMDAwMCIsIm5iZiI6MTY5MDM5MDgwMCwiZXhwIjoxNzE3NDM0MDAwfQ.I_5jTmaP4oPXDl-5EqRjQqnodRT3qKLF9_hDUjhDwFQ',
+        Authorization:
+            'bearer ' +
+            JSON.parse(localStorage.getItem('USER_INFO'))?.accessToken,
     },
 });
 
