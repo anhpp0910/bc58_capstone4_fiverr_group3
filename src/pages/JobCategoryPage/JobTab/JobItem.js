@@ -11,7 +11,7 @@ export default function JobItem({ dsChiTietLoai }) {
             return (
                 <NavLink
                     key={chiTietLoai.id}
-                    to={`/jobList/${chiTietLoai.id}`}
+                    to={`/jobListByCategory/${chiTietLoai.id}`}
                     className={cx('chiTietLoaiBtn')}
                 >
                     {chiTietLoai.tenChiTiet}

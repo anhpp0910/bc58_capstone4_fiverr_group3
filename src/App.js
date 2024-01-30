@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Spinner from './components/Spinner/Spinner';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+// import Spinner from './components/Spinner/Spinner';
+// import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import HomePage from './pages/HomePage/HomePage';
 import SignInPage from './pages/SignInPage/SignInPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import JobCategoryPage from './pages/JobCategoryPage/JobCategoryPage';
-import JobListPage from './pages/JobListPage/JobListPage';
+import JobListByCategoryPage from './pages/JobListByCategoryPage/JobListByCategoryPage';
 import JobSearchResultPage from './pages/JobSearchResultPage/JobSearchResultPage';
 import JobDetailPage from './pages/JobDetailPage/JobDetailPage';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
@@ -28,8 +28,8 @@ function App() {
                         element={<JobCategoryPage />}
                     />
                     <Route
-                        path="/jobList/:chiTietLoaiId"
-                        element={<JobListPage />}
+                        path="/jobListByCategory/:chiTietLoaiId"
+                        element={<JobListByCategoryPage />}
                     />
                     <Route
                         path="/jobSearchResult"
