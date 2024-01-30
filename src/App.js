@@ -21,26 +21,26 @@ function App() {
                 {/* <ScrollToTop> */}
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/signIn" element={<SignInPage />} />
+                    <Route path="/sign-in" element={<SignInPage />} />
                     <Route path="/register" element={<RegisterPage />} />
                     <Route
-                        path="/jobCategory/:jobCategoryId"
+                        path="/job-category/:jobCategoryId"
                         element={<JobCategoryPage />}
                     />
                     <Route
-                        path="/jobListByCategory/:chiTietLoaiId"
+                        path="/job-list-by-category/:chiTietLoaiId"
                         element={<JobListByCategoryPage />}
                     />
                     <Route
-                        path="/jobSearchResult"
+                        path="/job-search-result"
                         element={<JobSearchResultPage />}
                     />
                     <Route
-                        path="/jobDetail/:jobId"
+                        path="/job-detail/:jobId"
                         element={<JobDetailPage />}
                     />
                     <Route
-                        path="/userProfile/:userId"
+                        path="/user-profile/:userId"
                         element={<UserProfilePage />}
                     />
                     <Route path="/admin" element={<AdminPage />} />

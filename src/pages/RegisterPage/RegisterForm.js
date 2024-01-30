@@ -24,7 +24,7 @@ export default function SignInForm() {
     let navigate = useNavigate();
 
     const handleToSignInPage = () => {
-        navigate('/signIn');
+        navigate('/sign-in');
     };
 
     const [values, setValues] = useState({
@@ -237,7 +237,7 @@ export default function SignInForm() {
                 .post('/api/auth/signup', values)
                 .then((res) => {
                     // Chuyển hướng user về signIn sau khi đăng ký thành công
-                    navigate('/signIn');
+                    navigate('/sign-in');
                     message.success({
                         content: 'Register sucessfully! Please sign in!',
                         duration: 5,

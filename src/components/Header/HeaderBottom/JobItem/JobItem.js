@@ -28,7 +28,7 @@ export default function PopperItem({ loaiCV }) {
             return dsChiTietLoai.map((chiTietLoai) => {
                 return (
                     <div key={chiTietLoai.id} className={cx('chiTietLoai')}>
-                        <NavLink to={`/jobListByCategory/${chiTietLoai.id}`}>
+                        <NavLink to={`/job-list-by-category/${chiTietLoai.id}`}>
                             {chiTietLoai.tenChiTiet}
                         </NavLink>
                     </div>

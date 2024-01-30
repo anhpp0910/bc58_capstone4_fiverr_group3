@@ -42,7 +42,7 @@ export default function HeaderTop() {
                             <PopperWrapper>
                                 <div tabIndex="-1" {...attrs}>
                                     <NavLink
-                                        to={`/userProfile/${userId}`}
+                                        to={`/user-profile/${userId}`}
                                         className={cx('userAction')}
                                     >
                                         View profile
@@ -68,7 +68,7 @@ export default function HeaderTop() {
         } else {
             return (
                 <>
-                    <Button text to="/signIn">
+                    <Button text to="/sign-in">
                         Sign in
                     </Button>
                     <Button outline to="/register">

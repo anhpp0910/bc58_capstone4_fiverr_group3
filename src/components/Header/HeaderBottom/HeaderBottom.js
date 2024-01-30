@@ -41,7 +41,7 @@ export default function HeaderBottom() {
                         )}
                     >
                         <NavLink
-                            to={`/jobCategory/${loaiCV.id}`}
+                            to={`/job-category/${loaiCV.id}`}
                             className={cx('jobCategory')}
                         >
                             {loaiCV.tenLoaiCongViec}

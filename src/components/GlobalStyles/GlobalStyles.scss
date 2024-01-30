@@ -57,6 +57,13 @@ h3 {
     margin-bottom: 1.6rem;
 }
 
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    background-color: var(--background-gray);
+}
+
 .slick-prev:before,
 .slick-next:before {
     color: var(--light-gray);

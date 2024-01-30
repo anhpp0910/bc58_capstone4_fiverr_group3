@@ -29,7 +29,7 @@ export default function SignInPage() {
                     <div className={cx('left')}>
                         <img
                             src="https://demo5.cybersoft.edu.vn/static/media/signin.6f1c72291c1ec0817ded.jpg"
-                            alt="Sign In Image"
+                            alt="Sign In"
                         />
                     </div>
                     <div className={cx('right')}>
