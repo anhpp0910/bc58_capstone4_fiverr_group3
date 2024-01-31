@@ -50,11 +50,9 @@ export default function FooterBottom() {
                             English
                         </Button>
                         <Button text>US$ USD</Button>
-                        <Button
-                            className={cx('personIcon')}
-                            text
-                            leftIcon={<FontAwesomeIcon icon={faPerson} />}
-                        ></Button>
+                        <Button className={cx('personIcon')} text>
+                            <FontAwesomeIcon icon={faPerson} />
+                        </Button>
                     </div>
                 </div>
             </div>

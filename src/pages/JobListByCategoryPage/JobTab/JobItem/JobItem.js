@@ -55,11 +55,9 @@ function JobItem({ infoCV }) {
                 </div>
             </div>
             <div className={cx('cardBottom')}>
-                <Button
-                    className={cx('heartIcon')}
-                    text
-                    leftIcon={<FontAwesomeIcon icon={faHeart} />}
-                ></Button>
+                <Button className={cx('heartIcon')} text>
+                    <FontAwesomeIcon icon={faHeart} />
+                </Button>
                 <p className={cx('price')}>
                     STARTING AT &nbsp; <span>${infoCV.congViec.giaTien}</span>
                 </p>

@@ -5,6 +5,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.left {
+    padding: 30px;
+}
+
 .right {
     img {
         width: 100%;
@@ -12,37 +16,11 @@
     }
 }
 
-.left {
-    padding: 30px;
-}
-
 .registerText {
     color: var(--primary);
     font-weight: 700;
     text-align: center;
     margin-bottom: 30px;
-}
-
-.inputField {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    label {
-        font-size: 2.4rem;
-        margin-right: 20px;
-    }
-    input {
-        padding: 10px;
-        flex: 1;
-        color: var(--black);
-        font-size: 1.6rem;
-        border: 1px solid var(--border-color);
-        border-radius: var(--input-border-radius);
-        &:focus-within {
-            border-color: var(--primary);
-        }
-    }
 }
 
 .btn {

@@ -4,7 +4,6 @@
 :root {
     --primary: rgb(29, 191, 115);
     --primary-hover: rgb(25, 164, 99);
-    --black: #000;
     --white: #fff;
     --gray: #74767e;
     --light-gray: #b5b6ba;
@@ -15,22 +14,22 @@
     --header-top-height: 90px;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 html {
-    margin: 0;
-    padding: 0;
     font-size: 62.5%;
 }
 
-body {
+* {
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: var(--text-color);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
-    color: var(--text-color);
     user-select: none;
 }
 
@@ -43,19 +42,6 @@ input,
 
 a[href] {
     text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-ul,
-li,
-button {
-    margin: 0;
-    padding: 0;
 }
 
 h2 {
