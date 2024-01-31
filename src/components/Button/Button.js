@@ -70,7 +70,7 @@ Button.propTypes = {
     round: PropTypes.bool,
     text: PropTypes.bool,
     disabled: PropTypes.bool,
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
     leftIcon: PropTypes.node,
     rightIcon: PropTypes.node,

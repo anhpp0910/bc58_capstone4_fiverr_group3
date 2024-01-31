@@ -26,31 +26,21 @@ export default function FooterBottom() {
                 </div>
                 <div className={cx('right')}>
                     <div className={cx('socials')}>
-                        <Button
-                            className={cx('socialIcon')}
-                            text
-                            leftIcon={<FontAwesomeIcon icon={faTwitter} />}
-                        ></Button>
-                        <Button
-                            className={cx('socialIcon')}
-                            text
-                            leftIcon={<FontAwesomeIcon icon={faFacebook} />}
-                        ></Button>
-                        <Button
-                            className={cx('socialIcon')}
-                            text
-                            leftIcon={<FontAwesomeIcon icon={faLinkedin} />}
-                        ></Button>
-                        <Button
-                            className={cx('socialIcon')}
-                            text
-                            leftIcon={<FontAwesomeIcon icon={faPinterest} />}
-                        ></Button>
-                        <Button
-                            className={cx('socialIcon')}
-                            text
-                            leftIcon={<FontAwesomeIcon icon={faInstagram} />}
-                        ></Button>
+                        <Button className={cx('socialIcon')} text>
+                            <FontAwesomeIcon icon={faTwitter} />
+                        </Button>
+                        <Button className={cx('socialIcon')} text>
+                            <FontAwesomeIcon icon={faFacebook} />
+                        </Button>
+                        <Button className={cx('socialIcon')} text>
+                            <FontAwesomeIcon icon={faLinkedin} />
+                        </Button>
+                        <Button className={cx('socialIcon')} text>
+                            <FontAwesomeIcon icon={faPinterest} />
+                        </Button>
+                        <Button className={cx('socialIcon')} text>
+                            <FontAwesomeIcon icon={faInstagram} />
+                        </Button>
                     </div>
                     <div className={cx('settings')}>
                         <Button
