@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './FormInput.module.scss';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
-export default function FormInput(props) {
-    const {
-        labelIcon,
-        onChange,
-        id,
-        errorMessage,
-        setEyeIcon,
-        type,
-        handleValidation,
-        ...inputProps
-    } = props;
-
+function FormInput({
+    labelIcon,
+    id,
+    type,
+    setEyeIcon,
+    errorMessage,
+    onChange,
+    handleValidation,
+    ...passProps
+}) {
+    const props = {
+        ...passProps,
+    };
     // Handle show/hide Password
     const [isEyeOpen, setIsEyeOpen] = useState(false);
     let typeForPW = isEyeOpen ? 'text' : 'password';
@@ -33,7 +35,7 @@ export default function FormInput(props) {
                     <FontAwesomeIcon icon={labelIcon} />
                 </label>
                 <input
-                    {...inputProps}
+                    {...props}
                     type={setEyeIcon ? typeForPW : type}
                     onChange={onChange}
                     onBlur={handleValidation}
@@ -62,3 +64,15 @@ export default function FormInput(props) {
         </div>
     );
 }
+
+FormInput.propTypes = {
+    labelIcon: PropTypes.object,
+    id: PropTypes.number,
+    type: PropTypes.string,
+    setEyeIcon: PropTypes.bool,
+    errorMessage: PropTypes.string,
+    onChange: PropTypes.func,
+    handleValidation: PropTypes.func,
+};
+
+export default FormInput;

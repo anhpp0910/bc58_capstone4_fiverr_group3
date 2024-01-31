@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './JobTab.module.scss';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-export default function JobItem({ dsChiTietLoai }) {
+function JobItem({ dsChiTietLoai }) {
     const renderDSChiTietLoai = () => {
         return dsChiTietLoai.map((chiTietLoai) => {
             return (
@@ -22,3 +23,9 @@ export default function JobItem({ dsChiTietLoai }) {
 
     return <div>{renderDSChiTietLoai()}</div>;
 }
+
+JobItem.propTypes = {
+    dsChiTietLoai: PropTypes.array,
+};
+
+export default JobItem;

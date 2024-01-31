@@ -1,10 +1,17 @@
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function ScrollToTop({ children }) {
+function ScrollToTop({ children }) {
     const location = useLocation();
     useLayoutEffect(() => {
         document.documentElement.scrollTo(0, 0);
     }, [location.pathname]);
     return children;
 }
+
+ScrollToTop.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+export default ScrollToTop;

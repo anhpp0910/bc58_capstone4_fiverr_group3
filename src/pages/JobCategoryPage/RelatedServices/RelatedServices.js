@@ -1,12 +1,13 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './RelatedServices.module.scss';
+import PropTypes from 'prop-types';
 
 import Button from '../../../components/Button/Button';
 
 const cx = classNames.bind(styles);
 
-export default function RelatedServices({ tenLoaiCV }) {
+function RelatedServices({ tenLoaiCV }) {
     const relatedServices = [
         'Minimalist logo design',
         'Signature logo design',
@@ -47,3 +48,9 @@ export default function RelatedServices({ tenLoaiCV }) {
         </div>
     );
 }
+
+RelatedServices.propTypes = {
+    tenLoaiCV: PropTypes.string,
+};
+
+export default RelatedServices;

@@ -1,12 +1,13 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './JobTab.module.scss';
+import PropTypes from 'prop-types';
 
 import JobItem from './JobItem';
 
 const cx = classNames.bind(styles);
 
-export default function JobTab({ tenLoaiCV, dsNhomChiTietLoai }) {
+function JobTab({ tenLoaiCV, dsNhomChiTietLoai }) {
     const renderDSNhomChiTietLoai = () => {
         if (dsNhomChiTietLoai) {
             return dsNhomChiTietLoai.map((nhomChiTietLoai) => {
@@ -33,3 +34,10 @@ export default function JobTab({ tenLoaiCV, dsNhomChiTietLoai }) {
         </div>
     );
 }
+
+JobTab.propTypes = {
+    tenLoaiCV: PropTypes.string,
+    dsNhomChiTietLoai: PropTypes.array,
+};
+
+export default JobTab;

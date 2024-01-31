@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Dropdown.module.scss';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +11,7 @@ import { PopperWrapper } from '../../components/Popper/Popper';
 
 const cx = classNames.bind(styles);
 
-export default function Dropdown({ children }) {
+function Dropdown({ children }) {
     const [showDropdown, setShowDropdown] = useState(false);
 
     return (
@@ -55,3 +56,9 @@ export default function Dropdown({ children }) {
         </div>
     );
 }
+
+Dropdown.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+export default Dropdown;

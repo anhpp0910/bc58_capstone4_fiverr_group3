@@ -1,13 +1,14 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './FilterBar.module.scss';
+import PropTypes from 'prop-types';
 
 import Dropdown from '../../../../components/Dropdown/Dropdown';
 import Toogle from '../../../../components/Toogle/Toggle';
 
 const cx = classNames.bind(styles);
 
-export default function FilterBar({ dsCVTheoChiTietLoai }) {
+function FilterBar({ dsCVTheoChiTietLoai }) {
     let tenChiTietLoai = dsCVTheoChiTietLoai[0]?.tenChiTietLoai;
 
     return (
@@ -38,3 +39,9 @@ export default function FilterBar({ dsCVTheoChiTietLoai }) {
         </div>
     );
 }
+
+FilterBar.propTypes = {
+    dsCVTheoChiTietLoai: PropTypes.array,
+};
+
+export default FilterBar;

@@ -20,7 +20,7 @@ import FormInput from '../../components/FormInput/FormInput';
 
 const cx = classNames.bind(styles);
 
-export default function SignInForm() {
+export default function RegisterForm() {
     let navigate = useNavigate();
 
     const handleToSignInPage = () => {

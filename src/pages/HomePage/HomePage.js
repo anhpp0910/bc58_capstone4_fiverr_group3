@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Header from './Header/Header';
-import Carousel from './Carousel/Carousel';
+import MyCarousel from './Carousel/Carousel';
 import Services from './Services/Services';
 import Marketplace from './Marketplace/Marketplace';
 import Feedback from './Feedback/Feedback';
@@ -13,7 +13,7 @@ export default function HomePage() {
     return (
         <div>
             <Header />
-            <Carousel />
+            <MyCarousel />
             <Trusted />
             <Services />
             <SellingProposition />

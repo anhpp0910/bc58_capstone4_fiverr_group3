@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './JobItem.module.scss';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-export default function PopperItem({ loaiCV }) {
+function JobItem({ loaiCV }) {
     const dsNhomChiTietLoai = loaiCV.dsNhomChiTietLoai;
 
     const renderDanhSachCV = () => {
@@ -39,3 +40,9 @@ export default function PopperItem({ loaiCV }) {
 
     return <>{renderDanhSachCV()}</>;
 }
+
+JobItem.propTypes = {
+    loaiCV: PropTypes.object,
+};
+
+export default JobItem;

@@ -1,4 +1,5 @@
 import React, { useState, forwardRef } from 'react';
+import PropTypes from 'prop-types';
 import images from '../../assets/images';
 
 const Avatar = forwardRef(({ src, alt, ...props }, ref) => {
@@ -18,5 +19,10 @@ const Avatar = forwardRef(({ src, alt, ...props }, ref) => {
         />
     );
 });
+
+Avatar.propTypes = {
+    src: PropTypes.string,
+    alt: PropTypes.string,
+};
 
 export default Avatar;

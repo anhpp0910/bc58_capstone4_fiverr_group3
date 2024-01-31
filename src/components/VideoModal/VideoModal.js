@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './VideoModal.module.scss';
+import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 
 const cx = classNames.bind(styles);
 
-export default function VideoModal({
+function VideoModal({
     thumbnailImg,
     thumnailAlt,
     videoSrc,
@@ -59,3 +60,12 @@ export default function VideoModal({
         </div>
     );
 }
+
+VideoModal.propTypes = {
+    thumbnailImg: PropTypes.string,
+    thumnailAlt: PropTypes.string,
+    videoSrc: PropTypes.string,
+    wholeScreen: PropTypes.bool,
+};
+
+export default VideoModal;

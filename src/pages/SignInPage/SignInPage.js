@@ -24,7 +24,7 @@ const customStyles = {
 export default function SignInPage() {
     return (
         <div>
-            <Modal isOpen={true} style={customStyles}>
+            <Modal ariaHideApp={false} isOpen={true} style={customStyles}>
                 <div className={cx('wrapper', 'grid grid-cols-2')}>
                     <div className={cx('left')}>
                         <img

@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-export default function Button({
+function Button({
     to,
     href,
     primary = false,
@@ -60,3 +61,20 @@ export default function Button({
         </Comp>
     );
 }
+
+Button.propTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    round: PropTypes.bool,
+    text: PropTypes.bool,
+    disabled: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
+    onClick: PropTypes.func,
+};
+
+export default Button;

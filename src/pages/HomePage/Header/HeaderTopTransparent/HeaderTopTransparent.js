@@ -12,7 +12,7 @@ import images from '../../../../assets/images';
 
 const cx = classNames.bind(styles);
 
-export default function HeaderTopActive() {
+export default function HeaderTopTransparent() {
     let { user } = useSelector((state) => state.userSlice);
 
     const handleSignOut = () => {

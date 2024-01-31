@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './JobItem.module.scss';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +11,7 @@ import Avatar from '../../../../components/Avatar/Avatar';
 
 const cx = classNames.bind(styles);
 
-const JobItem = ({ infoCV }) => {
+function JobItem({ infoCV }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('cardTop')}>
@@ -36,7 +37,9 @@ const JobItem = ({ infoCV }) => {
                     </div>
                 </div>
                 <div className={cx('jobInfo')}>
-                    <NavLink>{infoCV.congViec.tenCongViec}</NavLink>
+                    <NavLink to={`/job-detail/${infoCV.congViec.id}`}>
+                        {infoCV.congViec.tenCongViec}
+                    </NavLink>
                     <p className={cx('rating')}>
                         <FontAwesomeIcon
                             icon={faStar}
@@ -63,5 +66,10 @@ const JobItem = ({ infoCV }) => {
             </div>
         </div>
     );
+}
+
+JobItem.propTypes = {
+    infoCV: PropTypes.object,
 };
+
 export default JobItem;
