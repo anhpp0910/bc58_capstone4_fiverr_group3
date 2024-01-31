@@ -2,8 +2,8 @@ import axios from 'axios';
 import { store } from '..';
 import { setLoadingOn, setLoadingOff } from '../redux/spinnerSlice';
 
-export const https = axios.create({
-    baseURL: 'https://fiverrnew.cybersoft.edu.vn',
+const httpsRequest = axios.create({
+    baseURL: 'https://fiverrnew.cybersoft.edu.vn/api/',
     headers: {
         TokenCybersoft:
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA1OCIsIkhldEhhblN0cmluZyI6IjAyLzA2LzIwMjQiLCJIZXRIYW5UaW1lIjoiMTcxNzI4NjQwMDAwMCIsIm5iZiI6MTY5MDM5MDgwMCwiZXhwIjoxNzE3NDM0MDAwfQ.I_5jTmaP4oPXDl-5EqRjQqnodRT3qKLF9_hDUjhDwFQ',
@@ -13,8 +13,18 @@ export const https = axios.create({
     },
 });
 
+export const get = async (path, options = {}) => {
+    const response = await httpsRequest.get(path, options);
+    return response.data;
+};
+
+export const post = async (path, options = {}) => {
+    const response = await httpsRequest.post(path, options);
+    return response.data;
+};
+
 // Add a request interceptor
-https.interceptors.request.use(
+httpsRequest.interceptors.request.use(
     function (config) {
         // Do something before request is sent
         store.dispatch(setLoadingOn());
@@ -27,7 +37,7 @@ https.interceptors.request.use(
 );
 
 // Add a response interceptor
-https.interceptors.response.use(
+httpsRequest.interceptors.response.use(
     function (response) {
         // Any status code that lie within the range of 2xx cause this function to trigger
         // Do something with response data
@@ -41,3 +51,5 @@ https.interceptors.response.use(
         return Promise.reject(error);
     },
 );
+
+export default httpsRequest;

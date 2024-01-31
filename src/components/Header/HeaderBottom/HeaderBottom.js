@@ -4,7 +4,7 @@ import styles from './HeaderBottom.module.scss';
 import Tippy from '@tippyjs/react/headless';
 import { NavLink } from 'react-router-dom';
 
-import { https } from '../../../services/api';
+import * as httpsRequest from '../../../utils/request';
 import { PopperWrapper } from '../../../components/Popper/Popper';
 import JobItem from './JobItem/JobItem';
 
@@ -14,9 +14,9 @@ export default function HeaderBottom() {
     const [menuLoaiCV, setMenuLoaiCV] = useState([]);
 
     useEffect(() => {
-        https
-            .get('/api/cong-viec/lay-menu-loai-cong-viec')
-            .then((res) => setMenuLoaiCV(res.data.content))
+        httpsRequest
+            .get('cong-viec/lay-menu-loai-cong-viec')
+            .then((res) => setMenuLoaiCV(res.content))
             .catch((err) => console.log(err));
     }, []);
 

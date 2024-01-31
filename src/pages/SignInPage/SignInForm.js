@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 import { setUser } from '../../redux/userSlice';
-import { https } from '../../services/api';
+import * as httpsRequest from '../../utils/request';
 import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 
@@ -89,15 +89,15 @@ export default function SignInForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (handleValidation()) {
-            https
-                .post('/api/auth/signin', values)
+            httpsRequest
+                .post('auth/signin', values)
                 .then((res) => {
                     // Đẩy data lên redux
-                    dispatch(setUser(res.data.content));
+                    dispatch(setUser(res.content));
                     // Chuyển hướng user về home sau khi đăng nhập thành công
                     navigate('/');
                     // Lưu data xuống localStorage để user load trang sẽ không mất data
-                    let dataJson = JSON.stringify(res.data.content);
+                    let dataJson = JSON.stringify(res.content);
                     localStorage.setItem('USER_INFO', dataJson);
                     message.success({
                         content: 'Sign in sucessfully!',

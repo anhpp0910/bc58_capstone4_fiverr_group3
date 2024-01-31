@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
-import { https } from '../../services/api';
+import * as httpsRequest from '../../utils/request';
 import Header from '../../components/Header/Header';
 import Banner from './Banner/Banner';
 import MostPopular from './MostPopular/MostPopular';
@@ -14,10 +14,10 @@ export default function JobCategoryPage() {
     const [chiTietLoaiCV, setChiTietLoaiCV] = useState({});
 
     useEffect(() => {
-        https
-            .get(`/api/cong-viec/lay-chi-tiet-loai-cong-viec/${jobCategoryId}`)
+        httpsRequest
+            .get(`cong-viec/lay-chi-tiet-loai-cong-viec/${jobCategoryId}`)
             .then((res) => {
-                setChiTietLoaiCV(res.data.content[0]);
+                setChiTietLoaiCV(res.content[0]);
             })
             .catch((err) => console.log(err));
     }, [jobCategoryId]);

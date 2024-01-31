@@ -14,7 +14,7 @@ import {
     faVenusMars,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { https } from '../../services/api';
+import * as httpsRequest from '../../utils/request';
 import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 
@@ -233,8 +233,8 @@ export default function RegisterForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (handleValidation()) {
-            https
-                .post('/api/auth/signup', values)
+            httpsRequest
+                .post('auth/signup', values)
                 .then((res) => {
                     // Chuyển hướng user về signIn sau khi đăng ký thành công
                     navigate('/sign-in');

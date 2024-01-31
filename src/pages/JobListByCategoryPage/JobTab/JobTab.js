@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './JobTab.module.scss';
 import { useParams } from 'react-router';
 
-import { https } from '../../../services/api';
+import * as httpsRequest from '../../../utils/request';
 import JobItem from './JobItem/JobItem';
 import FilterBar from './FilterBar/FilterBar';
 
@@ -15,12 +15,10 @@ export default function JobTab() {
     const [dsCVTheoChiTietLoai, setDSCVTheoChiTietLoai] = useState([]);
 
     useEffect(() => {
-        https
-            .get(
-                `/api/cong-viec/lay-cong-viec-theo-chi-tiet-loai/${chiTietLoaiId}`,
-            )
+        httpsRequest
+            .get(`cong-viec/lay-cong-viec-theo-chi-tiet-loai/${chiTietLoaiId}`)
             .then((res) => {
-                setDSCVTheoChiTietLoai(res.data.content);
+                setDSCVTheoChiTietLoai(res.content);
             })
             .catch((err) => console.log(err));
     }, [chiTietLoaiId]);
