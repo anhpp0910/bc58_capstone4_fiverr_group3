@@ -61,9 +61,7 @@ export default function Marketplace() {
     return (
         <div className={cx('wrapper')}>
             <h2 className={cx('title')}>Explore the marketplace</h2>
-            <ul className={cx('items', 'grid grid-cols-5 gap-20')}>
-                {renderMarketplace()}
-            </ul>
+            <ul className={cx('items')}>{renderMarketplace()}</ul>
         </div>
     );
 }

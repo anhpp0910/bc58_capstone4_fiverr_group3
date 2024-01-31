@@ -1,6 +1,8 @@
 .wrapper {
     width: 900px;
     height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .left {

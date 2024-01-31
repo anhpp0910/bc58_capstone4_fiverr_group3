@@ -47,9 +47,7 @@ export default function JobTab() {
                     </select>
                 </div>
             </div>
-            <div className={cx('grid grid-cols-4 gap-2')}>
-                {renderJobItem()}
-            </div>
+            <div className={cx('jobTab')}>{renderJobItem()}</div>
         </div>
     );
 }

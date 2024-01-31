@@ -45,6 +45,19 @@ a[href] {
     text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li,
+button {
+    margin: 0;
+    padding: 0;
+}
+
 h2 {
     font-weight: 600;
     font-size: 3rem;
@@ -57,11 +70,8 @@ h3 {
     margin-bottom: 1.6rem;
 }
 
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-    background-color: var(--background-gray);
+li {
+    list-style: none;
 }
 
 .slick-prev:before,

@@ -48,14 +48,12 @@ function VideoModal({
                 onRequestClose={closeModal}
                 style={customStyles}
             >
-                <div className={classes}>
-                    <video
-                        src={videoSrc}
-                        preload="auto"
-                        autoplay=""
-                        style={{ width: '100%', height: 'auto' }}
-                    ></video>
-                </div>
+                <video
+                    className={classes}
+                    src={videoSrc}
+                    preload="auto"
+                    autoplay=""
+                ></video>
             </Modal>
         </div>
     );

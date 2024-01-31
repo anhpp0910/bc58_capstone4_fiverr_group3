@@ -25,7 +25,7 @@ export default function RegisterPage() {
     return (
         <div>
             <Modal ariaHideApp={false} isOpen={true} style={customStyles}>
-                <div className={cx('wrapper', 'grid grid-cols-2')}>
+                <div className={cx('wrapper')}>
                     <div className={cx('left')}>
                         <RegisterForm />
                     </div>

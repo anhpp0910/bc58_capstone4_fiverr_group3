@@ -10,7 +10,7 @@
     border: 1.5px solid var(--border-color);
     background-color: var(--white);
     font-weight: 600;
-
+    color: var(--text-color);
     span {
         margin-left: 6px;
         color: var(--gray);
@@ -21,6 +21,7 @@
 .dropdownContent {
     a {
         display: block;
+        color: var(--text-color);
         font-size: 1.4rem;
         font-weight: 600;
         margin-bottom: 10px;

@@ -95,9 +95,7 @@ export default function FooterTop() {
 
     return (
         <footer className={cx('wrapper')}>
-            <div className={cx('inner', 'grid grid-cols-6 gap-5')}>
-                {renderFooterTopContent()}
-            </div>
+            <div className={cx('inner')}>{renderFooterTopContent()}</div>
         </footer>
     );
 }

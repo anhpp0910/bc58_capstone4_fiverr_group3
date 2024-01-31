@@ -17,7 +17,14 @@
         cursor: pointer;
         border: none;
         outline: none;
+        color: var(--text-color);
         font-weight: 700;
         padding-right: 5px;
     }
+}
+
+.jobTab {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
 }

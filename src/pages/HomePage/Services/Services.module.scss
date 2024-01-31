@@ -6,6 +6,7 @@
 .service {
     padding: 0 10px;
     position: relative;
+    width: 600px;
     .overlay {
         position: absolute;
         top: 14px;
@@ -19,6 +20,9 @@
         h5 {
             font-size: 2.4rem;
             font-weight: 700;
+        }
+        img {
+            width: 50px;
         }
     }
 }

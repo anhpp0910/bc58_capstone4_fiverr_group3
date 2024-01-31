@@ -25,7 +25,7 @@ export default function SignInPage() {
     return (
         <div>
             <Modal ariaHideApp={false} isOpen={true} style={customStyles}>
-                <div className={cx('wrapper', 'grid grid-cols-2')}>
+                <div className={cx('wrapper')}>
                     <div className={cx('left')}>
                         <img
                             src="https://demo5.cybersoft.edu.vn/static/media/signin.6f1c72291c1ec0817ded.jpg"

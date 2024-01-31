@@ -54,9 +54,7 @@ export default function HeaderBottom() {
 
     return (
         <header className={cx('wrapper')}>
-            <div className={cx('inner', 'grid grid-cols-6 gap-5')}>
-                {renderMenuLoaiCV()}
-            </div>
+            <div className={cx('inner')}>{renderMenuLoaiCV()}</div>
         </header>
     );
 }

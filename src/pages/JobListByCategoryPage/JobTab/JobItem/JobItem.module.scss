@@ -3,6 +3,12 @@
     border: 1.5px solid var(--border-color);
 }
 
+.cardTop {
+    img {
+        width: 100%;
+    }
+}
+
 .cardBody {
     padding: 15px;
 }
@@ -20,9 +26,9 @@
 
 .sellerName {
     position: relative;
+    color: var(--text-color);
     font-size: 1.4rem;
     font-weight: 700;
-    margin: 0;
     text-transform: capitalize;
     &::after {
         content: '';
@@ -49,10 +55,13 @@
 .jobInfo {
     padding-top: 20px;
     height: 120px;
-    font-weight: 500;
-    transition: all 0.3s;
-    &:hover {
-        color: var(--primary);
+    a {
+        color: var(--text-color);
+        font-weight: 500;
+        transition: all 0.3s;
+        &:hover {
+            color: var(--primary);
+        }
     }
 }
 
