@@ -1,10 +1,6 @@
 import React from 'react';
 import { Switch, ConfigProvider } from 'antd';
 
-const onChange = (checked) => {
-    console.log(`switch to ${checked}`);
-};
-
 export default function Toogle() {
     return (
         <ConfigProvider
@@ -19,7 +15,7 @@ export default function Toogle() {
                 },
             }}
         >
-            <Switch defaultChecked onChange={onChange} />
+            <Switch />
         </ConfigProvider>
     );
 }
