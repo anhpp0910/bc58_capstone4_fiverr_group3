@@ -14,7 +14,7 @@ export default function Spinner() {
                 background: 'var(--white)',
                 top: 0,
                 left: 0,
-                zIndex: 1000,
+                zIndex: 10002,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',

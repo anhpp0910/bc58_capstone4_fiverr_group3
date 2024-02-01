@@ -40,6 +40,10 @@ input,
     border: none;
 }
 
+input {
+    caret-color: var(--primary);
+}
+
 a[href] {
     text-decoration: none;
 }
@@ -67,5 +71,9 @@ li {
 }
 
 .ReactModal__Overlay.ReactModal__Overlay--after-open {
-    z-index: 1000;
+    z-index: 10001;
+}
+
+.ant-message {
+    z-index: 20000;
 }

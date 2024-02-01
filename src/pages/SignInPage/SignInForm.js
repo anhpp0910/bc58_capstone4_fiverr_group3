@@ -82,7 +82,7 @@ export default function SignInForm() {
         },
     ];
 
-    const onChange = (e) => {
+    const handleChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
@@ -134,7 +134,7 @@ export default function SignInForm() {
                         {...input}
                         type={input.type}
                         value={values[input.name]}
-                        onChange={onChange}
+                        onChange={handleChange}
                         errorMessage={input.errorMessage}
                         handleValidation={input.handleValidation}
                     />

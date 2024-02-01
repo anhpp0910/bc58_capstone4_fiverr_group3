@@ -81,7 +81,7 @@ export default function HeaderTopTransparent() {
     const [show, setShow] = useState(true);
 
     const controlShow = () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 100) {
             setShow(false);
         } else {
             setShow(true);

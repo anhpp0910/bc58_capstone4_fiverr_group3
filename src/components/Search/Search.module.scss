@@ -1,19 +1,3 @@
-.wrapper {
-    width: 100%;
-    height: var(--header-top-height);
-    box-shadow: 0 1px 1px var(--border-color);
-    display: flex;
-    justify-content: center;
-}
-
-.inner {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .search {
     width: 420px;
     height: 46px;
@@ -43,34 +27,5 @@
     &:hover {
         cursor: pointer;
         background-color: var(--primary-hover);
-    }
-}
-
-.actions {
-    display: flex;
-    align-items: center;
-    .active {
-        color: #1e1692;
-    }
-}
-
-.userAvatar {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-left: 20px;
-    cursor: pointer;
-}
-
-.userAction {
-    display: block;
-    color: var(--gray);
-    font-size: 1.6rem;
-    font-weight: 700;
-    padding: 5px 20px;
-    transition: all 0.3s;
-    &:hover {
-        color: var(--primary);
     }
 }

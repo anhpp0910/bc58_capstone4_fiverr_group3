@@ -23,7 +23,7 @@ export default function HeaderBottom() {
     const [show, setShow] = useState(false);
 
     const controlShow = () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 100) {
             setShow(true);
         } else {
             setShow(false);
@@ -48,7 +48,7 @@ export default function HeaderBottom() {
                         render={(attrs) => (
                             <PopperWrapper>
                                 <div
-                                    className={cx('jobCategoryItem')}
+                                    className={cx('jobCategory')}
                                     tabIndex="-1"
                                     {...attrs}
                                 >
@@ -59,7 +59,7 @@ export default function HeaderBottom() {
                     >
                         <NavLink
                             to={`/job-category/${loaiCV.id}`}
-                            className={cx('jobCategory')}
+                            className={cx('jobItem')}
                         >
                             {loaiCV.tenLoaiCongViec}
                         </NavLink>

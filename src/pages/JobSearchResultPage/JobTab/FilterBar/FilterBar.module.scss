@@ -1,0 +1,20 @@
+.filterBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.filterDropdown {
+    display: flex;
+}
+
+.filterToogle {
+    display: flex;
+    gap: 30px;
+    .title {
+        color: var(--gray);
+        font-weight: 600;
+        padding-left: 5px;
+    }
+}

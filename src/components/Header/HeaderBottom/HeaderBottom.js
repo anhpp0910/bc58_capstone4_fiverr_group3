@@ -31,7 +31,7 @@ export default function HeaderBottom() {
                         render={(attrs) => (
                             <PopperWrapper>
                                 <div
-                                    className={cx('jobCategoryItem')}
+                                    className={cx('jobCategory')}
                                     tabIndex="-1"
                                     {...attrs}
                                 >
@@ -42,7 +42,7 @@ export default function HeaderBottom() {
                     >
                         <NavLink
                             to={`/job-category/${loaiCV.id}`}
-                            className={cx('jobCategory')}
+                            className={cx('jobItem')}
                         >
                             {loaiCV.tenLoaiCongViec}
                         </NavLink>

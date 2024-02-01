@@ -4,7 +4,6 @@
     padding: 0 15px;
     left: 60px;
     top: 200px;
-    z-index: 100;
 }
 
 .title {
@@ -16,6 +15,7 @@
 }
 
 .search {
+    position: relative;
     height: 48px;
     margin-bottom: 24px;
     display: flex;
@@ -30,6 +30,30 @@
     }
     &:focus-within {
         border-color: var(--primary);
+    }
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--light-gray);
+    background-color: transparent;
+}
+
+.loading {
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
     }
 }
 

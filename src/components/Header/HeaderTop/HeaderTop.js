@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
+import Search from '../../Search/Search';
 import Button from '../../../components/Button/Button';
 import { PopperWrapper } from '../../../components/Popper/Popper';
 import Avatar from '../../../components/Avatar/Avatar';
@@ -85,15 +86,7 @@ export default function HeaderTop() {
                 <NavLink className={cx('logo')} to="/">
                     <img src={images.darkLogoHeader} alt="fiverr" />
                 </NavLink>
-                <form className={cx('search')}>
-                    <input
-                        placeholder="What service are you looking for today?"
-                        spellCheck="false"
-                    />
-                    <button className={cx('searchBtn')}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
-                </form>
+                <Search />
                 <div className={cx('actions')}>
                     <Button text className={cx('active')}>
                         Fiverr Business

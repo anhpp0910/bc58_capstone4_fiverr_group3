@@ -10,31 +10,30 @@ import FilterBar from './FilterBar/FilterBar';
 const cx = classNames.bind(styles);
 
 export default function JobTab() {
-    let { chiTietLoaiId } = useParams();
-
-    const [dsCVTheoChiTietLoai, setDSCVTheoChiTietLoai] = useState([]);
+    let { searchValue } = useParams();
+    const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
         httpsRequest
-            .get(`cong-viec/lay-cong-viec-theo-chi-tiet-loai/${chiTietLoaiId}`)
+            .get(`cong-viec/lay-danh-sach-cong-viec-theo-ten/${searchValue}`)
             .then((res) => {
-                setDSCVTheoChiTietLoai(res.content);
+                setSearchResults(res.content);
             })
             .catch((err) => console.log(err));
-    }, [chiTietLoaiId]);
+    }, [searchValue]);
 
     const renderJobItem = () => {
-        return dsCVTheoChiTietLoai.map((CV) => {
+        return searchResults.map((CV) => {
             return <JobItem key={CV.id} infoCV={CV} />;
         });
     };
 
     return (
         <div className={cx('wrapper')}>
-            <FilterBar dsCVTheoChiTietLoai={dsCVTheoChiTietLoai} />
+            <FilterBar searchValue={searchValue} />
             <div className={cx('sortByBar')}>
                 <p className={cx('title')}>
-                    {dsCVTheoChiTietLoai.length} services available
+                    {searchResults.length} services available
                 </p>
                 <div>
                     <span className={cx('title')}>Sort by</span>

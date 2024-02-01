@@ -226,7 +226,7 @@ export default function RegisterForm() {
         },
     ];
 
-    const onChange = (e) => {
+    const handleChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
@@ -274,7 +274,7 @@ export default function RegisterForm() {
                         {...input}
                         type={input.type}
                         value={values[input.name]}
-                        onChange={onChange}
+                        onChange={handleChange}
                         errorMessage={input.errorMessage}
                         handleValidation={input.handleValidation}
                     />
@@ -291,7 +291,7 @@ export default function RegisterForm() {
                                     type="radio"
                                     name="gender"
                                     value={true}
-                                    onChange={onChange}
+                                    onChange={handleChange}
                                     onBlur={handleValidationGender}
                                 />
                                 <label
@@ -307,7 +307,7 @@ export default function RegisterForm() {
                                     type="radio"
                                     name="gender"
                                     value={false}
-                                    onChange={onChange}
+                                    onChange={handleChange}
                                     onBlur={handleValidationGender}
                                 />
                                 <label

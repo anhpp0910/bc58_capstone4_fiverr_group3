@@ -1,15 +1,14 @@
 .wrapper {
-    margin-bottom: 1.5rem;
+    padding: 15px 20px;
 }
 
 .tenNhom {
-    margin-bottom: 0;
     font-weight: 500;
 }
 
 .chiTietLoai > a {
     display: block;
-    margin: 8px 0;
+    padding-top: 8px;
     color: var(--gray);
     font-weight: 400;
     transition: all 0.3s;

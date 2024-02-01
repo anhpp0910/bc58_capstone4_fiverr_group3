@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
+import Search from '../../../../components/Search/Search';
 import { PopperWrapper } from '../../../../components/Popper/Popper';
 import Button from '../../../../components/Button/Button';
 import Avatar from '../../../../components/Avatar/Avatar';
@@ -82,7 +83,7 @@ export default function HeaderTop() {
     // Show different header when scroll down
     const [show, setShow] = useState(false);
     const controlShow = () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 100) {
             setShow(true);
         } else {
             setShow(false);
@@ -104,15 +105,7 @@ export default function HeaderTop() {
                         <NavLink className={cx('logo')} to="/">
                             <img src={images.darkLogoHeader} alt="fiverr" />
                         </NavLink>
-                        <form className={cx('search')}>
-                            <input
-                                placeholder="What service are you looking for today?"
-                                spellCheck="false"
-                            />
-                            <button className={cx('searchBtn')}>
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
-                        </form>
+                        <Search />
                         <div className={cx('actions')}>
                             <Button text className={cx('active')}>
                                 Fiverr Business

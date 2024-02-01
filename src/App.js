@@ -32,7 +32,7 @@ function App() {
                         element={<JobListByCategoryPage />}
                     />
                     <Route
-                        path="/job-search-result"
+                        path="/job-search-result/:searchValue"
                         element={<JobSearchResultPage />}
                     />
                     <Route
