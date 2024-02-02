@@ -1,0 +1,50 @@
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+    grid-column: span 2 / span 2;
+    font-weight: 500;
+}
+
+.buyServices {
+    padding: 5px 20px 20px 20px;
+    margin-bottom: 20px;
+    border: 1.5px solid var(--border-color);
+    background-color: var(--white);
+    .closeBtn {
+        display: flex;
+        justify-content: end;
+        span {
+            background-color: transparent;
+            color: var(--light-gray);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+    .content {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .text {
+        margin-bottom: 5px;
+    }
+    .buildingIcon {
+        span {
+            color: var(--primary);
+            font-size: 4rem;
+        }
+    }
+    .tellUsMore {
+        color: var(--primary);
+    }
+}
+
+.gig {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1.5px solid var(--border-color);
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

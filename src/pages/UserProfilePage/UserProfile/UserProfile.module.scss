@@ -1,0 +1,53 @@
+.wrapper {
+    position: relative;
+    padding: 30px;
+    background-color: var(--white);
+    border: 1.5px solid var(--border-color);
+    font-size: 1.6rem;
+}
+
+.profileAvatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profileAvatar2 {
+    position: relative;
+    width: 180px;
+    height: 180px;
+}
+
+.cameraOverlay {
+    position: absolute;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border: 1.5px solid var(--border-color);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        opacity: 1;
+    }
+    span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--gray);
+        font-size: 4rem;
+    }
+}
+
+.userAvatar {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.uploadAvatar {
+    display: none;
+}

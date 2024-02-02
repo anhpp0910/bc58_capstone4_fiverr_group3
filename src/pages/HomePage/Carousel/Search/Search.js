@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import Tippy from '@tippyjs/react/headless';

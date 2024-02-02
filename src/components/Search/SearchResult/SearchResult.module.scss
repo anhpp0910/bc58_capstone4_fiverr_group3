@@ -1,0 +1,61 @@
+.wrapper {
+    width: 420px;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px 15px 20px;
+    transition: all 0.3s;
+    &:hover {
+        background: var(--background-gray);
+        .jobName {
+            color: var(--primary);
+        }
+    }
+}
+
+.sellerAvatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.jobName {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+
+.jobSubInfo {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    font-size: 1.2rem;
+    .starIcon {
+        color: #ffbe5b;
+    }
+    .soSao {
+        color: #ffbe5b;
+        padding-left: 5px;
+    }
+    .danhGia {
+        color: var(--light-gray);
+        padding-left: 5px;
+    }
+}
+
+.price {
+    color: var(--gray);
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    padding-left: 20px;
+    span {
+        color: var(--text-color);
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+}

@@ -5,11 +5,9 @@ import { setLoadingOn, setLoadingOff } from '../redux/spinnerSlice';
 const httpsRequest = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL,
     headers: {
-        TokenCybersoft:
+        tokenCybersoft:
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA1OCIsIkhldEhhblN0cmluZyI6IjAyLzA2LzIwMjQiLCJIZXRIYW5UaW1lIjoiMTcxNzI4NjQwMDAwMCIsIm5iZiI6MTY5MDM5MDgwMCwiZXhwIjoxNzE3NDM0MDAwfQ.I_5jTmaP4oPXDl-5EqRjQqnodRT3qKLF9_hDUjhDwFQ',
-        Authorization:
-            'bearer ' +
-            JSON.parse(localStorage.getItem('USER_INFO'))?.accessToken,
+        token: JSON.parse(localStorage.getItem('USER_INFO'))?.token,
     },
 });
 
@@ -20,6 +18,11 @@ export const get = async (path, options = {}) => {
 
 export const post = async (path, options = {}) => {
     const response = await httpsRequest.post(path, options);
+    return response.data;
+};
+
+export const put = async (path, options = {}) => {
+    const response = await httpsRequest.put(path, options);
     return response.data;
 };
 
