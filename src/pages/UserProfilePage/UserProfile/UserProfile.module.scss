@@ -14,8 +14,8 @@
 
 .userAvatar2 {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
 }
 
 .cameraOverlay {
@@ -42,8 +42,8 @@
 }
 
 .userAvatar3 {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -67,19 +67,6 @@
     }
 }
 
-.certificationItem,
-.skillItem {
-    cursor: default;
-    margin-right: 5px;
-    &:hover {
-        color: var(--gray);
-    }
-    + .certificationItem,
-    + .skillItem {
-        margin-left: 0;
-    }
-}
-
 .certification,
 .skill {
     padding: 5px 0;
@@ -87,6 +74,22 @@
         font-size: 1.6rem;
         font-weight: 400;
         color: var(--gray);
-        padding: 5px 0;
+    }
+}
+
+.certificationContent,
+.skillContent {
+    :first-child {
+        margin-top: 10px;
+    }
+    .item {
+        cursor: default;
+        margin-right: 5px;
+        &:hover {
+            color: var(--gray);
+        }
+        + .item {
+            margin-left: 0;
+        }
     }
 }

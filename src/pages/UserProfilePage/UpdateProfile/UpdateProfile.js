@@ -4,7 +4,6 @@ import styles from './UpdateProfile.module.scss';
 import Modal from 'react-modal';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-
 import { message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -43,9 +42,11 @@ const customStyles = {
 
 export default function UpdateProfile() {
     let dispatch = useDispatch();
-    const inputRef = useRef();
-
     let user = useSelector((state) => state.userSlice.user);
+    const certificationRef = useRef();
+    const skillRef = useRef();
+    const [certification, setCertification] = useState('');
+    const [skill, setSkill] = useState('');
     const [modalIsOpen, setIsOpen] = useState(false);
     const [values, setValues] = useState({
         email: user.email,
@@ -54,7 +55,7 @@ export default function UpdateProfile() {
         birthday: user.birthday,
         gender: user.gender,
         certification: user.certification,
-        role: user.role,
+        skill: user.skill,
     });
 
     const openModal = () => {
@@ -66,8 +67,10 @@ export default function UpdateProfile() {
             birthday: user.birthday,
             gender: user.gender,
             certification: user.certification,
-            role: user.role,
+            skill: user.skill,
         });
+        setCertification('');
+        setSkill('');
     };
 
     const closeModal = () => {
@@ -79,10 +82,11 @@ export default function UpdateProfile() {
             birthday: user.birthday,
             gender: user.gender,
             certification: user.certification,
-            role: user.role,
+            skill: user.skill,
         });
         setErrors({});
         setCertification('');
+        setSkill('');
     };
 
     // Handle validation for input field
@@ -186,43 +190,78 @@ export default function UpdateProfile() {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
-    const [certification, setCertification] = useState('');
-
-    const handleAddCertification = (e) => {
+    // Handle add item for certification and skill
+    const handleAddItem = (e, field) => {
         e.preventDefault();
-        if (certification) {
-            setValues({
-                ...values,
-                certification: [...values.certification, certification],
-            });
-            setCertification('');
-            inputRef.current.focus();
+        switch (field) {
+            case certification:
+                if (certification) {
+                    setValues({
+                        ...values,
+                        certification: [...values.certification, field],
+                    });
+                    setCertification('');
+                    certificationRef.current.focus();
+                    break;
+                }
+            case skill:
+                if (skill) {
+                    setValues({
+                        ...values,
+                        skill: [...values.skill, field],
+                    });
+                    setSkill('');
+                    skillRef.current.focus();
+                    break;
+                }
         }
     };
 
-    const renderCertification = () => {
-        return values.certification.map((item) => {
+    const renderItem = (field) => {
+        return values[field].map((item, index) => {
             return (
                 <Button
-                    key={item}
+                    key={index}
                     round
-                    className={cx('certificationItem')}
+                    className={cx('item')}
                     onClick={(e) => {
                         e.preventDefault();
                     }}
                 >
                     {item}
-                    <button className={cx('removeBtn')}>
+                    <span
+                        className={cx('removeBtn')}
+                        onClick={() => handleRemoveItem(field, index)}
+                    >
                         <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
+                    </span>
                 </Button>
             );
         });
     };
 
-    console.log('certification', values.certification);
+    const handleRemoveItem = (field, index) => {
+        setValues({
+            ...values,
+            [field]: values[field].filter((item, i) => i != index),
+        });
+    };
+    // End handle add item for certification and skill
 
-    console.log('values', values);
+    const handleGetUserProfile = () => {
+        httpsRequest
+            .get(`users/${user.id}`)
+            .then((res) => {
+                // Đẩy data lên redux
+                dispatch(setUser(res.content));
+                // Lưu data xuống localStorage để user load trang sẽ không mất data
+                let userInfo = JSON.stringify(res.content);
+                localStorage.setItem('USER_INFO', userInfo);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -248,21 +287,6 @@ export default function UpdateProfile() {
         }
     };
 
-    const handleGetUserProfile = () => {
-        httpsRequest
-            .get(`users/${user.id}`)
-            .then((res) => {
-                // Đẩy data lên redux
-                dispatch(setUser(res.content));
-                // Lưu data xuống localStorage để user load trang sẽ không mất data
-                let userInfo = JSON.stringify(res.content);
-                localStorage.setItem('USER_INFO', userInfo);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
     return (
         <>
             <div className={cx('updateProfile')}>
@@ -273,7 +297,6 @@ export default function UpdateProfile() {
             <div>
                 <Modal
                     isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
                     style={customStyles}
                     ariaHideApp={false}
                 >
@@ -281,7 +304,6 @@ export default function UpdateProfile() {
                         <h2 className={cx('updateProfileText')}>
                             Update Profile
                         </h2>
-
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {inputs.map((input) => (
                                 <FormInput
@@ -356,7 +378,7 @@ export default function UpdateProfile() {
                                             />
                                         </label>
                                         <input
-                                            ref={inputRef}
+                                            ref={certificationRef}
                                             value={certification}
                                             type="text"
                                             name="certification"
@@ -372,7 +394,7 @@ export default function UpdateProfile() {
                                             text
                                             className={cx('addIcon')}
                                             onClick={(e) => {
-                                                handleAddCertification(e);
+                                                handleAddItem(e, certification);
                                             }}
                                         >
                                             <FontAwesomeIcon
@@ -381,8 +403,8 @@ export default function UpdateProfile() {
                                         </Button>
                                     </div>
                                 </div>
-                                <div className={cx('renderCertification')}>
-                                    {renderCertification()}
+                                <div className={cx('certificationContent')}>
+                                    {renderItem('certification')}
                                 </div>
                             </div>
                             <div className={cx('skill')}>
@@ -392,24 +414,22 @@ export default function UpdateProfile() {
                                             <FontAwesomeIcon icon={faRibbon} />
                                         </label>
                                         <input
-                                            // ref={inp}
-                                            // value={skill}
+                                            ref={skillRef}
+                                            value={skill}
                                             type="text"
                                             name="skill"
                                             placeholder="Add your skill"
                                             spellCheck="false"
                                             onChange={(e) => {
-                                                setCertification(
-                                                    e.target.value,
-                                                );
+                                                setSkill(e.target.value);
                                             }}
                                         />
                                         <Button
                                             text
                                             className={cx('addIcon')}
-                                            // onClick={(e) => {
-                                            //     handleAddSkill(e);
-                                            // }}
+                                            onClick={(e) => {
+                                                handleAddItem(e, skill);
+                                            }}
                                         >
                                             <FontAwesomeIcon
                                                 icon={faPlusCircle}
@@ -417,8 +437,8 @@ export default function UpdateProfile() {
                                         </Button>
                                     </div>
                                 </div>
-                                <div className={cx('renderCertification')}>
-                                    {/* {renderCertification()} */}
+                                <div className={cx('skillContent')}>
+                                    {renderItem('skill')}
                                 </div>
                             </div>
                             <div className={cx('btn')}>
