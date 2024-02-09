@@ -33,7 +33,7 @@ export default function RegisterForm() {
         password: '',
         phone: '',
         birthday: '',
-        gender: '',
+        gender: true,
     });
 
     // Handle validation for input field
@@ -133,14 +133,6 @@ export default function RegisterForm() {
         setErrors({ ...errors, ...formErrors });
     };
 
-    const handleValidationGender = () => {
-        if (!formValues['gender']) {
-            formIsValid = false;
-            formErrors['gender'] = 'Please fill out this field!';
-        } else formErrors['gender'] = '';
-        setErrors({ ...errors, ...formErrors });
-    };
-
     const handleValidation = () => {
         handleValidationName();
         handleValidationEmail();
@@ -148,7 +140,6 @@ export default function RegisterForm() {
         handleValidationPasswordConfirm();
         handleValidationPhone();
         handleValidationBirthday();
-        handleValidationGender();
         return formIsValid;
     };
     // End validation
@@ -291,8 +282,8 @@ export default function RegisterForm() {
                                     type="radio"
                                     name="gender"
                                     value={true}
+                                    defaultChecked={true}
                                     onChange={handleChange}
-                                    onBlur={handleValidationGender}
                                 />
                                 <label
                                     className={cx('radioLabel')}
@@ -308,7 +299,6 @@ export default function RegisterForm() {
                                     name="gender"
                                     value={false}
                                     onChange={handleChange}
-                                    onBlur={handleValidationGender}
                                 />
                                 <label
                                     className={cx('radioLabel')}

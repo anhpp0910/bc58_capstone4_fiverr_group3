@@ -93,12 +93,14 @@ export default function SignInForm() {
                 .post('auth/signin', values)
                 .then((res) => {
                     // Đẩy data lên redux
-                    dispatch(setUser(res.content));
+                    dispatch(setUser(res.content.user));
                     // Chuyển hướng user về home sau khi đăng nhập thành công
                     navigate('/');
                     // Lưu data xuống localStorage để user load trang sẽ không mất data
-                    let dataJson = JSON.stringify(res.content);
-                    localStorage.setItem('USER_INFO', dataJson);
+                    let userInfo = JSON.stringify(res.content.user);
+                    let userToken = JSON.stringify(res.content.token);
+                    localStorage.setItem('USER_INFO', userInfo);
+                    localStorage.setItem('USER_TOKEN', userToken);
                     message.success({
                         content: 'Sign in sucessfully!',
                         duration: 5,

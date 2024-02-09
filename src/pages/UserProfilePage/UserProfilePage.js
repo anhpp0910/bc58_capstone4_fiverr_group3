@@ -6,12 +6,13 @@ import Header from '../../components/Header/Header';
 import UserProfile from './UserProfile/UserProfile';
 import Footer from '../../components/Footer/Footer';
 import BookingJobList from './BookingJobList/BookingJobList';
+import Wrapper from './Wrapper/Wrapper';
 
 const cx = classNames.bind(styles);
 
 export default function UserProfilePage() {
     return (
-        <>
+        <Wrapper>
             <Header />
             <div className={cx('wrapper')}>
                 <div className={cx('inner')}>
@@ -20,6 +21,6 @@ export default function UserProfilePage() {
                 </div>
             </div>
             <Footer />
-        </>
+        </Wrapper>
     );
 }

@@ -15,6 +15,7 @@ function FormInput({
     errorMessage,
     onChange,
     handleValidation,
+    disabled,
     ...passProps
 }) {
     const props = {
@@ -39,6 +40,7 @@ function FormInput({
                     type={setEyeIcon ? typeForPW : type}
                     onChange={onChange}
                     onBlur={handleValidation}
+                    disabled={disabled}
                 />
                 {setEyeIcon ? (
                     <div className={cx('eyeIcon')}>

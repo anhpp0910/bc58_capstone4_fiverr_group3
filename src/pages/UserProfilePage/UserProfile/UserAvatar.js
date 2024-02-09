@@ -12,27 +12,28 @@ const cx = classNames.bind(styles);
 
 export default function UserAvatar() {
     const [newAvatar, setNewAvatar] = useState('');
-    let { user } = useSelector((state) => state.userSlice.user);
+    let user = useSelector((state) => state.userSlice.user);
     let formData = new FormData();
 
-    const handleChangeAvatar = (e) => {
+    const handleUploadAvatar = (e) => {
         let file = URL.createObjectURL(e.target.files[0]);
         setNewAvatar(file);
+        // console.log(newAvatar);
         formData = ('formFile', newAvatar);
     };
 
     useEffect(() => {
-        console.log([...formData]);
-
-        httpsRequest
-            .post('users/upload-avatar', formData)
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err));
+        if (newAvatar) {
+            httpsRequest
+                .post('users/upload-avatar', formData)
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err));
+        }
     }, [newAvatar]);
 
     return (
-        <div className={cx('profileAvatar')}>
-            <div className={cx('profileAvatar2')}>
+        <div className={cx('userAvatar')}>
+            <div className={cx('userAvatar2')}>
                 <label className={cx('cameraOverlay')} htmlFor="upload">
                     <span>
                         <FontAwesomeIcon icon={faCamera} />
@@ -41,11 +42,11 @@ export default function UserAvatar() {
                         className={cx('uploadAvatar')}
                         id="upload"
                         type="file"
-                        onChange={handleChangeAvatar}
+                        onChange={handleUploadAvatar}
                     />
                 </label>
                 <Avatar
-                    className={cx('userAvatar')}
+                    className={cx('userAvatar3')}
                     src={user.avatar}
                     alt={user.name}
                 />

@@ -21,17 +21,14 @@ export default function HeaderTop() {
     const handleSignOut = () => {
         // xoá localStorage
         localStorage.removeItem('USER_INFO');
+        localStorage.removeItem('USER_TOKEN');
         window.location.reload();
     };
 
     // Render menu user if signed in else render sign in/join button
     const renderUserMenu = () => {
         if (user) {
-            const {
-                id: userId,
-                name: userName,
-                avatar: userAvatar,
-            } = user.user;
+            const { id: userId, name: userName, avatar: userAvatar } = user;
             return (
                 // Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
                 <div>
