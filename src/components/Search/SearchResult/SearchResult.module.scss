@@ -29,33 +29,31 @@
 
 .jobSubInfo {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
-}
+    .rating {
+        font-size: 1.2rem;
+        .starIcon {
+            color: #ffbe5b;
+        }
+        .soSao {
+            color: #ffbe5b;
+            padding-left: 5px;
+        }
+        .danhGia {
+            color: var(--light-gray);
+            padding-left: 5px;
+        }
+    }
 
-.rating {
-    font-size: 1.2rem;
-    .starIcon {
-        color: #ffbe5b;
-    }
-    .soSao {
-        color: #ffbe5b;
-        padding-left: 5px;
-    }
-    .danhGia {
-        color: var(--light-gray);
-        padding-left: 5px;
-    }
-}
-
-.price {
-    color: var(--gray);
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-    padding-left: 20px;
-    span {
-        color: var(--text-color);
-        font-size: 1.4rem;
-        font-weight: 500;
+    .price {
+        color: var(--gray);
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+        padding-left: 20px;
+        span {
+            color: var(--text-color);
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
     }
 }

@@ -12,6 +12,7 @@ function Button({
     primary = false,
     outline = false,
     round = false,
+    danger = false,
     text = false,
     disabled = false,
     children,
@@ -49,6 +50,7 @@ function Button({
         primary,
         outline,
         round,
+        danger,
         text,
         disabled,
     });

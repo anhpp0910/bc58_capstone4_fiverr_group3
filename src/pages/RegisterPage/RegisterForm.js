@@ -230,7 +230,7 @@ export default function RegisterForm() {
                     // Chuyển hướng user về signIn sau khi đăng ký thành công
                     navigate('/sign-in');
                     message.success({
-                        content: 'Register sucessfully! Please sign in!',
+                        content: 'Register successful! Please sign in!',
                         duration: 5,
                         style: {
                             fontSize: '1.6rem',

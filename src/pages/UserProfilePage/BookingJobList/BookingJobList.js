@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './BookingJobList.module.scss';
-import Button from '../../../components/Button/Button';
-import JobItem from './JobItem/JobItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faBuildingUser,
@@ -10,9 +8,28 @@ import {
     faClose,
 } from '@fortawesome/free-solid-svg-icons';
 
+import * as httpsRequest from '../../../utils/request';
+import Button from '../../../components/Button/Button';
+import JobItem from './JobItem/JobItem';
+
 const cx = classNames.bind(styles);
 
 export default function BookingJobList() {
+    const [dsCVDaThue, setDSCVDaThue] = useState([]);
+
+    useEffect(() => {
+        httpsRequest
+            .get('thue-cong-viec/lay-danh-sach-da-thue')
+            .then((res) => setDSCVDaThue(res.content))
+            .catch((err) => console.log(err));
+    }, []);
+
+    const renderDSCVDaThue = () => {
+        return dsCVDaThue.map((CV) => {
+            return <JobItem key={CV.id} detailCVDaThue={CV} />;
+        });
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('buyServices')}>
@@ -51,13 +68,7 @@ export default function BookingJobList() {
                 </p>
                 <Button primary>Create a New Gig</Button>
             </div>
-            <div>
-                <JobItem />
-                <JobItem />
-                <JobItem />
-                <JobItem />
-                <JobItem />
-            </div>
+            <div>{renderDSCVDaThue()}</div>
         </div>
     );
 }

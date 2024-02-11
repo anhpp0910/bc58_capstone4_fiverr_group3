@@ -272,7 +272,7 @@ export default function UpdateProfile() {
                     handleGetUserProfile();
                     setIsOpen(false);
                     message.success({
-                        content: 'Profile updated sucessfully!',
+                        content: 'Profile updated successful!',
                         duration: 5,
                         style: {
                             fontSize: '1.6rem',
@@ -283,6 +283,16 @@ export default function UpdateProfile() {
                 })
                 .catch((err) => {
                     console.log(err);
+                    message.error({
+                        content:
+                            'Profile update failed! Please check your account and try again!',
+                        duration: 5,
+                        style: {
+                            fontSize: '1.6rem',
+                            color: 'var(--text-color)',
+                            fontFamily: '"Montserrat", sans-serif',
+                        },
+                    });
                 });
         }
     };
@@ -443,7 +453,7 @@ export default function UpdateProfile() {
                             </div>
                             <div className={cx('btn')}>
                                 <Button primary>Update</Button>
-                                <Button outline onClick={closeModal}>
+                                <Button danger onClick={closeModal}>
                                     Cancel
                                 </Button>
                             </div>

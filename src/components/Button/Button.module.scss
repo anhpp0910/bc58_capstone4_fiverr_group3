@@ -42,6 +42,17 @@
     }
 }
 
+.danger {
+    color: var(--white);
+    border-color: var(--red);
+    background-color: var(--red);
+    transition: all 0.3s;
+    &:hover {
+        border-color: var(--red-hover);
+        background-color: var(--red-hover);
+    }
+}
+
 .text {
     color: var(--gray);
     padding: 0;

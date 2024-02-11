@@ -61,10 +61,6 @@ export default function UserProfile() {
                         {renderItem(skill)}
                     </div>
                 </div>
-                <div className={cx('userProfileItem')}>
-                    <h5>Booking Job:</h5>
-                    <p></p>
-                </div>
             </div>
         </div>
     );

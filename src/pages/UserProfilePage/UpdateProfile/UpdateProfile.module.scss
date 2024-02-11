@@ -1,5 +1,5 @@
 .wrapper {
-    width: 400px;
+    width: 500px;
     height: auto;
     padding: 10px 30px;
 }
@@ -97,11 +97,17 @@
             &:focus-within {
                 border-color: var(--primary);
             }
+            &:not(:placeholder-shown) ~ .addIcon {
+                color: var(--primary);
+            }
         }
         .addIcon {
             position: absolute;
             right: 20px;
             background-color: transparent;
+            &:hover {
+                color: var(--gray);
+            }
         }
     }
 }
@@ -125,7 +131,7 @@
         cursor: pointer;
         transition: all 0.3s;
         &:hover {
-            color: red;
+            color: var(--red);
         }
     }
 }
