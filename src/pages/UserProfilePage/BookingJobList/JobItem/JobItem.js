@@ -10,7 +10,6 @@ import Button from '../../../../components/Button/Button';
 const cx = classNames.bind(styles);
 
 function JobItem({ detailCVDaThue, deleteCV }) {
-    console.log(detailCVDaThue);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>

@@ -20,15 +20,13 @@ export default function JobDetailPage() {
             .get(`cong-viec/lay-cong-viec-chi-tiet/${jobId}`)
             .then((res) => setJobDetail(res.content[0]))
             .catch((err) => console.log(err));
-    }, []);
-
-    console.log(jobDetail);
+    }, [jobId]);
 
     return (
         <div>
             <Header />
             <div className={cx('inner')}>
-                <JobDetail />
+                <JobDetail jobDetail={jobDetail} />
                 <CheckOut jobDetail={jobDetail.congViec} />
             </div>
             <Footer />

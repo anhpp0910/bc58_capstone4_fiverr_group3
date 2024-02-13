@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './UserProfile.module.scss';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { message } from 'antd';
 
 import * as httpsRequest from '../../../utils/request';
+import { setUser } from '../../../redux/userSlice';
 import Avatar from '../../../components/Avatar/Avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
@@ -11,25 +14,56 @@ import { faCamera } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 export default function UserAvatar() {
-    const [newAvatar, setNewAvatar] = useState('');
+    let dispatch = useDispatch();
     let user = useSelector((state) => state.userSlice.user);
-    let formData = new FormData();
 
-    const handleUploadAvatar = (e) => {
-        let file = URL.createObjectURL(e.target.files[0]);
-        setNewAvatar(file);
-        // console.log(newAvatar);
-        formData = ('formFile', newAvatar);
+    const handleGetUserProfile = () => {
+        httpsRequest
+            .get(`users/${user.id}`)
+            .then((res) => {
+                // Đẩy data lên redux
+                dispatch(setUser(res.content));
+                // Lưu data xuống localStorage để user load trang sẽ không mất data
+                let userInfo = JSON.stringify(res.content);
+                localStorage.setItem('USER_INFO', userInfo);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
-    useEffect(() => {
-        if (newAvatar) {
-            httpsRequest
-                .post('users/upload-avatar', formData)
-                .then((res) => console.log(res))
-                .catch((err) => console.log(err));
-        }
-    }, [newAvatar]);
+    const handleUploadAvatar = (e) => {
+        let file = e.target.files[0];
+        let formData = new FormData();
+        formData.append('formFile', file);
+        httpsRequest
+            .post('users/upload-avatar', formData)
+            .then((res) => {
+                handleGetUserProfile();
+                message.success({
+                    content: 'Avatar updated successful!',
+                    duration: 5,
+                    style: {
+                        fontSize: '1.6rem',
+                        color: 'var(--text-color)',
+                        fontFamily: '"Montserrat", sans-serif',
+                    },
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+                message.error({
+                    content:
+                        'Avatar update failed! Please check your account and try again!',
+                    duration: 5,
+                    style: {
+                        fontSize: '1.6rem',
+                        color: 'var(--text-color)',
+                        fontFamily: '"Montserrat", sans-serif',
+                    },
+                });
+            });
+    };
 
     return (
         <div className={cx('userAvatar')}>
@@ -54,11 +88,3 @@ export default function UserAvatar() {
         </div>
     );
 }
-
-// Avatar
-// Post đẩy hình lên API
-// Đẩy data lên redux
-// Load lại trang
-
-// Info
-//

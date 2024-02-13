@@ -1,5 +1,16 @@
 .wrapper {
     width: 58%;
     font-weight: 500;
-    background-color: var(--background-gray);
+    margin: 10px 0;
+}
+
+.link {
+    color: var(--gray);
+    .navlink {
+        color: var(--gray);
+
+        + .icon {
+            margin: 0 8px;
+        }
+    }
 }
