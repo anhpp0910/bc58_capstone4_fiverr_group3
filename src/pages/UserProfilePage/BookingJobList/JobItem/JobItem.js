@@ -9,7 +9,7 @@ import Button from '../../../../components/Button/Button';
 
 const cx = classNames.bind(styles);
 
-function JobItem({ detailCVDaThue }) {
+function JobItem({ detailCVDaThue, deleteCV }) {
     console.log(detailCVDaThue);
     return (
         <div className={cx('wrapper')}>
@@ -52,7 +52,14 @@ function JobItem({ detailCVDaThue }) {
                 >
                     View detail
                 </Button>
-                <Button danger>Delete</Button>
+                <Button
+                    danger
+                    onClick={() => {
+                        deleteCV(detailCVDaThue.id);
+                    }}
+                >
+                    Delete
+                </Button>
             </div>
         </div>
     );
@@ -60,6 +67,7 @@ function JobItem({ detailCVDaThue }) {
 
 JobItem.propTypes = {
     detailCVDaThue: PropTypes.object,
+    deleteCV: PropTypes.func,
 };
 
 export default JobItem;

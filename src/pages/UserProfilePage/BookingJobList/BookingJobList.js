@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './BookingJobList.module.scss';
+import { message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faBuildingUser,
@@ -18,16 +19,51 @@ export default function BookingJobList() {
     const [dsCVDaThue, setDSCVDaThue] = useState([]);
 
     useEffect(() => {
+        getDSCVDaThue();
+    }, []);
+
+    const getDSCVDaThue = () => {
         httpsRequest
             .get('thue-cong-viec/lay-danh-sach-da-thue')
             .then((res) => setDSCVDaThue(res.content))
             .catch((err) => console.log(err));
-    }, []);
+    };
 
     const renderDSCVDaThue = () => {
         return dsCVDaThue.map((CV) => {
-            return <JobItem key={CV.id} detailCVDaThue={CV} />;
+            return (
+                <JobItem key={CV.id} detailCVDaThue={CV} deleteCV={deleteCV} />
+            );
         });
+    };
+
+    const deleteCV = (id) => {
+        httpsRequest
+            ._delete(`thue-cong-viec/${id}`)
+            .then((res) => {
+                getDSCVDaThue();
+                message.success({
+                    content: 'Your booking has been deleted!',
+                    duration: 5,
+                    style: {
+                        fontSize: '1.6rem',
+                        color: 'var(--text-color)',
+                        fontFamily: '"Montserrat", sans-serif',
+                    },
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+                message.error({
+                    content: 'Delete failed! Please try again!',
+                    duration: 5,
+                    style: {
+                        fontSize: '1.6rem',
+                        color: 'var(--text-color)',
+                        fontFamily: '"Montserrat", sans-serif',
+                    },
+                });
+            });
     };
 
     return (

@@ -26,6 +26,11 @@ export const put = async (path, options = {}) => {
     return response.data;
 };
 
+export const _delete = async (path, options = {}) => {
+    const response = await httpsRequest.delete(path, options);
+    return response.data;
+};
+
 // Add a request interceptor
 httpsRequest.interceptors.request.use(
     function (config) {

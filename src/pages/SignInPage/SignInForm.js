@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
-import { setUser } from '../../redux/userSlice';
 import * as httpsRequest from '../../utils/request';
+import { setUser } from '../../redux/userSlice';
 import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 
