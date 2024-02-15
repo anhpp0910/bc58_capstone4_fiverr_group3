@@ -8,9 +8,30 @@
     color: var(--gray);
     .navlink {
         color: var(--gray);
-
+        position: relative;
         + .icon {
             margin: 0 8px;
         }
+        &::after {
+            content: '';
+            position: absolute;
+            background: var(--gray);
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+        }
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.title {
+    margin-top: 10px;
+    h2 {
+        line-height: 40px;
     }
 }

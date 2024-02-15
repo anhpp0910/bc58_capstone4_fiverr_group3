@@ -32,6 +32,9 @@ function JobDetail({ jobDetail }) {
                         {jobDetail.tenChiTietLoai}
                     </NavLink>
                 </div>
+                <div className={cx('title')}>
+                    {/* <h2>{jobDetail.congViec.tenCongViec}</h2> */}
+                </div>
             </div>
         </div>
     );

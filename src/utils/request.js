@@ -7,7 +7,6 @@ const httpsRequest = axios.create({
     headers: {
         tokenCybersoft:
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA1OCIsIkhldEhhblN0cmluZyI6IjAyLzA2LzIwMjQiLCJIZXRIYW5UaW1lIjoiMTcxNzI4NjQwMDAwMCIsIm5iZiI6MTY5MDM5MDgwMCwiZXhwIjoxNzE3NDM0MDAwfQ.I_5jTmaP4oPXDl-5EqRjQqnodRT3qKLF9_hDUjhDwFQ',
-        token: JSON.parse(localStorage.getItem('USER_TOKEN')),
     },
 });
 
@@ -35,6 +34,10 @@ export const _delete = async (path, options = {}) => {
 httpsRequest.interceptors.request.use(
     function (config) {
         // Do something before request is sent
+        const token = JSON.parse(localStorage.getItem('USER_TOKEN'));
+        if (token) {
+            config.headers.token = token;
+        }
         store.dispatch(setLoadingOn());
         return config;
     },
