@@ -115,7 +115,7 @@ export default function RegisterForm() {
         } else if (typeof formValues['phone'] !== 'undefined') {
             if (
                 !formValues['phone'].match(
-                    /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+                    /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/,
                 )
             ) {
                 formIsValid = false;
