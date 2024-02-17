@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse, ConfigProvider } from 'antd';
+
 const answer = (
     <p
         style={{
@@ -36,21 +37,23 @@ const faq = [
         children: answer,
     },
 ];
-const FormTest = () => (
-    <ConfigProvider
-        theme={{
-            components: {
-                Collapse: {
-                    colorBorder: 'var(--border-color)',
-                    headerBg: 'var(--white)',
-                    fontSize: '1.6rem',
-                    colorText: 'var(--gray)',
-                    colorTextHeading: 'var(--gray)',
+
+export default function FAQ() {
+    return (
+        <ConfigProvider
+            theme={{
+                components: {
+                    Collapse: {
+                        colorBorder: 'var(--border-color)',
+                        headerBg: 'var(--white)',
+                        fontSize: '1.6rem',
+                        colorText: 'var(--gray)',
+                        colorTextHeading: 'var(--gray)',
+                    },
                 },
-            },
-        }}
-    >
-        <Collapse items={faq} bordered={false} size="large" />
-    </ConfigProvider>
-);
-export default FormTest;
+            }}
+        >
+            <Collapse items={faq} bordered={false} size="large" />
+        </ConfigProvider>
+    );
+}

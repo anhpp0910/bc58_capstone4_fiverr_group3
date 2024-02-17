@@ -100,7 +100,7 @@ export default function SignInForm() {
                     localStorage.setItem('USER_INFO', userInfo);
                     localStorage.setItem('USER_TOKEN', userToken);
                     // Chuyển hướng user về trang trước khi sign in sau khi đăng nhập thành công
-                    navigate('/');
+                    navigate(-1);
                     message.success({
                         content: 'Sign in successful!',
                         duration: 5,

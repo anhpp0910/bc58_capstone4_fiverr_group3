@@ -42,7 +42,8 @@ input,
     border: none;
 }
 
-input {
+input,
+textarea {
     caret-color: var(--primary);
 }
 
@@ -78,4 +79,8 @@ li {
 
 .ant-message {
     z-index: 20000;
+}
+
+.ant-collapse-header {
+    font-weight: 600;
 }

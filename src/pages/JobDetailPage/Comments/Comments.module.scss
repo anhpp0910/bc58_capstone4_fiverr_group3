@@ -1,0 +1,90 @@
+.wrapper {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        background: var(--border-color);
+        width: 100%;
+        height: 1px;
+        left: 0;
+    }
+}
+
+.inner {
+    padding: 20px 0;
+}
+
+.commenterInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .commenterAvatar {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .commenterName {
+        font-weight: 600;
+    }
+    .saoBinhLuan {
+        color: #ffbe5b;
+    }
+    .starIcon {
+        padding: 0 4px 0 20px;
+    }
+    .commenterNationality {
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        color: var(--gray);
+        margin-top: 5px;
+    }
+    .flag {
+        width: 25px;
+        margin-right: 5px;
+    }
+}
+
+.commentContent {
+    margin: 20px 0 0 65px;
+    .ngayBinhLuan {
+        font-size: 1.4rem;
+        color: var(--gray);
+    }
+    .comment {
+        margin: 5px 0 15px;
+    }
+    .like {
+        display: flex;
+    }
+    .likeBtn {
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+}
+
+.writeComment {
+    .heading {
+        display: flex;
+        justify-content: space-between;
+        .ratingText {
+            padding-right: 15px;
+        }
+        .rate {
+            color: #ffbe5b;
+        }
+    }
+    textarea {
+        resize: vertical;
+        border-radius: 5px;
+        border-color: var(--border-color);
+        padding: 15px;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        &:focus {
+            outline: none !important;
+            border-color: var(--primary);
+        }
+    }
+}
