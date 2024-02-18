@@ -54,8 +54,7 @@ export default function UserAvatar() {
             .catch((err) => {
                 console.log(err);
                 message.error({
-                    content:
-                        'Avatar update failed! Please check your account and try again!',
+                    content: err.response.data.content,
                     duration: 5,
                     style: {
                         fontSize: '1.6rem',
