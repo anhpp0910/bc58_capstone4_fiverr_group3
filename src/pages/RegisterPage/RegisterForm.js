@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './RegisterPage.module.scss';
 import { message } from 'antd';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCake,
@@ -15,6 +16,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import * as httpsRequest from '../../utils/request';
+import { setPreviousUrl } from '../../redux/previousUrlSlice';
 import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 
@@ -22,6 +24,9 @@ const cx = classNames.bind(styles);
 
 export default function RegisterForm() {
     let navigate = useNavigate();
+    let dispatch = useDispatch();
+    // Dispatch Homepage as previous URL to Redux state
+    dispatch(setPreviousUrl('/'));
 
     const handleToSignInPage = () => {
         navigate('/sign-in');

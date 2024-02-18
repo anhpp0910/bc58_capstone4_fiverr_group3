@@ -4,18 +4,21 @@ import styles from './SignInPage.module.scss';
 import { message } from 'antd';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 import * as httpsRequest from '../../utils/request';
 import { setUser } from '../../redux/userSlice';
+import { setPreviousUrl } from '../../redux/previousUrlSlice';
 import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 
 const cx = classNames.bind(styles);
 
 export default function SignInForm() {
-    let navigate = useNavigate();
-    let dispatch = useDispatch();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { previousUrl } = useSelector((state) => state.previousUrlSlice);
 
     const handleToRegisterPage = () => {
         navigate('/register');
@@ -100,7 +103,11 @@ export default function SignInForm() {
                     localStorage.setItem('USER_INFO', userInfo);
                     localStorage.setItem('USER_TOKEN', userToken);
                     // Chuyển hướng user về trang trước khi sign in sau khi đăng nhập thành công
-                    navigate(-1);
+                    // Nếu trang trước khi sign in là trang sign up thì chuyển về home
+                    if (previousUrl) {
+                        navigate(previousUrl);
+                        dispatch(setPreviousUrl(null));
+                    } else navigate(-1);
                     message.success({
                         content: 'Sign in successful!',
                         duration: 5,
