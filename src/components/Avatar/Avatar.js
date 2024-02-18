@@ -6,8 +6,7 @@ const Avatar = forwardRef(({ src, alt, ...props }, ref) => {
     const [fallback, setFallback] = useState('');
 
     useEffect(() => {
-        // Set the fallback to the default image if src is falsy
-        setFallback(src || images.noAvatar);
+        setFallback(src);
     }, [src]);
 
     const handleError = () => {
@@ -17,7 +16,7 @@ const Avatar = forwardRef(({ src, alt, ...props }, ref) => {
     return (
         <img
             ref={ref}
-            src={fallback}
+            src={fallback || src}
             alt={alt}
             {...props}
             onError={handleError}
