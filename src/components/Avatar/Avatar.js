@@ -6,7 +6,7 @@ const Avatar = forwardRef(({ src, alt, ...props }, ref) => {
     const [fallback, setFallback] = useState('');
 
     useEffect(() => {
-        setFallback(src);
+        setFallback(src || images.noAvatar);
     }, [src]);
 
     const handleError = () => {

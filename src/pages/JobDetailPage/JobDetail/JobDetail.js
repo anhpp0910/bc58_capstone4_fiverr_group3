@@ -9,8 +9,8 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import Avatar from '../../../components/Avatar/Avatar';
 import Button from '../../../components/Button/Button';
-import FAQ from './FAQ';
-import Comments from '../Comments/Comments';
+import FAQ from './FAQ/FAQ';
+import Comments from './Comments/Comments';
 
 const cx = classNames.bind(styles);
 
@@ -115,9 +115,6 @@ function JobDetail({ jobDetail }) {
                 <div className={cx('faq')}>
                     <h3>FAQ</h3>
                     <FAQ />
-                </div>
-                <div className={cx('reviews')}>
-                    <h3>Review</h3>
                 </div>
                 <div className={cx('comments')}>
                     <Comments maCongViec={jobDetail.id} />

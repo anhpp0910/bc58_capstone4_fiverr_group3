@@ -6,12 +6,12 @@ import { useSelector } from 'react-redux';
 import { message, Rate } from 'antd';
 import moment from 'moment';
 
-import * as httpsRequest from '../../../utils/request';
-import Avatar from '../../../components/Avatar/Avatar';
+import * as httpsRequest from '../../../../utils/request';
+import Avatar from '../../../../components/Avatar/Avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
-import Button from '../../../components/Button/Button';
+import Button from '../../../../components/Button/Button';
 
 const cx = classNames.bind(styles);
 
@@ -89,8 +89,8 @@ function Comments({ maCongViec }) {
     const renderComments = () => {
         return comments.map((comment) => {
             return (
-                <div key={comment.id} className={cx('wrapper')}>
-                    <div className={cx('inner')}>
+                <div key={comment.id} className={cx('commentWrapper')}>
+                    <div className={cx('commentInner')}>
                         <div className={cx('commenterInfo')}>
                             <Avatar
                                 className={cx('commenterAvatar')}
@@ -156,7 +156,85 @@ function Comments({ maCongViec }) {
 
     return (
         <>
-            {renderComments()}
+            <div className={cx('reviews')}>
+                <h3>{comments.length} Reviews</h3>
+                <div className={cx('content')}>
+                    <div>
+                        <Rate
+                            className={cx('rate')}
+                            disabled
+                            defaultValue={5}
+                        />
+                        <span className={cx('saoBinhLuan')}>
+                            {
+                                comments.filter((cmt) => cmt.saoBinhLuan == 5)
+                                    .length
+                            }
+                        </span>
+                    </div>
+                    <div>
+                        <Rate
+                            className={cx('rate')}
+                            disabled
+                            defaultValue={4}
+                        />
+                        <span className={cx('saoBinhLuan')}>
+                            {
+                                comments.filter((cmt) => cmt.saoBinhLuan == 4)
+                                    .length
+                            }
+                        </span>
+                    </div>
+                    <div>
+                        <Rate
+                            className={cx('rate')}
+                            disabled
+                            defaultValue={3}
+                        />
+                        <span className={cx('saoBinhLuan')}>
+                            {
+                                comments.filter((cmt) => cmt.saoBinhLuan == 3)
+                                    .length
+                            }
+                        </span>
+                    </div>
+                    <div>
+                        <Rate
+                            className={cx('rate')}
+                            disabled
+                            defaultValue={2}
+                        />
+                        <span className={cx('saoBinhLuan')}>
+                            {
+                                comments.filter((cmt) => cmt.saoBinhLuan == 2)
+                                    .length
+                            }
+                        </span>
+                    </div>
+                    <div>
+                        <Rate
+                            className={cx('rate')}
+                            disabled
+                            defaultValue={1}
+                        />
+                        <span className={cx('saoBinhLuan')}>
+                            {
+                                comments.filter((cmt) => cmt.saoBinhLuan == 1)
+                                    .length
+                            }
+                        </span>
+                    </div>
+                </div>
+                <div className={cx('sortByBar')}>
+                    <span className={cx('title')}>Sort by</span>
+                    <select>
+                        <option>All reviews</option>
+                        <option value="mostRelevant">Most relevant</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+            </div>
+            <>{renderComments()}</>
             <div className={cx('writeComment')}>
                 <div className={cx('heading')}>
                     <h3>Please give us your feedback</h3>

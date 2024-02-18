@@ -1,4 +1,39 @@
-.wrapper {
+.rate {
+    color: #ffbe5b;
+}
+
+.reviews {
+    .content {
+        padding: 0 20px;
+        .rate {
+            margin: 5px 0;
+        }
+        .saoBinhLuan {
+            color: var(--gray);
+            font-size: 1.8rem;
+            margin-left: 15px;
+        }
+    }
+    .sortByBar {
+        padding: 16px 0;
+        .title {
+            color: var(--gray);
+            font-weight: 600;
+            padding-right: 5px;
+        }
+        select {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            font-size: 1.6rem;
+            font-weight: 700;
+            padding-right: 5px;
+        }
+    }
+}
+
+.commentWrapper {
     position: relative;
     &::before {
         content: '';
@@ -10,7 +45,7 @@
     }
 }
 
-.inner {
+.commentInner {
     padding: 20px 0;
 }
 
@@ -72,9 +107,6 @@
         .ratingText {
             padding-right: 15px;
         }
-        .rate {
-            color: #ffbe5b;
-        }
     }
     textarea {
         resize: vertical;
@@ -84,7 +116,7 @@
         font-size: 1.6rem;
         margin-bottom: 10px;
         &:focus {
-            outline: none !important;
+            outline: none;
             border-color: var(--primary);
         }
     }
