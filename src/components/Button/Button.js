@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -45,6 +45,7 @@ function Button({
         Comp = 'a';
     }
 
+    const location = useLocation();
     const classes = cx('wrapper', {
         [className]: className,
         primary,
@@ -53,6 +54,7 @@ function Button({
         danger,
         text,
         disabled,
+        active: to && location.pathname === to, // Check if the route matches
     });
 
     return (

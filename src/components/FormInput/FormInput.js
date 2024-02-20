@@ -42,7 +42,7 @@ function FormInput({
                     onBlur={handleValidation}
                     disabled={disabled}
                 />
-                {setEyeIcon ? (
+                {setEyeIcon && (
                     <div className={cx('eyeIcon')}>
                         {isEyeOpen === false ? (
                             <FontAwesomeIcon
@@ -56,8 +56,6 @@ function FormInput({
                             />
                         )}
                     </div>
-                ) : (
-                    <></>
                 )}
             </div>
             <div className={cx('errorMessage')}>

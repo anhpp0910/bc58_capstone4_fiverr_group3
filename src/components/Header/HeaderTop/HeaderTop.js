@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './HeaderTop.module.scss';
 import { useSelector } from 'react-redux';
@@ -16,7 +16,7 @@ import images from '../../../assets/images';
 const cx = classNames.bind(styles);
 
 export default function HeaderTop() {
-    let { user } = useSelector((state) => state.userSlice);
+    const { user } = useSelector((state) => state.userSlice);
 
     const handleSignOut = () => {
         // xoá localStorage

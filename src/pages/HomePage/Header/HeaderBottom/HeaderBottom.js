@@ -70,12 +70,10 @@ export default function HeaderBottom() {
     };
 
     return (
-        <>
-            {show && (
-                <header className={cx('wrapper')}>
-                    <div className={cx('inner')}>{renderMenuLoaiCV()}</div>
-                </header>
-            )}
-        </>
+        show && (
+            <header className={cx('wrapper')}>
+                <div className={cx('inner')}>{renderMenuLoaiCV()}</div>
+            </header>
+        )
     );
 }

@@ -10,9 +10,14 @@ import JobListByCategoryPage from './pages/JobListByCategoryPage/JobListByCatego
 import JobSearchResultPage from './pages/JobSearchResultPage/JobSearchResultPage';
 import JobDetailPage from './pages/JobDetailPage/JobDetailPage';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
-import AdminPage from './pages/AdminPage/AdminPage';
-import FormTest from './pages/FormTest/FormTest';
+import AdminPageLayout from './pages/AdminPage/AdminPageLayout';
+import AdminHomePage from './pages/AdminPage/AdminHomePage/AdminHomePage';
+import UserManagement from './pages/AdminPage/UserManagement/UserManagement';
+import JobCategoryManagement from './pages/AdminPage/JobCategoryManagement /JobCategoryManagement';
+import JobManagement from './pages/AdminPage/JobManagement /JobManagement';
+import BookingManagement from './pages/AdminPage/BookingManagement/BookingManagement';
 
+import FormTest from './pages/FormTest/FormTest';
 function App() {
     return (
         <>
@@ -20,6 +25,8 @@ function App() {
             <BrowserRouter>
                 <ScrollToTop>
                     <Routes>
+                        <Route path="/form-test" element={<FormTest />} />
+
                         <Route path="/" element={<HomePage />} />
                         <Route path="/sign-in" element={<SignInPage />} />
                         <Route path="/register" element={<RegisterPage />} />
@@ -43,8 +50,26 @@ function App() {
                             path="/user-profile/:userId"
                             element={<UserProfilePage />}
                         />
-                        <Route path="/admin" element={<AdminPage />} />
-                        <Route path="/formTest" element={<FormTest />} />
+
+                        <Route path="/admin" element={<AdminPageLayout />}>
+                            <Route path="/admin" element={<AdminHomePage />} />
+                            <Route
+                                path="/admin/user"
+                                element={<UserManagement />}
+                            />
+                            <Route
+                                path="/admin/job-category"
+                                element={<JobCategoryManagement />}
+                            />
+                            <Route
+                                path="/admin/job"
+                                element={<JobManagement />}
+                            />
+                            <Route
+                                path="/admin/booking"
+                                element={<BookingManagement />}
+                            />
+                        </Route>
                     </Routes>
                 </ScrollToTop>
             </BrowserRouter>

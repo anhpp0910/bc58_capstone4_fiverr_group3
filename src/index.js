@@ -11,7 +11,7 @@ import previousUrlSlice from './redux/previousUrlSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export let store = configureStore({
+export const store = configureStore({
     reducer: {
         userSlice,
         spinnerSlice,

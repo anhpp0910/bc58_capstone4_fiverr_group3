@@ -173,21 +173,21 @@ function CheckOut({ jobDetail }) {
         </div>
     ));
 
-    return jobDetail ? (
-        <div className={cx('wrapper')}>
-            <div className={cx('checkOutTab')}>
-                <div className={cx('tabTitles')}>{listTitles}</div>
-                <div className={cx('tabContent')}>{listContent}</div>
-            </div>
-            <div className={cx('requirements')}>
-                <strong>Do you have any special requirements?</strong>
-                <div>
-                    <Button outline>Get a Quote</Button>
+    return (
+        jobDetail && (
+            <div className={cx('wrapper')}>
+                <div className={cx('checkOutTab')}>
+                    <div className={cx('tabTitles')}>{listTitles}</div>
+                    <div className={cx('tabContent')}>{listContent}</div>
+                </div>
+                <div className={cx('requirements')}>
+                    <strong>Do you have any special requirements?</strong>
+                    <div>
+                        <Button outline>Get a Quote</Button>
+                    </div>
                 </div>
             </div>
-        </div>
-    ) : (
-        <></>
+        )
     );
 }
 
