@@ -25,7 +25,7 @@ export default function JobTab() {
 
     const renderJobItem = () => {
         return dsCVTheoChiTietLoai.map((CV) => {
-            return <JobItem key={CV.id} infoCV={CV} />;
+            return <JobItem key={CV.id} jobDetail={CV} />;
         });
     };
 

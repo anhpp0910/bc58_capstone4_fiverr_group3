@@ -10,19 +10,21 @@ import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function SearchResult({ infoCV }) {
+function SearchResult({ jobDetail }) {
     return (
         <NavLink
-            to={`/job-detail/${infoCV.congViec.id}`}
+            to={`/job-detail/${jobDetail.congViec.id}`}
             className={cx('wrapper')}
         >
             <Avatar
                 className={cx('sellerAvatar')}
-                src={infoCV.avatar}
-                alt={infoCV.tenNguoiTao}
+                src={jobDetail.avatar}
+                alt={jobDetail.tenNguoiTao}
             />
             <div className={cx('jobInfo')}>
-                <p className={cx('jobName')}>{infoCV.congViec.tenCongViec}</p>
+                <p className={cx('jobName')}>
+                    {jobDetail.congViec.tenCongViec}
+                </p>
                 <div className={cx('jobSubInfo')}>
                     <p className={cx('rating')}>
                         <FontAwesomeIcon
@@ -30,14 +32,14 @@ function SearchResult({ infoCV }) {
                             className={cx('starIcon')}
                         />
                         <span className={cx('soSao')}>
-                            {infoCV.congViec.saoCongViec}
+                            {jobDetail.congViec.saoCongViec}
                         </span>
                         <span className={cx('danhGia')}>
-                            ({infoCV.congViec.danhGia})
+                            ({jobDetail.congViec.danhGia})
                         </span>
                     </p>
                     <p className={cx('price')}>
-                        STARTING AT <span>${infoCV.congViec.giaTien}</span>
+                        STARTING AT <span>${jobDetail.congViec.giaTien}</span>
                     </p>
                 </div>
             </div>
@@ -46,7 +48,7 @@ function SearchResult({ infoCV }) {
 }
 
 SearchResult.propTypes = {
-    infoCV: PropTypes.object,
+    jobDetail: PropTypes.object,
 };
 
 export default SearchResult;

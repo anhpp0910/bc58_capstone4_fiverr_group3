@@ -53,7 +53,7 @@ export default function Search() {
 
     const renderSearchResults = () => {
         return searchResults.slice(0, 3).map((result) => {
-            return <SearchResult key={result.id} infoCV={result} />;
+            return <SearchResult key={result.id} jobDetail={result} />;
         });
     };
 
