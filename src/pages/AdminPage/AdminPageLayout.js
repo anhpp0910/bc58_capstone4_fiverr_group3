@@ -1,10 +1,14 @@
 import React, { useEffect, useRef } from 'react';
+import classNames from 'classnames/bind';
+import styles from './AdminPageLayout.module.scss';
 import { Outlet } from 'react-router-dom';
 import { message } from 'antd';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Header from './Header/Header';
+
+const cx = classNames.bind(styles);
 
 export default function AdminPageLayout() {
     const navigate = useNavigate();
@@ -36,7 +40,9 @@ export default function AdminPageLayout() {
         user.role == 'ADMIN' && (
             <>
                 <Header />
-                <Outlet />
+                <div className={cx('outletWrapper')}>
+                    <Outlet />
+                </div>
             </>
         )
     );

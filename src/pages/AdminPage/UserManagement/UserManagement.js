@@ -77,7 +77,6 @@ export default function UserManagement() {
                 .then((res) => {
                     setSearchResults(res.content);
                     setLoading(false);
-                    console.log(res.content);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -154,7 +153,7 @@ export default function UserManagement() {
             dataIndex: 'role',
             key: 'role',
             render: (role) => (
-                <Tag color={role == 'ADMIN' ? 'red' : 'geekblue'}>{role}</Tag>
+                <Tag color={role == 'ADMIN' ? 'red' : 'green'}>{role}</Tag>
             ),
         },
         {
@@ -181,7 +180,7 @@ export default function UserManagement() {
     ];
 
     return (
-        <div className={cx('wrapper')}>
+        <>
             <div className={cx('search')}>
                 <form className={cx('searchForm')}>
                     <input
@@ -240,6 +239,6 @@ export default function UserManagement() {
                     <Table columns={columns} dataSource={searchResults} />
                 </ConfigProvider>
             )}
-        </div>
+        </>
     );
 }

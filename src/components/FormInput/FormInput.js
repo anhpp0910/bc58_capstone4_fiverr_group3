@@ -9,6 +9,7 @@ const cx = classNames.bind(styles);
 
 function FormInput({
     labelIcon,
+    labelText,
     id,
     type,
     setEyeIcon,
@@ -32,9 +33,14 @@ function FormInput({
     return (
         <div className={cx('formInput')}>
             <div className={cx('inputField')}>
-                <label className={cx('labelIcon')}>
-                    <FontAwesomeIcon icon={labelIcon} />
-                </label>
+                {labelIcon && (
+                    <label className={cx('labelIcon')}>
+                        <FontAwesomeIcon icon={labelIcon} />
+                    </label>
+                )}
+                {labelText && (
+                    <label className={cx('labelText')}>{labelText}</label>
+                )}
                 <input
                     {...props}
                     type={setEyeIcon ? typeForPW : type}

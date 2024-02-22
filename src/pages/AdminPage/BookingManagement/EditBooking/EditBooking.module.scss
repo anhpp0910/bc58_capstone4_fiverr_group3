@@ -9,33 +9,23 @@
     padding: 10px 30px;
 }
 
-.editProfileText {
+.editBookingText {
     color: var(--primary);
     font-weight: 700;
     text-align: center;
-}
-
-.userAvatarWrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    .userAvatar {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
+    margin-bottom: 30px;
 }
 
 .radioWrapper {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    .radioLabel {
-        font-size: 1.8rem;
+    font-size: 1.8rem;
+    .labelText {
+        font-weight: 700;
     }
-    .labelIcon {
-        font-size: 2.4rem;
+    .radioLabel {
+        margin-left: 55px;
     }
     .radio {
         flex: 1;
@@ -64,39 +54,9 @@
     transition: all 0.3s ease;
 }
 
-.radioWrapper .radio.genderRadio input[type='radio'] + .radioLabel:before {
-    cursor: default;
-}
-
 .radioWrapper .radio input[type='radio']:checked + .radioLabel:before {
     background-color: var(--primary);
     box-shadow: inset 0 0 0 4px var(--white);
-}
-
-.radioWrapper
-    .radio.genderRadio
-    input[type='radio']:checked
-    + .radioLabel:before {
-    background-color: var(--light-gray);
-}
-
-.certification,
-.skill {
-    margin-bottom: 10px;
-    .labelIcon {
-        font-size: 2.4rem;
-        margin-right: 20px;
-    }
-    .item {
-        cursor: default;
-        margin-right: 5px;
-        &:hover {
-            color: var(--gray);
-        }
-        + .item {
-            margin-left: 0;
-        }
-    }
 }
 
 .btn {

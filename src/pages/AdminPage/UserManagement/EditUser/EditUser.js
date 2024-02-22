@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { message } from 'antd';
+import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faPenToSquare,
@@ -64,7 +65,7 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
                     email,
                     name,
                     phone,
-                    birthday,
+                    birthday: moment(birthday).format('YYYY-MM-DD'),
                     gender,
                     certification,
                     skill,
@@ -361,6 +362,7 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
 EditUser.propTypes = {
     userId: PropTypes.number,
     handleGetUserList: PropTypes.func,
+    handleSearch: PropTypes.func,
 };
 
 export default EditUser;
