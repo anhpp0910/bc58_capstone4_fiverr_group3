@@ -52,8 +52,8 @@ function EditBooking({ bookingId, handleGetBookingList }) {
     };
 
     const openModal = () => {
-        setIsOpen(true);
         handleGetBookingDetail();
+        setIsOpen(true);
     };
 
     const closeModal = () => {
@@ -104,7 +104,7 @@ function EditBooking({ bookingId, handleGetBookingList }) {
                 setIsOpen(false);
                 handleGetBookingList();
                 message.success({
-                    content: 'Booking edited successful!',
+                    content: 'Booking edited!',
                     duration: 5,
                     style: {
                         fontSize: '1.6rem',
@@ -140,7 +140,7 @@ function EditBooking({ bookingId, handleGetBookingList }) {
                     ariaHideApp={false}
                 >
                     <div className={cx('modalWrapper')}>
-                        <h2 className={cx('editBookingText')}>Edit Booking</h2>
+                        <h2 className={cx('modalHeading')}>Edit Booking</h2>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {inputs.map((input) => (
                                 <FormInput

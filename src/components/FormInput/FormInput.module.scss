@@ -37,7 +37,14 @@
 
 .errorMessage {
     margin-top: 5px;
-    margin-left: 45px;
     color: var(--red);
     font-size: 1.2rem;
+}
+
+.errorMessageForLabelIcon {
+    margin-left: 45px;
+}
+
+.errorMessageForLabelText {
+    margin-left: 120px;
 }

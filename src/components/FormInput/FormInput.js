@@ -64,7 +64,13 @@ function FormInput({
                     </div>
                 )}
             </div>
-            <div className={cx('errorMessage')}>
+            <div
+                className={
+                    labelIcon
+                        ? cx('errorMessage', 'errorMessageForLabelIcon')
+                        : cx('errorMessage', 'errorMessageForLabelText')
+                }
+            >
                 <span>{errorMessage}</span>
             </div>
         </div>

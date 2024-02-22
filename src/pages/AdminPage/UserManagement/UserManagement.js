@@ -181,27 +181,32 @@ export default function UserManagement() {
 
     return (
         <>
-            <div className={cx('search')}>
-                <form className={cx('searchForm')}>
-                    <input
-                        ref={inputRef}
-                        value={searchValue}
-                        placeholder="Search user by user name..."
-                        spellCheck="false"
-                        onChange={handleChange}
-                    />
-                    {!!searchValue && !loading && (
-                        <button className={cx('clear')} onClick={handleClear}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                    )}
-                    {loading && (
-                        <FontAwesomeIcon
-                            className={cx('loading')}
-                            icon={faSpinner}
+            <div className={cx('searchWrapper')}>
+                <div className={cx('search')}>
+                    <form className={cx('searchForm')}>
+                        <input
+                            ref={inputRef}
+                            value={searchValue}
+                            placeholder="Search user by user name..."
+                            spellCheck="false"
+                            onChange={handleChange}
                         />
-                    )}
-                </form>
+                        {!!searchValue && !loading && (
+                            <button
+                                className={cx('clear')}
+                                onClick={handleClear}
+                            >
+                                <FontAwesomeIcon icon={faCircleXmark} />
+                            </button>
+                        )}
+                        {loading && (
+                            <FontAwesomeIcon
+                                className={cx('loading')}
+                                icon={faSpinner}
+                            />
+                        )}
+                    </form>
+                </div>
             </div>
             {!searchValue && (
                 <ConfigProvider

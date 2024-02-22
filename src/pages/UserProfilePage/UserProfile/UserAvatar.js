@@ -41,7 +41,7 @@ export default function UserAvatar() {
             .then((res) => {
                 handleGetUserProfile();
                 message.success({
-                    content: 'Avatar updated successful!',
+                    content: 'Avatar updated!',
                     duration: 5,
                     style: {
                         fontSize: '1.6rem',

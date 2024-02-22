@@ -1,6 +1,11 @@
+.searchWrapper {
+    margin: 30px;
+    display: flex;
+    justify-content: end;
+}
+
 .search {
     width: 30%;
-    margin: 30px auto;
 }
 
 .searchForm {

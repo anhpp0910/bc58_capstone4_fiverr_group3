@@ -78,8 +78,8 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
     };
 
     const openModal = () => {
-        setIsOpen(true);
         handleGetUserProfile();
+        setIsOpen(true);
     };
 
     const closeModal = () => {
@@ -148,7 +148,7 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
                 handleGetUserList();
                 handleSearch();
                 message.success({
-                    content: 'Profile edited successful!',
+                    content: 'Profile edited!',
                     duration: 5,
                     style: {
                         fontSize: '1.6rem',

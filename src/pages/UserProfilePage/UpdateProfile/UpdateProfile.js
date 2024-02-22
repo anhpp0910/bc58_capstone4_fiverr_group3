@@ -272,7 +272,7 @@ export default function UpdateProfile() {
                     handleGetUserProfile();
                     setIsOpen(false);
                     message.success({
-                        content: 'Profile updated successful!',
+                        content: 'Profile updated!',
                         duration: 5,
                         style: {
                             fontSize: '1.6rem',

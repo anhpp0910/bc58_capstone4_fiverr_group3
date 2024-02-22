@@ -89,7 +89,6 @@ export default function BookingManagement() {
                 </Tag>
             ),
         },
-
         {
             title: 'Action',
             key: 'action',
