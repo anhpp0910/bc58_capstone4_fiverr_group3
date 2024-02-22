@@ -1,4 +1,50 @@
 .wrapper {
     width: 95%;
-    margin: 20px auto;
+    margin: 0 auto;
+}
+
+.search {
+    width: 30%;
+    margin: 30px auto;
+}
+
+.searchForm {
+    position: relative;
+    height: 46px;
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: var(--input-border-radius);
+    input {
+        flex: 1;
+        font-size: 1.6rem;
+        padding: 0 45px 0 16px;
+        border-radius: var(--input-border-radius);
+    }
+    &:focus-within {
+        border-color: var(--primary);
+    }
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--light-gray);
+    background-color: transparent;
+}
+
+.loading {
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
 }

@@ -21,7 +21,6 @@ export default function UserAvatar() {
         httpsRequest
             .get(`users/${user.id}`)
             .then((res) => {
-                console.log(res.content);
                 // Đẩy data lên redux
                 dispatch(setUser(res.content));
                 // Lưu data xuống localStorage để user load trang sẽ không mất data

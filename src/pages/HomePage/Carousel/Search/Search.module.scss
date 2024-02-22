@@ -24,10 +24,9 @@
     input {
         width: 100%;
         font-size: 1.6rem;
-        padding-right: 45px;
+        padding: 0 45px 0 25px;
         border-top-left-radius: var(--input-border-radius);
         border-bottom-left-radius: var(--input-border-radius);
-        padding-left: 25px;
     }
     &:focus-within {
         border-color: var(--primary);

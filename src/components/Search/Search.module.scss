@@ -2,14 +2,13 @@
     position: relative;
     width: 420px;
     height: 46px;
-    padding-left: 16px;
     display: flex;
     border: 1px solid var(--border-color);
     border-radius: var(--input-border-radius);
     input {
         flex: 1;
         font-size: 1.6rem;
-        padding-right: 45px;
+        padding: 0 45px 0 16px;
         border-top-left-radius: var(--input-border-radius);
         border-bottom-left-radius: var(--input-border-radius);
     }

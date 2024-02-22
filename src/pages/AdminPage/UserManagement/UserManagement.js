@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import styles from './UserManagement.module.scss';
-import Modal from 'react-modal';
 import { Table, Tag, ConfigProvider, message } from 'antd';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+    faTrashAlt,
+    faCircleXmark,
+    faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 
 import * as httpsRequest from '../../../utils/request';
+import { useDebounce } from '../../../hooks';
 import Button from '../../../components/Button/Button';
 import EditUser from './EditUser/EditUser';
 
@@ -15,6 +19,11 @@ const cx = classNames.bind(styles);
 
 export default function UserManagement() {
     const [users, setUsers] = useState([]);
+    const [searchValue, setSearchValue] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const debouncedValue = useDebounce(searchValue, 500);
+    const inputRef = useRef();
 
     const handleGetUserList = () => {
         httpsRequest
@@ -35,7 +44,6 @@ export default function UserManagement() {
         httpsRequest
             ._delete(`users?id=${id}`)
             .then((res) => {
-                console.log(res);
                 handleGetUserList();
                 message.success({
                     content: 'User deleted!',
@@ -60,6 +68,46 @@ export default function UserManagement() {
                 });
             });
     };
+
+    // handle search user by name
+    const handleSearch = () => {
+        if (debouncedValue) {
+            httpsRequest
+                .get(`users/search/${debouncedValue}`)
+                .then((res) => {
+                    setSearchResults(res.content);
+                    setLoading(false);
+                    console.log(res.content);
+                })
+                .catch((err) => {
+                    console.log(err);
+                    setLoading(false);
+                });
+        }
+    };
+
+    useEffect(() => {
+        if (!debouncedValue.trim()) {
+            setSearchResults([]);
+            return;
+        }
+        setLoading(true);
+        handleSearch();
+    }, [debouncedValue]);
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
+    };
+
+    const handleClear = () => {
+        setSearchValue('');
+        setSearchResults([]);
+        inputRef.current.focus();
+    };
+    // end handle search user by name
 
     const columns = [
         {
@@ -117,6 +165,7 @@ export default function UserManagement() {
                     <EditUser
                         userId={record.id}
                         handleGetUserList={handleGetUserList}
+                        handleSearch={handleSearch}
                     />
                     <Button
                         danger
@@ -133,22 +182,64 @@ export default function UserManagement() {
 
     return (
         <div className={cx('wrapper')}>
-            <ConfigProvider
-                theme={{
-                    components: {
-                        Table: {
-                            fontWeightStrong: '700',
-                            headerColor: 'var(--gray)',
-                            colorText: 'var(--text-color)',
-                            borderColor: 'var(--border-color)',
-                            headerBg: 'var(--background-gray)',
-                            rowHoverBg: 'var(--background-gray)',
+            <div className={cx('search')}>
+                <form className={cx('searchForm')}>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        placeholder="Search user by user name..."
+                        spellCheck="false"
+                        onChange={handleChange}
+                    />
+                    {!!searchValue && !loading && (
+                        <button className={cx('clear')} onClick={handleClear}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
+                    {loading && (
+                        <FontAwesomeIcon
+                            className={cx('loading')}
+                            icon={faSpinner}
+                        />
+                    )}
+                </form>
+            </div>
+            {!searchValue && (
+                <ConfigProvider
+                    theme={{
+                        components: {
+                            Table: {
+                                fontWeightStrong: '700',
+                                headerColor: 'var(--gray)',
+                                colorText: 'var(--text-color)',
+                                borderColor: 'var(--border-color)',
+                                headerBg: 'var(--background-gray)',
+                                rowHoverBg: 'var(--background-gray)',
+                            },
                         },
-                    },
-                }}
-            >
-                <Table columns={columns} dataSource={users} />
-            </ConfigProvider>
+                    }}
+                >
+                    <Table columns={columns} dataSource={users} />
+                </ConfigProvider>
+            )}
+            {searchValue && (
+                <ConfigProvider
+                    theme={{
+                        components: {
+                            Table: {
+                                fontWeightStrong: '700',
+                                headerColor: 'var(--gray)',
+                                colorText: 'var(--text-color)',
+                                borderColor: 'var(--border-color)',
+                                headerBg: 'var(--background-gray)',
+                                rowHoverBg: 'var(--background-gray)',
+                            },
+                        },
+                    }}
+                >
+                    <Table columns={columns} dataSource={searchResults} />
+                </ConfigProvider>
+            )}
         </div>
     );
 }

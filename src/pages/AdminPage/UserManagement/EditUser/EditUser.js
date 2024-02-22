@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './EditUser.module.scss';
 import Modal from 'react-modal';
@@ -39,9 +39,8 @@ const customStyles = {
     },
 };
 
-function EditUser({ userId, handleGetUserList }) {
+function EditUser({ userId, handleGetUserList, handleSearch }) {
     const { id: currentUserId } = useSelector((state) => state.userSlice.user);
-
     const [modalIsOpen, setIsOpen] = useState(false);
     const [values, setValues] = useState({});
 
@@ -77,14 +76,9 @@ function EditUser({ userId, handleGetUserList }) {
             });
     };
 
-    useEffect(() => {
-        handleGetUserProfile();
-    }, [userId]);
-
     const openModal = () => {
-        console.log('value', values);
-
         setIsOpen(true);
+        handleGetUserProfile();
     };
 
     const closeModal = () => {
@@ -151,6 +145,7 @@ function EditUser({ userId, handleGetUserList }) {
                 handleGetUserProfile();
                 setIsOpen(false);
                 handleGetUserList();
+                handleSearch();
                 message.success({
                     content: 'Profile edited successful!',
                     duration: 5,
@@ -163,6 +158,7 @@ function EditUser({ userId, handleGetUserList }) {
             })
             .catch((err) => {
                 console.log(err);
+                setIsOpen(false);
                 message.error({
                     content: 'Profile edit failed!',
                     duration: 5,

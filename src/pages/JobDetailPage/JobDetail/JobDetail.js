@@ -15,7 +15,6 @@ import Comments from './Comments/Comments';
 const cx = classNames.bind(styles);
 
 function JobDetail({ jobDetail }) {
-    console.log(jobDetail);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
