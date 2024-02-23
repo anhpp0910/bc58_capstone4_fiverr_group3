@@ -218,7 +218,6 @@ export default function UserManagement() {
                                 colorText: 'var(--text-color)',
                                 borderColor: 'var(--border-color)',
                                 headerBg: 'var(--background-gray)',
-                                rowHoverBg: 'var(--background-gray)',
                             },
                         },
                     }}
@@ -236,7 +235,6 @@ export default function UserManagement() {
                                 colorText: 'var(--text-color)',
                                 borderColor: 'var(--border-color)',
                                 headerBg: 'var(--background-gray)',
-                                rowHoverBg: 'var(--background-gray)',
                             },
                         },
                     }}

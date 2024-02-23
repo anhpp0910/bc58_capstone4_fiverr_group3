@@ -188,9 +188,7 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
                     ariaHideApp={false}
                 >
                     <div className={cx('modalWrapper')}>
-                        <h2 className={cx('editProfileText')}>
-                            Edit User Role
-                        </h2>
+                        <h2 className={cx('modalHeading')}>Edit User Role</h2>
                         <div className={cx('userAvatarWrapper')}>
                             <Avatar
                                 className={cx('userAvatar')}

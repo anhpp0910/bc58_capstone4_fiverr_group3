@@ -375,9 +375,6 @@ export default function UpdateProfile() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={cx('errorMessage')}>
-                                    <span>{errors['gender']}</span>
-                                </div>
                             </div>
                             <div className={cx('certification')}>
                                 <div className={cx('formInput')}>

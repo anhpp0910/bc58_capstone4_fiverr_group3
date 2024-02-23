@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faFolderOpen,
+    faFolderTree,
     faNoteSticky,
     faSuitcase,
     faUser,
@@ -51,9 +52,16 @@ export default function AdminPage() {
                         <Button
                             to="/admin/job-category"
                             text
-                            leftIcon={<FontAwesomeIcon icon={faFolderOpen} />}
+                            leftIcon={<FontAwesomeIcon icon={faFolderTree} />}
                         >
                             Job Category
+                        </Button>
+                        <Button
+                            to="/admin/job-sub-category"
+                            text
+                            leftIcon={<FontAwesomeIcon icon={faFolderOpen} />}
+                        >
+                            Job Sub Category
                         </Button>
                         <Button
                             to="/admin/job"

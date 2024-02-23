@@ -1,0 +1,98 @@
+.jobSubCategoryImg {
+    width: 150px;
+    object-fit: cover;
+}
+
+.jobSubCategoryItem {
+    cursor: default;
+    margin-right: 10px;
+    &:hover {
+        color: var(--gray);
+    }
+}
+
+.addBtn {
+    margin: 30px;
+    display: flex;
+    justify-content: end;
+}
+
+.modalWrapper {
+    width: 530px;
+    height: auto;
+    padding: 10px 30px;
+}
+
+.modalHeading {
+    color: var(--primary);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.formInputDropdown {
+    margin: 20px 0;
+    select {
+        font-size: 1.6rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--input-border-radius);
+        padding: 10px;
+        color: var(--text-color);
+        &:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+    }
+    .dropdownWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        .labelText {
+            margin-right: 20px;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        .addIcon {
+            color: var(--primary);
+            background-color: transparent;
+            &:hover {
+                color: var(--primary-hover);
+            }
+        }
+    }
+}
+
+.danhSachChiTiet {
+    .item {
+        cursor: default;
+        margin-right: 5px;
+        &:hover {
+            color: var(--gray);
+        }
+    }
+    .removeBtn {
+        margin-left: 5px;
+        color: var(--gray);
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+            color: var(--red);
+        }
+    }
+}
+
+.errorMessage {
+    margin-top: 5px;
+    display: flex;
+    justify-content: end;
+    margin-right: 42px;
+    color: var(--red);
+    font-size: 1.2rem;
+}
+
+.btn {
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+}

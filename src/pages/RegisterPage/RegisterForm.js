@@ -314,20 +314,15 @@ export default function RegisterForm() {
                             </div>
                         </div>
                     </div>
-                    <div className={cx('errorMessage')}>
-                        <span>{errors['gender']}</span>
-                    </div>
                 </div>
                 <div className={cx('btn')}>
                     <Button primary>Register</Button>
-                    <div>
-                        <span className={cx('isMember')}>
-                            Alrealdy a member?
-                        </span>
-                        <Button outline onClick={handleToSignInPage}>
-                            Sign in
-                        </Button>
-                    </div>
+                </div>
+                <div className={cx('btn')}>
+                    <span className={cx('isMember')}>Alrealdy a member?</span>
+                    <Button outline onClick={handleToSignInPage}>
+                        Sign in
+                    </Button>
                 </div>
             </form>
         </div>

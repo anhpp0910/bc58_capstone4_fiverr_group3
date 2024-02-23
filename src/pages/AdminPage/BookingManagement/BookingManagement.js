@@ -122,7 +122,6 @@ export default function BookingManagement() {
                             colorText: 'var(--text-color)',
                             borderColor: 'var(--border-color)',
                             headerBg: 'var(--background-gray)',
-                            rowHoverBg: 'var(--background-gray)',
                         },
                     },
                 }}

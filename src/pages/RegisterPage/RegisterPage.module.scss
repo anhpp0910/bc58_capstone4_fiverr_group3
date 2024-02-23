@@ -25,8 +25,9 @@
 
 .btn {
     display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
+    justify-content: end;
+    align-items: center;
+    margin: 20px 0;
     .isMember {
         color: var(--gray);
         font-weight: 400;

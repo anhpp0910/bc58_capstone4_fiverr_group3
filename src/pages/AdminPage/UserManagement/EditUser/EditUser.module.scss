@@ -9,7 +9,7 @@
     padding: 10px 30px;
 }
 
-.editProfileText {
+.modalHeading {
     color: var(--primary);
     font-weight: 700;
     text-align: center;
@@ -92,9 +92,6 @@
         margin-right: 5px;
         &:hover {
             color: var(--gray);
-        }
-        + .item {
-            margin-left: 0;
         }
     }
 }

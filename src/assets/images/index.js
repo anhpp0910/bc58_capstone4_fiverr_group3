@@ -4,6 +4,7 @@ const images = {
     logoFooter: require('./logoFooter.svg').default,
     admin: require('./admin.svg').default,
     noAvatar: require('./noAvatar.png'),
+    noImage: require('./noImage.png'),
 };
 
 export default images;

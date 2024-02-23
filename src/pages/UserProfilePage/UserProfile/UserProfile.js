@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './UserProfile.module.scss';
 import { useSelector } from 'react-redux';
+import moment from 'moment';
 
 import UserAvatar from './UserAvatar';
 import UpdateProfile from '../UpdateProfile/UpdateProfile';
@@ -42,7 +43,7 @@ export default function UserProfile() {
                 </div>
                 <div className={cx('userProfileItem')}>
                     <h5>Birthday:</h5>
-                    <p>{birthday}</p>
+                    <p>{moment(birthday).format('DD/MM/YYYY')}</p>
                 </div>
 
                 <div className={cx('userProfileItem')}>

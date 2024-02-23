@@ -65,8 +65,8 @@ export default function UserAvatar() {
     };
 
     return (
-        <div className={cx('userAvatar')}>
-            <div className={cx('userAvatar2')}>
+        <div className={cx('userAvatarWrapper')}>
+            <div className={cx('userAvatarInner')}>
                 <label className={cx('cameraOverlay')} htmlFor="upload">
                     <span>
                         <FontAwesomeIcon icon={faCamera} />
@@ -79,7 +79,7 @@ export default function UserAvatar() {
                     />
                 </label>
                 <Avatar
-                    className={cx('userAvatar3')}
+                    className={cx('userAvatar')}
                     src={user.avatar}
                     alt={user.name}
                 />

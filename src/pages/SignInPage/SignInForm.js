@@ -148,17 +148,14 @@ export default function SignInForm() {
                         handleValidation={input.handleValidation}
                     />
                 ))}
-
                 <div className={cx('btn')}>
                     <Button primary>Sign in</Button>
-                    <div>
-                        <span className={cx('isMember')}>
-                            Not a member yet?
-                        </span>
-                        <Button outline onClick={handleToRegisterPage}>
-                            Join now
-                        </Button>
-                    </div>
+                </div>
+                <div className={cx('btn')}>
+                    <span className={cx('isMember')}>Not a member yet?</span>
+                    <Button outline onClick={handleToRegisterPage}>
+                        Join now
+                    </Button>
                 </div>
             </form>
         </div>

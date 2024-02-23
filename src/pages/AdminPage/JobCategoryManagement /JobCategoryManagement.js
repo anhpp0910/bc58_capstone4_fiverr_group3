@@ -27,7 +27,7 @@ const customStyles = {
     },
 };
 
-function JobCategoryManagement() {
+export default function JobCategoryManagement() {
     const [jobCategoryList, setJobCategoryList] = useState([]);
     const [modalIsOpen, setIsOpen] = useState(false);
     const [values, setValues] = useState({ tenLoaiCongViec: '' });
@@ -78,12 +78,12 @@ function JobCategoryManagement() {
 
     const columns = [
         {
-            title: 'Category ID',
+            title: 'ID',
             dataIndex: 'id',
             key: 'id',
         },
         {
-            title: 'Category Name',
+            title: 'Name',
             dataIndex: 'tenLoaiCongViec',
             key: 'tenLoaiCongViec',
         },
@@ -139,6 +139,12 @@ function JobCategoryManagement() {
             if (!formValues['tenLoaiCongViec'].match(/^[A-Za-z& ]+$/)) {
                 formIsValid = false;
                 formErrors['tenLoaiCongViec'] = 'Please enter a valid name!';
+            } else if (
+                !formValues['tenLoaiCongViec'].match(/^[A-Za-z& ]{0,25}$/)
+            ) {
+                formIsValid = false;
+                formErrors['tenLoaiCongViec'] =
+                    'Name can not exceeds 25 characters!';
             } else formErrors['tenLoaiCongViec'] = '';
         }
         setErrors({ ...errors, ...formErrors });
@@ -155,7 +161,7 @@ function JobCategoryManagement() {
             id: 1,
             name: 'tenLoaiCongViec',
             type: 'text',
-            labelText: 'Cat Name',
+            labelText: 'Name',
             errorMessage: errors['tenLoaiCongViec'],
             spellCheck: 'false',
             handleValidation: () => {
@@ -211,7 +217,7 @@ function JobCategoryManagement() {
                     leftIcon={<FontAwesomeIcon icon={faCirclePlus} />}
                     onClick={openModal}
                 >
-                    Add Category
+                    Add Job Category
                 </Button>
                 <div>
                     <Modal
@@ -257,7 +263,7 @@ function JobCategoryManagement() {
                             colorText: 'var(--text-color)',
                             borderColor: 'var(--border-color)',
                             headerBg: 'var(--background-gray)',
-                            rowHoverBg: 'var(--background-gray)',
+                            fontSize: '1.6rem',
                         },
                     },
                 }}
@@ -267,5 +273,3 @@ function JobCategoryManagement() {
         </div>
     );
 }
-
-export default JobCategoryManagement;

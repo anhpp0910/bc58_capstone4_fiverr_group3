@@ -6,13 +6,13 @@
     font-size: 1.6rem;
 }
 
-.userAvatar {
+.userAvatarWrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.userAvatar2 {
+.userAvatarInner {
     position: relative;
     width: 150px;
     height: 150px;
@@ -41,7 +41,7 @@
     }
 }
 
-.userAvatar3 {
+.userAvatar {
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -87,9 +87,6 @@
         margin-right: 5px;
         &:hover {
             color: var(--gray);
-        }
-        + .item {
-            margin-left: 0;
         }
     }
 }

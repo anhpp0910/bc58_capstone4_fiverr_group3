@@ -71,6 +71,12 @@ function EditJobCategory({ jobCategoryId, handleGetJobCategoryList }) {
             if (!formValues['tenLoaiCongViec'].match(/^[A-Za-z& ]+$/)) {
                 formIsValid = false;
                 formErrors['tenLoaiCongViec'] = 'Please enter a valid name!';
+            } else if (
+                !formValues['tenLoaiCongViec'].match(/^[A-Za-z& ]{0,25}$/)
+            ) {
+                formIsValid = false;
+                formErrors['tenLoaiCongViec'] =
+                    'Name can not exceeds 25 characters!';
             } else formErrors['tenLoaiCongViec'] = '';
         }
         setErrors({ ...errors, ...formErrors });
@@ -87,14 +93,14 @@ function EditJobCategory({ jobCategoryId, handleGetJobCategoryList }) {
             id: 1,
             name: 'id',
             type: 'text',
-            labelText: 'Cat ID',
+            labelText: 'ID',
             disabled: true,
         },
         {
             id: 2,
             name: 'tenLoaiCongViec',
             type: 'text',
-            labelText: 'Cat Name',
+            labelText: 'Name',
             errorMessage: errors['tenLoaiCongViec'],
             spellCheck: 'false',
             handleValidation: () => {
@@ -154,7 +160,9 @@ function EditJobCategory({ jobCategoryId, handleGetJobCategoryList }) {
                     ariaHideApp={false}
                 >
                     <div className={cx('modalWrapper')}>
-                        <h2 className={cx('modalHeading')}>Edit Booking</h2>
+                        <h2 className={cx('modalHeading')}>
+                            Edit Job Category
+                        </h2>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {inputs.map((input) => (
                                 <FormInput

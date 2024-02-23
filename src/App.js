@@ -18,6 +18,7 @@ import JobManagement from './pages/AdminPage/JobManagement /JobManagement';
 import BookingManagement from './pages/AdminPage/BookingManagement/BookingManagement';
 
 import FormTest from './pages/FormTest/FormTest';
+import JobSubCategoryManagement from './pages/AdminPage/JobSubCategoryManagement/JobSubCategoryManagement';
 function App() {
     return (
         <>
@@ -60,6 +61,10 @@ function App() {
                             <Route
                                 path="/admin/job-category"
                                 element={<JobCategoryManagement />}
+                            />
+                            <Route
+                                path="/admin/job-sub-category"
+                                element={<JobSubCategoryManagement />}
                             />
                             <Route
                                 path="/admin/job"
