@@ -100,7 +100,6 @@ function EditBooking({ bookingId, handleGetBookingList }) {
         httpsRequest
             .put(`thue-cong-viec/${bookingId}`, values)
             .then((res) => {
-                handleGetBookingDetail();
                 setIsOpen(false);
                 handleGetBookingList();
                 message.success({
@@ -140,7 +139,7 @@ function EditBooking({ bookingId, handleGetBookingList }) {
                     ariaHideApp={false}
                 >
                     <div className={cx('modalWrapper')}>
-                        <h2 className={cx('modalHeading')}>Edit Booking</h2>
+                        <h2 className={cx('modalHeading')}>Booking Detail</h2>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {inputs.map((input) => (
                                 <FormInput

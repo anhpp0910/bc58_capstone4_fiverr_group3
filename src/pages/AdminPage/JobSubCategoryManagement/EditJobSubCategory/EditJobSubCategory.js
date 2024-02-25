@@ -41,6 +41,8 @@ function EditJobSubCategory({
 }) {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [values, setValues] = useState({});
+    const [jobSubCategoryImg, setJobSubCategoryImg] = useState(null);
+    const [file, setFile] = useState(null);
 
     const handleGetJobSubCategoryDetail = () => {
         httpsRequest
@@ -48,14 +50,30 @@ function EditJobSubCategory({
             .then((res) => {
                 const { id, tenNhom, hinhAnh, maLoaiCongviec, dsChiTietLoai } =
                     res.content;
-                setValues({
-                    id,
-                    tenChiTiet: tenNhom,
-                    maLoaiCongViec: maLoaiCongviec,
-                    danhSachChiTiet: dsChiTietLoai.map(
-                        (chiTietLoai) => chiTietLoai.id,
-                    ),
-                });
+                setJobSubCategoryImg(hinhAnh);
+                if (
+                    jobCategoryList.find(
+                        (loaiCongViec) => loaiCongViec.id == maLoaiCongviec,
+                    )
+                ) {
+                    setValues({
+                        id,
+                        tenChiTiet: tenNhom,
+                        maLoaiCongViec: maLoaiCongviec,
+                        danhSachChiTiet: dsChiTietLoai.map(
+                            (chiTietLoai) => chiTietLoai.id,
+                        ),
+                    });
+                } else {
+                    setValues({
+                        id,
+                        tenChiTiet: tenNhom,
+                        maLoaiCongViec: null,
+                        danhSachChiTiet: dsChiTietLoai.map(
+                            (chiTietLoai) => chiTietLoai.id,
+                        ),
+                    });
+                }
             })
             .catch((err) => {
                 console.log(err);
@@ -71,6 +89,11 @@ function EditJobSubCategory({
         setIsOpen(false);
         setValues({});
         setErrors({});
+    };
+
+    const handleChangeImage = async (e) => {
+        setFile(e.target.files[0]);
+        setJobSubCategoryImg(URL.createObjectURL(e.target.files[0]));
     };
 
     // Handle validation for input field
@@ -96,8 +119,17 @@ function EditJobSubCategory({
         setErrors({ ...errors, ...formErrors });
     };
 
+    const handleValidationSelectJobCategory = () => {
+        if (!formValues['maLoaiCongViec']) {
+            formIsValid = false;
+            formErrors['maLoaiCongViec'] = 'Please choose job category!';
+        } else formErrors['maLoaiCongViec'] = '';
+        setErrors({ ...errors, ...formErrors });
+    };
+
     const handleValidation = () => {
         handleValidationJobSubCategoryName();
+        handleValidationSelectJobCategory();
         return formIsValid;
     };
     // End validation
@@ -182,33 +214,63 @@ function EditJobSubCategory({
     };
     // End handle add job sub category item
 
+    // handle API chi-tiet-loai-cong-viec/sua-nhom-chi-tiet-loai/id
+    const handleEditJobCategoryDetail = () => {
+        httpsRequest
+            .put(
+                `chi-tiet-loai-cong-viec/sua-nhom-chi-tiet-loai/${jobSubCategoryId}`,
+                values,
+            )
+            .then((res) => {
+                setIsOpen(false);
+                handleGetJobSubCategoryList();
+                message.success({
+                    content: 'Job sub category edited!',
+                    duration: 5,
+                    style: {
+                        fontSize: '1.6rem',
+                        color: 'var(--text-color)',
+                        fontFamily: '"Montserrat", sans-serif',
+                    },
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+                setIsOpen(false);
+                message.error({
+                    content: 'Job sub category edit failed!',
+                    duration: 5,
+                    style: {
+                        fontSize: '1.6rem',
+                        color: 'var(--text-color)',
+                        fontFamily: '"Montserrat", sans-serif',
+                    },
+                });
+            });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (handleValidation()) {
+        // handle upload image first
+        if (file) {
+            let formData = new FormData();
+            formData.append('formFile', file);
+
             httpsRequest
-                .put(
-                    `chi-tiet-loai-cong-viec/sua-nhom-chi-tiet-loai/${jobSubCategoryId}`,
-                    values,
+                .post(
+                    `chi-tiet-loai-cong-viec/upload-hinh-nhom-loai-cong-viec/${values.id}`,
+                    formData,
                 )
                 .then((res) => {
-                    handleGetJobSubCategoryDetail();
-                    setIsOpen(false);
-                    handleGetJobSubCategoryList();
-                    message.success({
-                        content: 'Job sub category edited!',
-                        duration: 5,
-                        style: {
-                            fontSize: '1.6rem',
-                            color: 'var(--text-color)',
-                            fontFamily: '"Montserrat", sans-serif',
-                        },
-                    });
+                    // if upload image is successfully then continue to upload form
+                    if (handleValidation()) {
+                        handleEditJobCategoryDetail();
+                    }
                 })
                 .catch((err) => {
                     console.log(err);
-                    setIsOpen(false);
                     message.error({
-                        content: 'Job sub category edit failed!',
+                        content: err.response.data.content,
                         duration: 5,
                         style: {
                             fontSize: '1.6rem',
@@ -217,6 +279,8 @@ function EditJobSubCategory({
                         },
                     });
                 });
+        } else if (handleValidation()) {
+            handleEditJobCategoryDetail();
         }
     };
 
@@ -233,7 +297,7 @@ function EditJobSubCategory({
                 >
                     <div className={cx('modalWrapper')}>
                         <h2 className={cx('modalHeading')}>
-                            Edit Job Sub Category
+                            Job Sub Category Detail
                         </h2>
                         <div className={cx('jobSubCategoryImgWrapper')}>
                             <div className={cx('jobSubCategoryImgInner')}>
@@ -248,13 +312,13 @@ function EditJobSubCategory({
                                         className={cx('uploadImage')}
                                         id="upload"
                                         type="file"
-                                        // onChange={handleUploadImage}
+                                        onChange={handleChangeImage}
                                     />
                                 </label>
                                 <Image
                                     className={cx('jobSubCategoryImg')}
-                                    // src={user.avatar}
-                                    // alt={user.name}
+                                    src={jobSubCategoryImg}
+                                    alt={values.tenNhom}
                                 />
                             </div>
                         </div>
@@ -277,26 +341,27 @@ function EditJobSubCategory({
                                         className={cx('labelText')}
                                         for="maLoaiCongViec"
                                     >
-                                        Select Job Category
+                                        Job Category
                                     </label>
-
                                     <select
                                         name="maLoaiCongViec"
+                                        id="maLoaiCongViec"
                                         onChange={handleChange}
+                                        onBlur={
+                                            handleValidationSelectJobCategory
+                                        }
                                     >
                                         <option
-                                            value={values.maLoaiCongViec}
+                                            value={values.maLoaiCongViec || ''}
                                             selected
                                             disabled
                                             hidden
                                         >
-                                            {
-                                                jobCategoryList.find(
-                                                    (loaiCongViec) =>
-                                                        loaiCongViec.id ==
-                                                        values.maLoaiCongViec,
-                                                )?.tenLoaiCongViec
-                                            }
+                                            {jobCategoryList.find(
+                                                (loaiCongViec) =>
+                                                    loaiCongViec.id ==
+                                                    values.maLoaiCongViec,
+                                            )?.tenLoaiCongViec || 'Choose here'}
                                         </option>
                                         {jobCategoryList.map((loaiCongViec) => {
                                             return (
@@ -312,17 +377,26 @@ function EditJobSubCategory({
                                         })}
                                     </select>
                                 </div>
+                                <div className={cx('errorMessage')}>
+                                    <span>{errors['maLoaiCongViec']}</span>
+                                </div>
                             </div>
                             <div className={cx('formInputDropdown')}>
-                                <div className={cx('dropdownWrapper')}>
+                                <div
+                                    className={cx(
+                                        'dropdownWrapper',
+                                        'danhSachChiTiet',
+                                    )}
+                                >
                                     <label
                                         className={cx('labelText')}
-                                        for="maLoaiCongViec"
+                                        for="danhSachChiTiet"
                                     >
-                                        Select Item
+                                        Add Item
                                     </label>
                                     <select
-                                        name="maLoaiCongViec"
+                                        name="danhSachChiTiet"
+                                        id="danhSachChiTiet"
                                         onChange={handleChangeItem}
                                     >
                                         <option

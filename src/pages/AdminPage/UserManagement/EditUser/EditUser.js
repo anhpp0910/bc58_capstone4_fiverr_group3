@@ -143,7 +143,6 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
         httpsRequest
             .put(`users/${userId}`, values)
             .then((res) => {
-                handleGetUserProfile();
                 setIsOpen(false);
                 handleGetUserList();
                 handleSearch();
@@ -188,7 +187,7 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
                     ariaHideApp={false}
                 >
                     <div className={cx('modalWrapper')}>
-                        <h2 className={cx('modalHeading')}>Edit User Role</h2>
+                        <h2 className={cx('modalHeading')}>User Profile</h2>
                         <div className={cx('userAvatarWrapper')}>
                             <Avatar
                                 className={cx('userAvatar')}

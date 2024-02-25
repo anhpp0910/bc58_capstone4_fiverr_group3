@@ -119,7 +119,6 @@ function EditJobCategory({ jobCategoryId, handleGetJobCategoryList }) {
             httpsRequest
                 .put(`loai-cong-viec/${jobCategoryId}`, values)
                 .then((res) => {
-                    handleGetJobCategoryDetail();
                     setIsOpen(false);
                     handleGetJobCategoryList();
                     message.success({
@@ -161,7 +160,7 @@ function EditJobCategory({ jobCategoryId, handleGetJobCategoryList }) {
                 >
                     <div className={cx('modalWrapper')}>
                         <h2 className={cx('modalHeading')}>
-                            Edit Job Category
+                            Job Category Detail
                         </h2>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {inputs.map((input) => (

@@ -27,6 +27,7 @@
 
 .jobSubCategoryImg {
     width: 150px;
+    height: 100px;
     object-fit: cover;
 }
 
@@ -72,7 +73,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 15px;
+        &.danhSachChiTiet {
+            margin-bottom: 15px;
+        }
         .labelText {
             margin-right: 20px;
             font-weight: 700;
@@ -105,6 +108,15 @@
             color: var(--red);
         }
     }
+}
+
+.errorMessage {
+    margin-top: 5px;
+    display: flex;
+    justify-content: end;
+    margin-right: 42px;
+    color: var(--red);
+    font-size: 1.2rem;
 }
 
 .btn {

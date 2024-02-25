@@ -82,7 +82,7 @@ export default function JobSubCategoryManagement() {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [values, setValues] = useState({
         tenChiTiet: '',
-        maLoaiCongViec: 1,
+        maLoaiCongViec: null,
         danhSachChiTiet: [],
     });
 
@@ -102,7 +102,6 @@ export default function JobSubCategoryManagement() {
             .get('chi-tiet-loai-cong-viec')
             .then((res) => {
                 setJobSubCategoryList(res.content);
-                console.log(res.content);
             })
             .catch((err) => {
                 console.log(err);
@@ -358,7 +357,6 @@ export default function JobSubCategoryManagement() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (handleValidation()) {
-            console.log('values', values);
             httpsRequest
                 .post(`chi-tiet-loai-cong-viec/them-nhom-chi-tiet-loai`, values)
                 .then((res) => {
@@ -430,11 +428,11 @@ export default function JobSubCategoryManagement() {
                                         className={cx('labelText')}
                                         for="maLoaiCongViec"
                                     >
-                                        Select Job Category
+                                        Job Category
                                     </label>
-
                                     <select
                                         name="maLoaiCongViec"
+                                        id="maLoaiCongViec"
                                         onChange={handleChange}
                                         onBlur={
                                             handleValidationSelectJobCategory
@@ -467,15 +465,21 @@ export default function JobSubCategoryManagement() {
                                 </div>
                             </div>
                             <div className={cx('formInputDropdown')}>
-                                <div className={cx('dropdownWrapper')}>
+                                <div
+                                    className={cx(
+                                        'dropdownWrapper',
+                                        'danhSachChiTiet',
+                                    )}
+                                >
                                     <label
                                         className={cx('labelText')}
-                                        for="maLoaiCongViec"
+                                        for="danhSachChiTiet"
                                     >
-                                        Select Item
+                                        Add Item
                                     </label>
                                     <select
-                                        name="maLoaiCongViec"
+                                        name="danhSachChiTiet"
+                                        id="danhSachChiTiet"
                                         onChange={handleChangeItem}
                                     >
                                         <option

@@ -312,7 +312,7 @@ export default function UpdateProfile() {
                 >
                     <div className={cx('wrapper')}>
                         <h2 className={cx('updateProfileText')}>
-                            Update Profile
+                            Your Profile
                         </h2>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {inputs.map((input) => (
