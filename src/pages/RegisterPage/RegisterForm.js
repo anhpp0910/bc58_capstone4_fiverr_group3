@@ -236,7 +236,7 @@ export default function RegisterForm() {
                     navigate('/sign-in');
                     message.success({
                         content: 'Register successful! Please sign in!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -249,7 +249,7 @@ export default function RegisterForm() {
                     message.error({
                         content:
                             'Email address already in use! Please sign in instead!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',

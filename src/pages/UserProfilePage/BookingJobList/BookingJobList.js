@@ -44,7 +44,7 @@ export default function BookingJobList() {
                 getDSCVDaThue();
                 message.success({
                     content: 'Your booking has been deleted!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -56,7 +56,7 @@ export default function BookingJobList() {
                 console.log(err);
                 message.error({
                     content: 'Delete failed! Please try again!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',

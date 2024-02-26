@@ -33,7 +33,7 @@ export default function BookingManagement() {
                 handleGetBookingList();
                 message.success({
                     content: 'Booking deleted!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -45,7 +45,7 @@ export default function BookingManagement() {
                 console.log(err);
                 message.error({
                     content: 'Booking delete failed!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -122,6 +122,7 @@ export default function BookingManagement() {
                             colorText: 'var(--text-color)',
                             borderColor: 'var(--border-color)',
                             headerBg: 'var(--background-gray)',
+                            fontSize: '1.6rem',
                         },
                     },
                 }}

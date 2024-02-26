@@ -32,7 +32,7 @@ function CheckOut({ jobDetail }) {
                 .then((res) => {
                     message.success({
                         content: 'Thank you! Your booking is successful!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -45,7 +45,7 @@ function CheckOut({ jobDetail }) {
                     message.error({
                         content:
                             'Booking failed! Please check your account and try again!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -56,7 +56,7 @@ function CheckOut({ jobDetail }) {
         } else {
             message.warning({
                 content: `You are not signed in yet. Please sign in to continue!`,
-                duration: 5,
+                duration: 3,
                 style: {
                     fontSize: '1.6rem',
                     color: 'var(--text-color)',

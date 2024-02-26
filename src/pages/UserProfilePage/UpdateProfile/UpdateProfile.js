@@ -273,7 +273,7 @@ export default function UpdateProfile() {
                     setIsOpen(false);
                     message.success({
                         content: 'Profile updated!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -286,7 +286,7 @@ export default function UpdateProfile() {
                     message.error({
                         content:
                             'Profile update failed! Please check your account and try again!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',

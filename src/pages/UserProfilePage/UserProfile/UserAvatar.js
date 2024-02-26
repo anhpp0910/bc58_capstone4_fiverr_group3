@@ -42,7 +42,7 @@ export default function UserAvatar() {
                 handleGetUserProfile();
                 message.success({
                     content: 'Avatar updated!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -54,7 +54,7 @@ export default function UserAvatar() {
                 console.log(err);
                 message.error({
                     content: err.response.data.content,
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',

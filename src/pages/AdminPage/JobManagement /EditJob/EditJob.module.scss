@@ -3,7 +3,7 @@
 }
 
 .modalWrapper {
-    width: 530px;
+    width: auto;
     height: auto;
     padding: 10px 30px;
 }
@@ -15,17 +15,17 @@
     margin-bottom: 30px;
 }
 
-.jobSubCategoryImgWrapper {
+.jobImgWrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.jobSubCategoryImgInner {
+.jobImgInner {
     position: relative;
 }
 
-.jobSubCategoryImg {
+.jobImg {
     width: 150px;
     height: 100px;
     object-fit: cover;
@@ -56,6 +56,11 @@
     display: none;
 }
 
+.form {
+    display: flex;
+    gap: 50px;
+}
+
 .formInputDropdown {
     margin: 30px 0;
     select {
@@ -71,50 +76,63 @@
     }
     .dropdownWrapper {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        &.danhSachChiTiet {
-            margin-bottom: 15px;
-        }
         .labelText {
             min-width: 120px;
             font-weight: 700;
             font-size: 1.8rem;
         }
-        .addIcon {
-            color: var(--primary);
-            background-color: transparent;
-            &:hover {
-                color: var(--primary-hover);
-            }
+    }
+}
+
+.ratingInputWrapper {
+    margin: 30px 0;
+    .ratingInput {
+        display: flex;
+        align-items: center;
+        .labelText {
+            min-width: 120px;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        .rating {
+            color: #ffbe5b;
+            font-size: 2.2rem;
         }
     }
 }
 
-.danhSachChiTiet {
-    .item {
-        cursor: default;
-        margin-right: 5px;
-        &:hover {
-            color: var(--gray);
+.textAreaInputWrapper {
+    margin-bottom: 30px;
+    .textAreaInput {
+        display: flex;
+        flex-direction: column;
+        .labelText {
+            margin-bottom: 5px;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        textarea {
+            resize: vertical;
+            border-radius: 5px;
+            border-color: var(--border-color);
+            padding: 15px;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            &:focus {
+                outline: none;
+                border-color: var(--primary);
+            }
         }
     }
-    .removeBtn {
-        margin-left: 5px;
-        color: var(--gray);
-        cursor: pointer;
-        transition: all 0.3s;
-        &:hover {
-            color: var(--red);
-        }
+    .errorMessage {
+        margin-left: 0px;
     }
 }
 
 .errorMessage {
     margin-top: 5px;
-    display: flex;
-    justify-content: end;
-    margin-right: 42px;
+    margin-left: 120px;
     color: var(--red);
     font-size: 1.2rem;
 }

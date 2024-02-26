@@ -104,7 +104,7 @@ function EditBooking({ bookingId, handleGetBookingList }) {
                 handleGetBookingList();
                 message.success({
                     content: 'Booking edited!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -117,7 +117,7 @@ function EditBooking({ bookingId, handleGetBookingList }) {
                 setIsOpen(false);
                 message.error({
                     content: 'Booking edit failed!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',

@@ -52,7 +52,7 @@ function Comments({ maCongViec }) {
                     message.success({
                         content:
                             'Your comment has been submitted successfully!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -65,7 +65,7 @@ function Comments({ maCongViec }) {
                     message.error({
                         content:
                             'Comment submit failed! Please check your account and try again!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -76,7 +76,7 @@ function Comments({ maCongViec }) {
         } else {
             message.warning({
                 content: `You are not signed in yet. Please sign in to continue!`,
-                duration: 5,
+                duration: 3,
                 style: {
                     fontSize: '1.6rem',
                     color: 'var(--text-color)',
@@ -255,7 +255,7 @@ function Comments({ maCongViec }) {
                         rows="8"
                         spellCheck={false}
                         onChange={(e) => setNoiDungBinhLuan(e.target.value)}
-                    ></textarea>
+                    />
                 </form>
                 <Button
                     primary

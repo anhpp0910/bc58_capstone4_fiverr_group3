@@ -123,7 +123,7 @@ function EditJobCategory({ jobCategoryId, handleGetJobCategoryList }) {
                     handleGetJobCategoryList();
                     message.success({
                         content: 'Job category edited!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -135,8 +135,8 @@ function EditJobCategory({ jobCategoryId, handleGetJobCategoryList }) {
                     console.log(err);
                     setIsOpen(false);
                     message.error({
-                        content: 'Job category edit failed!',
-                        duration: 5,
+                        content: err.response.data.content,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',

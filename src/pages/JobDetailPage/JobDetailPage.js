@@ -18,7 +18,10 @@ export default function JobDetailPage() {
     useEffect(() => {
         httpsRequest
             .get(`cong-viec/lay-cong-viec-chi-tiet/${jobId}`)
-            .then((res) => setJobDetail(res.content[0]))
+            .then((res) => {
+                setJobDetail(res.content[0]);
+                console.log(res.content);
+            })
             .catch((err) => console.log(err));
     }, [jobId]);
 

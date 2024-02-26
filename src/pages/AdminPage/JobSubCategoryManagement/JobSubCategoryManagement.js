@@ -120,7 +120,7 @@ export default function JobSubCategoryManagement() {
                 handleGetJobSubCategoryList();
                 message.success({
                     content: 'Job sub category deleted!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -131,8 +131,8 @@ export default function JobSubCategoryManagement() {
             .catch((err) => {
                 console.log(err);
                 message.error({
-                    content: 'Job sub category delete failed!',
-                    duration: 5,
+                    content: err.response.data.content,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -364,7 +364,7 @@ export default function JobSubCategoryManagement() {
                     setIsOpen(false);
                     message.success({
                         content: 'Job sub category added!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -377,7 +377,7 @@ export default function JobSubCategoryManagement() {
                     setIsOpen(false);
                     message.error({
                         content: 'Job sub category add failed!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',

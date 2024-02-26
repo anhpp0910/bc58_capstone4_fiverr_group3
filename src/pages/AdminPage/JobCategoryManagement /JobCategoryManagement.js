@@ -54,7 +54,7 @@ export default function JobCategoryManagement() {
                 handleGetJobCategoryList();
                 message.success({
                     content: 'Job category deleted!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -65,8 +65,8 @@ export default function JobCategoryManagement() {
             .catch((err) => {
                 console.log(err);
                 message.error({
-                    content: 'Job category delete failed!',
-                    duration: 5,
+                    content: err.response.data.content,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -184,7 +184,7 @@ export default function JobCategoryManagement() {
                     setIsOpen(false);
                     message.success({
                         content: 'Job category added!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',
@@ -197,7 +197,7 @@ export default function JobCategoryManagement() {
                     setIsOpen(false);
                     message.error({
                         content: 'Job category add failed!',
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',

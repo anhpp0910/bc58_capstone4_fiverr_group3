@@ -47,7 +47,7 @@ export default function UserManagement() {
                 handleGetUserList();
                 message.success({
                     content: 'User deleted!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -58,8 +58,8 @@ export default function UserManagement() {
             .catch((err) => {
                 console.log(err);
                 message.error({
-                    content: 'User delete failed!',
-                    duration: 5,
+                    content: err.response.data.content,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',

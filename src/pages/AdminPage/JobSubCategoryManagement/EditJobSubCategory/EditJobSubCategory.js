@@ -226,7 +226,7 @@ function EditJobSubCategory({
                 handleGetJobSubCategoryList();
                 message.success({
                     content: 'Job sub category edited!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -238,8 +238,8 @@ function EditJobSubCategory({
                 console.log(err);
                 setIsOpen(false);
                 message.error({
-                    content: 'Job sub category edit failed!',
-                    duration: 5,
+                    content: err.response.data.content,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -271,7 +271,7 @@ function EditJobSubCategory({
                     console.log(err);
                     message.error({
                         content: err.response.data.content,
-                        duration: 5,
+                        duration: 3,
                         style: {
                             fontSize: '1.6rem',
                             color: 'var(--text-color)',

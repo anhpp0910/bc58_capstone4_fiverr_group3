@@ -23,7 +23,7 @@ export default function AdminPageLayout() {
                 navigate('/');
                 message.error({
                     content: 'Unauthorized!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',

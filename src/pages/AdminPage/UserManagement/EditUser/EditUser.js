@@ -148,7 +148,7 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
                 handleSearch();
                 message.success({
                     content: 'Profile edited!',
-                    duration: 5,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
@@ -160,8 +160,8 @@ function EditUser({ userId, handleGetUserList, handleSearch }) {
                 console.log(err);
                 setIsOpen(false);
                 message.error({
-                    content: 'Profile edit failed!',
-                    duration: 5,
+                    content: err.response.data.content,
+                    duration: 3,
                     style: {
                         fontSize: '1.6rem',
                         color: 'var(--text-color)',
