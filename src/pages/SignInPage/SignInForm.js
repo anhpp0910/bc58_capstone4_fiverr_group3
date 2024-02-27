@@ -39,7 +39,16 @@ export default function SignInForm() {
         if (!formValues['email']) {
             formIsValid = false;
             formErrors['email'] = 'Please fill out this field!';
-        } else formErrors['email'] = '';
+        } else if (typeof formValues['email'] !== 'undefined') {
+            if (
+                !formValues['email'].match(
+                    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+                )
+            ) {
+                formIsValid = false;
+                formErrors['email'] = 'Please enter a valid email address!';
+            } else formErrors['email'] = '';
+        }
         setErrors({ ...errors, ...formErrors });
     };
 
